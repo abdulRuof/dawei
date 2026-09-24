@@ -1,0 +1,25 @@
+# =========================================================
+# منصة دوائي - متطلبات الباكند (FastAPI)
+# Python 3.14
+# التثبيت:
+#   Backend\venv\Scripts\python.exe -m pip install -r requirements.txt
+# =========================================================
+
+fastapi==0.141.1
+uvicorn==0.52.4
+
+# قاعدة البيانات
+SQLAlchemy==2.0.52
+alembic==1.19.1
+psycopg==3.3.4            # سائق PostgreSQL
+
+# المصادقة والأمان
+python-jose==3.5.0        # JWT
+pwdlib[argon2]==0.3.1     # تجزئة كلمات المرور (Argon2)
+argon2-cffi==25.1.0
+
+# الطلبات والملفات
+pydantic==2.13.4
+python-dotenv==1.2.3
+python-multipart==0.0.32  # رفع الصور (UploadFile)
+httpx==0.28.1             # الاتصال بعامل OCR الدائم
