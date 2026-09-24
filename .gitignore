@@ -26,6 +26,8 @@ out/
 
 # ============ الملفات المولّدة / الرفع ============
 *.log
+# قاعدة بيانات NDC الضخمة (235MB) — غير مستخدمة في الكود، يمكن إعادة توليدها
+pharmacy_bd/OCR/ndc_database.json
 uploads/
 Backend/uploads/
 OCR/uploads/
