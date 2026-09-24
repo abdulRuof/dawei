@@ -1,0 +1,139 @@
+{
+  "image": "11.jpg",
+  "ocr_engine": "PaddleOCR",
+  "language": "ar",
+  "created_at": "2026-09-10T01:07:19.789622",
+  "matched_medicines": [],
+  "unmatched_medicine_lines": [
+    {
+      "text": "SH",
+      "score": 0.5037
+    },
+    {
+      "text": "تمكهرق الن",
+      "score": 0.6206
+    },
+    {
+      "text": "الشكوي",
+      "score": 0.9767
+    },
+    {
+      "text": "٢٠",
+      "score": 0.8504
+    },
+    {
+      "text": "لهدزوال الد نميل",
+      "score": 0.7315
+    },
+    {
+      "text": "cwka.yso",
+      "score": 0.5649
+    },
+    {
+      "text": "Musde",
+      "score": 0.9449
+    },
+    {
+      "text": "sitial",
+      "score": 0.8631
+    },
+    {
+      "text": "shall-",
+      "score": 0.8206
+    }
+  ],
+  "metadata": [
+    {
+      "text": "Dr. Mohamed EIShaer",
+      "score": 0.9652,
+      "category": "metadata"
+    },
+    {
+      "text": "Orthopedic Consultant",
+      "score": 0.9993,
+      "category": "metadata"
+    },
+    {
+      "text": "Member of American Academy",
+      "score": 0.9928,
+      "category": "metadata"
+    },
+    {
+      "text": "of Orthopedic Surgeons",
+      "score": 0.9882,
+      "category": "metadata"
+    },
+    {
+      "text": "السن",
+      "score": 0.9957,
+      "category": "metadata"
+    },
+    {
+      "text": "TraclinMd",
+      "score": 0.7798,
+      "category": "metadata"
+    }
+  ],
+  "items": [
+    {
+      "text": "SH",
+      "score": 0.5037
+    },
+    {
+      "text": "Dr. Mohamed EIShaer",
+      "score": 0.9652
+    },
+    {
+      "text": "Orthopedic Consultant",
+      "score": 0.9993
+    },
+    {
+      "text": "Member of American Academy",
+      "score": 0.9928
+    },
+    {
+      "text": "of Orthopedic Surgeons",
+      "score": 0.9882
+    },
+    {
+      "text": "السن",
+      "score": 0.9957
+    },
+    {
+      "text": "تمكهرق الن",
+      "score": 0.6206
+    },
+    {
+      "text": "الشكوي",
+      "score": 0.9767
+    },
+    {
+      "text": "٢٠",
+      "score": 0.8504
+    },
+    {
+      "text": "لهدزوال الد نميل",
+      "score": 0.7315
+    },
+    {
+      "text": "cwka.yso",
+      "score": 0.5649
+    },
+    {
+      "text": "Musde",
+      "score": 0.9449
+    },
+    {
+      "text": "sitial",
+      "score": 0.8631
+    },
+    {
+      "text": "TraclinMd",
+      "score": 0.7798
+    },
+    {
+      "text": "shall-",
+      "score": 0.8206
+    }
+  ]
+}

@@ -1,0 +1,619 @@
+{
+ "description": "قاموس محلي إضافي: أسماء الأدوية الشائعة في ليبيا والمنطقة العربية غير الموجودة في قاموس openFDA (الذي يغطي السوق الأمريكي). الأسماء البديلة تشمل أخطاء OCR المحتملة التي رصدناها في الوصفات.",
+ "drugs": [
+  {
+   "aliases": [
+    "coversyl",
+    "coversyl plus",
+    "coversyl plus 10/2.5",
+    "coversyl plus 10/2,5"
+   ],
+   "brand_name": "Coversyl Plus",
+   "generic_name": "Perindopril and Indapamide",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "PERINDOPRIL ARGININE (10 mg/1)",
+    "INDAPAMIDE (2.5 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "coversyl",
+    "coversyl 5",
+    "coversyl 10"
+   ],
+   "brand_name": "Coversyl",
+   "generic_name": "Perindopril",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "PERINDOPRIL ARGININE (5 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "diamicron",
+    "diamicron mr",
+    "iamicron",
+    "diamicron 60",
+    "diamicron 30"
+   ],
+   "brand_name": "Diamicron MR",
+   "generic_name": "Gliclazide",
+   "dosage_form": "Tablet, Modified Release",
+   "active_ingredients": [
+    "GLICLAZIDE (60 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "glucophage",
+    "glucophage xr",
+    "metformin"
+   ],
+   "brand_name": "Glucophage",
+   "generic_name": "Metformin Hydrochloride",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "METFORMIN HYDROCHLORIDE (500 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "amaryl",
+    "amaril",
+    "amaryl 2",
+    "amaryl 4"
+   ],
+   "brand_name": "Amaryl",
+   "generic_name": "Glimepiride",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "GLIMEPIRIDE (2 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "augmentin",
+    "augmentin duo",
+    "augmentin 625"
+   ],
+   "brand_name": "Augmentin",
+   "generic_name": "Amoxicillin and Clavulanate Potassium",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "AMOXICILLIN (500 mg/1)",
+    "CLAVULANATE POTASSIUM (125 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "panadol",
+    "panadol extra",
+    "paracetamol",
+    "acetaminophen",
+    "adol",
+    "efferalgan",
+    "tylenol",
+    "para cetamol"
+   ],
+   "brand_name": "Panadol",
+   "generic_name": "Paracetamol",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "PARACETAMOL (500 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "buscopan",
+    "buscepan",
+    "buscopan 10"
+   ],
+   "brand_name": "Buscopan",
+   "generic_name": "Hyoscine Butylbromide",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "HYOSCINE BUTYLBROMIDE (10 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "multaq",
+    "multant",
+    "multac",
+    "multaq 400"
+   ],
+   "brand_name": "Multaq",
+   "generic_name": "Dronedarone",
+   "dosage_form": "Tablet, Film Coated",
+   "active_ingredients": [
+    "DRONEDARONE (400 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "anselacox",
+    "anselacox 90",
+    "anselacox 90mg",
+    "anselacox 90 mg",
+    "anselakoks"
+   ],
+   "brand_name": "Anselacox",
+   "generic_name": "Etoricoxib",
+   "dosage_form": "Tablet, Film Coated",
+   "active_ingredients": [
+    "ETORICOXIB (90 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "epimag",
+    "epimag cff",
+    "epimag effervescent",
+    "epimag sachet"
+   ],
+   "brand_name": "Epimag",
+   "generic_name": "Magnesium Citrate",
+   "dosage_form": "Powder, for Solution",
+   "active_ingredients": [
+    "MAGNESIUM CITRATE (2.125 g/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "dermovate",
+    "dermovate cream",
+    "dermovate ointment"
+   ],
+   "brand_name": "Dermovate",
+   "generic_name": "Clobetasol Propionate",
+   "dosage_form": "Cream",
+   "active_ingredients": [
+    "CLOBETASOL PROPIONATE (.5 mg/g)"
+   ]
+  },
+  {
+   "aliases": [
+    "voltaren",
+    "voltaren 50",
+    "voltarin",
+    "diclofenac",
+    "diclo"
+   ],
+   "brand_name": "Voltaren",
+   "generic_name": "Diclofenac Sodium",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "DICLOFENAC SODIUM (50 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "brufen",
+    "brufen 400",
+    "ibuprofen",
+    "iprofen"
+   ],
+   "brand_name": "Brufen",
+   "generic_name": "Ibuprofen",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "IBUPROFEN (400 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "nexium",
+    "esomeprazole",
+    "nexum"
+   ],
+   "brand_name": "Nexium",
+   "generic_name": "Esomeprazole",
+   "dosage_form": "Tablet, Delayed Release",
+   "active_ingredients": [
+    "ESOMEPRAZOLE (40 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "lanzor",
+    "lansoprazole",
+    "lanzaprol"
+   ],
+   "brand_name": "Lanzor",
+   "generic_name": "Lansoprazole",
+   "dosage_form": "Capsule, Delayed Release",
+   "active_ingredients": [
+    "LANSOPRAZOLE (30 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "zantac",
+    "rantac",
+    "ranitidine"
+   ],
+   "brand_name": "Zantac",
+   "generic_name": "Ranitidine Hydrochloride",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "RANITIDINE HYDROCHLORIDE (150 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "concor",
+    "concor 5",
+    "bisoprolol",
+    "concor 2.5"
+   ],
+   "brand_name": "Concor",
+   "generic_name": "Bisoprolol Fumarate",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "BISOPROLOL FUMARATE (5 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "diovan",
+    "valsartan",
+    "tareg"
+   ],
+   "brand_name": "Diovan",
+   "generic_name": "Valsartan",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "VALSARTAN (80 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "micardis",
+    "telmisartan",
+    "micardis plus"
+   ],
+   "brand_name": "Micardis",
+   "generic_name": "Telmisartan",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "TELMISARTAN (40 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "cozaar",
+    "losartan",
+    "losa"
+   ],
+   "brand_name": "Cozaar",
+   "generic_name": "Losartan Potassium",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "LOSARTAN POTASSIUM (50 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "tritace",
+    "ramipril",
+    "ramace"
+   ],
+   "brand_name": "Tritace",
+   "generic_name": "Ramipril",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "RAMIPRIL (5 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "renitec",
+    "enalapril",
+    "enap"
+   ],
+   "brand_name": "Renitec",
+   "generic_name": "Enalapril Maleate",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "ENALAPRIL MALEATE (5 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "lipitor",
+    "atorvastatin",
+    "lipitor 20"
+   ],
+   "brand_name": "Lipitor",
+   "generic_name": "Atorvastatin Calcium",
+   "dosage_form": "Tablet, Film Coated",
+   "active_ingredients": [
+    "ATORVASTATIN CALCIUM (20 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "zocor",
+    "simvastatin",
+    "vasilip"
+   ],
+   "brand_name": "Zocor",
+   "generic_name": "Simvastatin",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "SIMVASTATIN (20 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "crestor",
+    "rosuvastatin",
+    "crestar"
+   ],
+   "brand_name": "Crestor",
+   "generic_name": "Rosuvastatin Calcium",
+   "dosage_form": "Tablet, Film Coated",
+   "active_ingredients": [
+    "ROSUVASTATIN CALCIUM (10 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "cipro",
+    "ciproxin",
+    "ciprofloxacin",
+    "ciprobid"
+   ],
+   "brand_name": "Ciproxin",
+   "generic_name": "Ciprofloxacin",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "CIPROFLOXACIN (500 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "zithromax",
+    "azithromycin",
+    "zithrokan",
+    "azitrom"
+   ],
+   "brand_name": "Zithromax",
+   "generic_name": "Azithromycin",
+   "dosage_form": "Tablet, Film Coated",
+   "active_ingredients": [
+    "AZITHROMYCIN (500 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "klacid",
+    "clarithromycin",
+    "claricide"
+   ],
+   "brand_name": "Klacid",
+   "generic_name": "Clarithromycin",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "CLARITHROMYCIN (500 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "cefix",
+    "cefixime",
+    "suprax"
+   ],
+   "brand_name": "Cefix",
+   "generic_name": "Cefixime",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "CEFIXIME (400 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "amoxil",
+    "amoxicillin",
+    "amox",
+    "amoxicillin 500"
+   ],
+   "brand_name": "Amoxil",
+   "generic_name": "Amoxicillin",
+   "dosage_form": "Capsule",
+   "active_ingredients": [
+    "AMOXICILLIN (500 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "flagyl",
+    "metronidazole",
+    "flagil",
+    "metrozole"
+   ],
+   "brand_name": "Flagyl",
+   "generic_name": "Metronidazole",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "METRONIDAZOLE (500 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "lasix",
+    "furosemide",
+    "lasilix"
+   ],
+   "brand_name": "Lasix",
+   "generic_name": "Furosemide",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "FUROSEMIDE (40 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "aspirin",
+    "aspirine",
+    "asprin",
+    "acetylsalicylic"
+   ],
+   "brand_name": "Aspirin",
+   "generic_name": "Acetylsalicylic Acid",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "ACETYLSALICYLIC ACID (100 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "plaquenil",
+    "hydroxychloroquine",
+    "plaquenyl"
+   ],
+   "brand_name": "Plaquenil",
+   "generic_name": "Hydroxychloroquine Sulfate",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "HYDROXYCHLOROQUINE SULFATE (200 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "varolant",
+    "metoclopramide",
+    "mcp",
+    "metozolv"
+   ],
+   "brand_name": "Varolant",
+   "generic_name": "Metoclopramide",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "METOCLOPRAMIDE (10 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "valiu",
+    "diazepam",
+    "valium",
+    "diaz"
+   ],
+   "brand_name": "Valium",
+   "generic_name": "Diazepam",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "DIAZEPAM (5 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "captopril",
+    "captopril 25"
+   ],
+   "brand_name": "Capoten",
+   "generic_name": "Captopril",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "CAPTOPRIL (25 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "allopurinol",
+    "zyloric",
+    "zyloprim"
+   ],
+   "brand_name": "Zyloric",
+   "generic_name": "Allopurinol",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "ALLOPURINOL (100 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "diclofenac",
+    "cataflam",
+    "katafil"
+   ],
+   "brand_name": "Cataflam",
+   "generic_name": "Diclofenac Potassium",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "DICLOFENAC POTASSIUM (50 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "phenergan",
+    "promethazine",
+    "prometh",
+    "phenergam"
+   ],
+   "brand_name": "Phenergan",
+   "generic_name": "Promethazine Hydrochloride",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "PROMETHAZINE HYDROCHLORIDE (25 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "cardiprin",
+    "aspirin",
+    "cardiospirin"
+   ],
+   "brand_name": "Cardiprin",
+   "generic_name": "Acetylsalicylic Acid",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "ACETYLSALICYLIC ACID (100 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "tenormin",
+    "atenolol",
+    "ateno"
+   ],
+   "brand_name": "Tenormin",
+   "generic_name": "Atenolol",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "ATENOLOL (50 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "moxam",
+    "moxiclav",
+    "amoxiclav"
+   ],
+   "brand_name": "Moxiclav",
+   "generic_name": "Amoxicillin and Clavulanate Potassium",
+   "dosage_form": "Tablet",
+   "active_ingredients": [
+    "AMOXICILLIN (875 mg/1)",
+    "CLAVULANATE POTASSIUM (125 mg/1)"
+   ]
+  },
+  {
+   "aliases": [
+    "gaviscon",
+    "alginic acid",
+    "gaviscon advance"
+   ],
+   "brand_name": "Gaviscon",
+   "generic_name": "Alginic Acid and Antacids",
+   "dosage_form": "Suspension",
+   "active_ingredients": [
+    "ALGINIC ACID (500 mg/5mL)",
+    "SODIUM ALGINATE (213 mg/5mL)",
+    "POTASSIUM BICARBONATE (87 mg/5mL)"
+   ]
+  }
+ ]
+}

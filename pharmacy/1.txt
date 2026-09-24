@@ -1,0 +1,396 @@
+
+
+
+// "use client";
+
+// import { useState } from "react";
+
+// import type { Pharmacy } from "./types";
+
+// interface Props {
+//   pharmacies: Pharmacy[];
+//   onToggleStatus: (id: number) => void;
+//   setPharmacies: React.Dispatch<
+//     React.SetStateAction<Pharmacy[]>
+//   >;
+//   showToast: (message: string) => void;
+// }
+
+// export default function PharmaciesManagement({
+//   pharmacies,
+//   setPharmacies,
+//   showToast,
+// }: Props) {
+//   const [search, setSearch] = useState("");
+//   const [status, setStatus] = useState("الكل");
+
+//   const filtered = pharmacies.filter((pharmacy) => {
+//     const matchSearch =
+//       !search ||
+//       pharmacy.name.includes(search.trim());
+
+//     const matchStatus =
+//       status === "الكل" ||
+//       pharmacy.status === status;
+
+//     return matchSearch && matchStatus;
+//   });
+
+//   const toggleStatus = (id: number) => {
+//     const pharmacy = pharmacies.find(
+//       (p) => p.id === id
+//     );
+
+//     if (!pharmacy) return;
+
+//     const newStatus =
+//       pharmacy.status === "نشطة"
+//         ? "موقوفة"
+//         : "نشطة";
+
+//     setPharmacies((prev) =>
+//       prev.map((p) =>
+//         p.id === id
+//           ? { ...p, status: newStatus }
+//           : p
+//       )
+//     );
+
+//     showToast(
+//       `تم تحديث حالة "${pharmacy.name}" إلى ${newStatus}`
+//     );
+//   };
+
+//   const deletePharmacy = (id: number) => {
+//     const pharmacy = pharmacies.find(
+//       (p) => p.id === id
+//     );
+
+//     if (!pharmacy) return;
+
+//     setPharmacies((prev) =>
+//       prev.filter((p) => p.id !== id)
+//     );
+
+//     showToast(
+//       `🗑 تم حذف "${pharmacy.name}" من المنصة`
+//     );
+//   };
+
+//   return (
+//     <section className="dash-section">
+
+//       <div className="table-toolbar">
+
+//         <div className="dash-search dash-search--wide">
+//           <input
+//             type="text"
+//             placeholder="ابحث عن صيدلية…"
+//             value={search}
+//             onChange={(e) =>
+//               setSearch(e.target.value)
+//             }
+//           />
+//         </div>
+
+//         <select
+//           className="select-input"
+//           value={status}
+//           onChange={(e) =>
+//             setStatus(e.target.value)
+//           }
+//         >
+//           <option value="الكل">
+//             كل الحالات
+//           </option>
+
+//           <option value="نشطة">
+//             نشطة
+//           </option>
+
+//           <option value="موقوفة">
+//             موقوفة
+//           </option>
+//         </select>
+
+//       </div>
+
+//       <div className="table-wrap">
+
+//         <table className="med-table">
+
+//           <thead>
+//             <tr>
+//               <th>الصيدلية</th>
+//               <th>المدينة</th>
+//               <th>تاريخ الانضمام</th>
+//               <th>التقييم</th>
+//               <th>الحالة</th>
+//               <th>إجراءات</th>
+//             </tr>
+//           </thead>
+
+//           <tbody>
+//             {filtered.map((pharmacy) => (
+//               <tr key={pharmacy.id}>
+
+//                 <td>
+//                   <div className="med-name-cell">
+
+//                     <span
+//                       className="med-name-cell__icon"
+//                       style={{
+//                         background:
+//                           pharmacy.color,
+//                         color: "#fff",
+//                       }}
+//                     >
+//                       {pharmacy.initials}
+//                     </span>
+
+//                     <div>
+//                       <strong>
+//                         {pharmacy.name}
+//                       </strong>
+
+//                       <span>
+//                         {pharmacy.city}
+//                       </span>
+//                     </div>
+
+//                   </div>
+//                 </td>
+
+//                 <td>{pharmacy.city}</td>
+
+//                 <td>{pharmacy.joined}</td>
+
+//                 <td>
+//                   ★ {pharmacy.rating}
+//                 </td>
+
+//                 <td>
+//                   <span
+//                     className={`status-badge ${
+//                       pharmacy.status === "نشطة"
+//                         ? "ok"
+//                         : "out"
+//                     }`}
+//                   >
+//                     {pharmacy.status}
+//                   </span>
+//                 </td>
+
+//                 <td>
+//                   <div className="row-actions">
+
+//                     <button
+//                       type="button"
+//                       className="toggle-status-btn"
+//                       onClick={() =>
+//                         toggleStatus(
+//                           pharmacy.id
+//                         )
+//                       }
+//                     >
+//                       تغيير الحالة
+//                     </button>
+
+//                     <button
+//                       type="button"
+//                       className="delete-btn"
+//                       onClick={() =>
+//                         deletePharmacy(
+//                           pharmacy.id
+//                         )
+//                       }
+//                     >
+//                       حذف
+//                     </button>
+
+//                   </div>
+//                 </td>
+
+//               </tr>
+//             ))}
+//           </tbody>
+
+//         </table>
+
+//       </div>
+
+//       {filtered.length === 0 && (
+//         <p className="empty-state">
+//           لا توجد صيدليات مطابقة.
+//         </p>
+//       )}
+
+//     </section>
+//   );
+// }
+
+ظظظظظظظظظظظظظظظظظظظظظ
+
+// "use client";
+
+// import { useState } from "react";
+// import type { Pharmacy } from "./types";
+// import './style.css'
+
+// // ✅ تحديث الـ Props لتتطابق مع ما يمرره المكون الأب
+// interface Props {
+//   pharmacies: Pharmacy[];
+//   onToggleStatus: (id: number) => void;
+//   onDelete: (id: number) => void;
+// }
+
+// export default function PharmaciesManagement({
+//   pharmacies,
+//   onToggleStatus,
+//   onDelete,
+// }: Props) {
+//   const [search, setSearch] = useState("");
+//   const [status, setStatus] = useState("الكل");
+
+//   const filtered = pharmacies.filter((pharmacy) => {
+//     const matchSearch =
+//       !search.trim() ||
+//       pharmacy.name.toLowerCase().includes(search.trim().toLowerCase());
+
+//     const matchStatus =
+//       status === "الكل" || pharmacy.status === status;
+
+//     return matchSearch && matchStatus;
+//   });
+
+//   return (
+//     <>
+//     <section className="dash-section">
+//       <div className="table-toolbar">
+//         <div className="dash-search dash-search--wide">
+//           <input
+//             type="text"
+//             placeholder="ابحث عن صيدلية…"
+//             value={search}
+//             onChange={(e) => setSearch(e.target.value)}
+//           />
+//         </div>
+
+//         <select
+//           className="select-input"
+//           value={status}
+//           onChange={(e) => setStatus(e.target.value)}
+//         >
+//           <option value="الكل">كل الحالات</option>
+//           <option value="نشطة">نشطة</option>
+//           <option value="موقوفة">موقوفة</option>
+//         </select>
+//       </div>
+
+//       <div className="table-wrap">
+//         <table className="med-table">
+//           <thead>
+//             <tr>
+//               <th>الصيدلية</th>
+//               <th>المدينة</th>
+//               <th>تاريخ الانضمام</th>
+//               <th>التقييم</th>
+//               <th>الحالة</th>
+//               <th>إجراءات</th>
+//             </tr>
+//           </thead>
+
+//           <tbody>
+//             {filtered.map((pharmacy) => (
+//               <tr key={pharmacy.id}>
+//                 <td>
+//                   <div className="med-name-cell">
+//                     <span
+//                       className="med-name-cell__icon"
+//                       style={{
+//                         background: pharmacy.color || "#0070f3",
+//                         color: "#fff",
+//                       }}
+//                     >
+//                       {pharmacy.initials}
+//                     </span>
+//                     <div>
+//                       <strong>{pharmacy.name}</strong>
+//                     </div>
+//                   </div>
+//                 </td>
+
+//                 <td>{pharmacy.city}</td>
+//                 <td>{pharmacy.joined}</td>
+//                 <td>★ {pharmacy.rating}</td>
+
+//                 <td>
+//                   <span
+//                     className={`status-badge ${
+//                       pharmacy.status === "نشطة" ? "ok" : "out"
+//                     }`}
+//                   >
+//                     {pharmacy.status}
+//                   </span>
+//                 </td>
+
+//                 <td>
+//                   <div className="row-actions">
+//                     <button
+//                       type="button"
+//                       className="toggle-status-btn"
+//                       onClick={() => onToggleStatus(pharmacy.id)}
+//                     >
+//                       تغيير الحالة
+//                     </button>
+
+//                     <button
+//                       type="button"
+//                       className="delete-btn"
+//                       onClick={() => onDelete(pharmacy.id)}
+//                     >
+//                       حذف
+//                     </button>
+//                   </div>
+//                 </td>
+//               </tr>
+//             ))}
+//           </tbody>
+//         </table>
+//       </div>
+
+//       {filtered.length === 0 && (
+//         <p className="empty-state">لا توجد صيدليات مطابقة للبحث.</p>
+//       )}
+//     </section>
+//     </>
+//   );
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

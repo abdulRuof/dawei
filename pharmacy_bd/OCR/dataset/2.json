@@ -1,0 +1,112 @@
+{
+  "image": "2.jpg",
+  "ocr_engine": "PaddleOCR",
+  "language": "ar",
+  "created_at": "2026-09-10T01:08:34.156910",
+  "matched_medicines": [
+    {
+      "medicine_name": "Lubricant Eye",
+      "generic_name": "Carboxymethylcellulose Sodium 0.5%",
+      "match_score": 1.0,
+      "match_type": "exact",
+      "dose": null,
+      "dosage_form": "SOLUTION/ DROPS",
+      "active_ingredients": [
+        "CARBOXYMETHYLCELLULOSE SODIUM, UNSPECIFIED FORM (5 mg/mL)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Lubricant Eye Drops E.D.",
+          "score": 0.9869
+        }
+      ]
+    },
+    {
+      "medicine_name": "Pain Relief",
+      "generic_name": "Analgesic",
+      "match_score": 1.0,
+      "match_type": "exact",
+      "dose": null,
+      "dosage_form": "SPRAY",
+      "active_ingredients": [
+        "CAMPHOR (SYNTHETIC) (.11 g/g)",
+        "MENTHOL (.16 g/g)",
+        "CAPSAICIN (.001 g/g)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "R/ Analgesic Drug TAB.",
+          "score": 0.9454
+        }
+      ]
+    },
+    {
+      "medicine_name": "Antibiotic",
+      "generic_name": "bacitracin zinc, neomycin sulfate, polymyxin b sulfate",
+      "match_score": 1.0,
+      "match_type": "exact",
+      "dose": null,
+      "dosage_form": "OINTMENT",
+      "active_ingredients": [
+        "BACITRACIN ZINC (6 mg/mL)",
+        "NEOMYCIN SULFATE (3.5 mg/mL)",
+        "POLYMYXIN B SULFATE (.77 mg/mL)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "R/ Antibiotic Eye Ointment. E.0.",
+          "score": 0.9486
+        }
+      ]
+    }
+  ],
+  "unmatched_medicine_lines": [
+    {
+      "text": "قطرة ٣ مرانت يوميا لمدة أسبوعين",
+      "score": 0.8384
+    },
+    {
+      "text": "قرص بعد الأكل مرتين يومي",
+      "score": 0.9383
+    },
+    {
+      "text": "لمدة أسبوع ولايكرر",
+      "score": 0.8813
+    },
+    {
+      "text": "مرم مساءالمدة أسبوع",
+      "score": 0.7818
+    }
+  ],
+  "metadata": [],
+  "items": [
+    {
+      "text": "Lubricant Eye Drops E.D.",
+      "score": 0.9869
+    },
+    {
+      "text": "قطرة ٣ مرانت يوميا لمدة أسبوعين",
+      "score": 0.8384
+    },
+    {
+      "text": "R/ Analgesic Drug TAB.",
+      "score": 0.9454
+    },
+    {
+      "text": "قرص بعد الأكل مرتين يومي",
+      "score": 0.9383
+    },
+    {
+      "text": "لمدة أسبوع ولايكرر",
+      "score": 0.8813
+    },
+    {
+      "text": "R/ Antibiotic Eye Ointment. E.0.",
+      "score": 0.9486
+    },
+    {
+      "text": "مرم مساءالمدة أسبوع",
+      "score": 0.7818
+    }
+  ]
+}

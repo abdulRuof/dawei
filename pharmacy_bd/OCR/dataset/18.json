@@ -1,0 +1,237 @@
+{
+  "image": "18.jpg",
+  "ocr_engine": "PaddleOCR",
+  "language": "ar",
+  "created_at": "2026-09-10T01:08:18.609359",
+  "matched_medicines": [
+    {
+      "medicine_name": "Dermaharmony Sulfur and Salicylic Acid",
+      "generic_name": "Salicylic Acid, Sulfur",
+      "match_score": 0.769,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "SOAP",
+      "active_ingredients": [
+        "SULFUR (5 g/100g)",
+        "SALICYLIC ACID (2 g/100g)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Salicyh ocid.",
+          "score": 0.9669
+        }
+      ]
+    },
+    {
+      "medicine_name": "Trace Mineral Cord",
+      "generic_name": "Aluminum, Antimony, Barium, Beryllium, Bismuth, Boron, Bromine, Calcium, Carbon, Cerium, Cesium, Chloride, Chromium, Cobalt, Copper, Dysprosium, Erbium, Europium, Fluoride, Gadolinium, Gallium, Germanium, Gold, Hafnium, Holmium, Indium, Iodine, Iridium, Iron, Lanthanum, Lithium, Lutetium, Magnesium, Manganese, Molybdenum, Neodymium, Nickel, Niobium, Osmium, Palladium, Phosphorus, Platinum, Potassium, Praseodymium, Rhenium, Rhodium, Rubidium, Ruthenium, Samarium, Scandium, Selenium, Silicon, Silver",
+      "match_score": 1.0,
+      "match_type": "exact",
+      "dose": null,
+      "dosage_form": "LIQUID",
+      "active_ingredients": [
+        "ACTIVATED CHARCOAL (4 [hp_X]/mL)",
+        "IRON (4 [hp_X]/mL)",
+        "SULFUR (4 [hp_X]/mL)",
+        "MAGNESIUM (4 [hp_X]/mL)",
+        "ALUMINUM (4 [hp_X]/mL)",
+        "CALCIUM (4 [hp_X]/mL)",
+        "SILICON (4 [hp_X]/mL)",
+        "PHOSPHORUS (4 [hp_X]/mL)",
+        "CHLORIDE ION (4 [hp_X]/mL)",
+        "MANGANESE (4 [hp_X]/mL)",
+        "ZINC (4 [hp_X]/mL)",
+        "POTASSIUM (4 [hp_X]/mL)",
+        "LANTHANUM (4 [hp_X]/mL)",
+        "NICKEL (4 [hp_X]/mL)",
+        "SELENIUM (4 [hp_X]/mL)",
+        "BERYLLIUM (4 [hp_X]/mL)",
+        "VANADIUM (4 [hp_X]/mL)",
+        "BORON (4 [hp_X]/mL)",
+        "YTTRIUM (4 [hp_X]/mL)",
+        "STRONTIUM (4 [hp_X]/mL)",
+        "GADOLINIUM (4 [hp_X]/mL)",
+        "COBALT (4 [hp_X]/mL)",
+        "FLUORIDE ION (4 [hp_X]/mL)",
+        "NEODYMIUM (4 [hp_X]/mL)",
+        "CHROMIUM (4 [hp_X]/mL)",
+        "TELLURIUM (4 [hp_X]/mL)",
+        "BROMINE (4 [hp_X]/mL)",
+        "COPPER (4 [hp_X]/mL)",
+        "LITHIUM (4 [hp_X]/mL)",
+        "ANTIMONY (4 [hp_X]/mL)",
+        "TITANIUM (4 [hp_X]/mL)",
+        "ZIRCONIUM (4 [hp_X]/mL)",
+        "RUBIDIUM (4 [hp_X]/mL)",
+        "SODIUM (4 [hp_X]/mL)",
+        "THULIUM (4 [hp_X]/mL)",
+        "MOLYBDENUM (4 [hp_X]/mL)",
+        "SAMARIUM (4 [hp_X]/mL)",
+        "YTTERBIUM (4 [hp_X]/mL)",
+        "IODINE (4 [hp_X]/mL)",
+        "CERIUM (4 [hp_X]/mL)",
+        "DYSPROSIUM (4 [hp_X]/mL)",
+        "PRASEODYMIUM (4 [hp_X]/mL)",
+        "SCANDIUM (4 [hp_X]/mL)",
+        "ERBIUM (4 [hp_X]/mL)",
+        "LUTETIUM (4 [hp_X]/mL)",
+        "GALLIUM (4 [hp_X]/mL)",
+        "THORIUM (4 [hp_X]/mL)",
+        "TUNGSTEN (4 [hp_X]/mL)",
+        "BARIUM (4 [hp_X]/mL)",
+        "TIN (4 [hp_X]/mL)",
+        "BISMUTH (4 [hp_X]/mL)",
+        "HOLMIUM (4 [hp_X]/mL)",
+        "TANTALUM (4 [hp_X]/mL)",
+        "TERBIUM (4 [hp_X]/mL)",
+        "GERMANIUM (4 [hp_X]/mL)",
+        "INDIUM (4 [hp_X]/mL)",
+        "THALLIUM (4 [hp_X]/mL)",
+        "CESIUM (4 [hp_X]/mL)",
+        "RUTHENIUM (4 [hp_X]/mL)",
+        "SILVER (4 [hp_X]/mL)",
+        "EUROPIUM (4 [hp_X]/mL)",
+        "NIOBIUM (4 [hp_X]/mL)",
+        "HAFNIUM (4 [hp_X]/mL)",
+        "RHENIUM (4 [hp_X]/mL)",
+        "GOLD (4 [hp_X]/mL)",
+        "IRIDIUM (4 [hp_X]/mL)",
+        "OSMIUM (4 [hp_X]/mL)",
+        "PALLADIUM (4 [hp_X]/mL)",
+        "PLATINUM (4 [hp_X]/mL)",
+        "RHODIUM (4 [hp_X]/mL)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Sodium bsrate",
+          "score": 0.871
+        }
+      ]
+    },
+    {
+      "medicine_name": "MAXIDEX",
+      "generic_name": "dexamethasone",
+      "match_score": 0.833,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "FOR SUSPENSION",
+      "active_ingredients": [
+        "DEXAMETHASONE (1 mg/mL)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Zine axide",
+          "score": 0.8421
+        }
+      ]
+    }
+  ],
+  "unmatched_medicine_lines": [
+    {
+      "text": "ELNAZER",
+      "score": 0.9903
+    },
+    {
+      "text": "هاني الناظ",
+      "score": 0.812
+    },
+    {
+      "text": "بستدار الأعراض الجلندية",
+      "score": 0.5194
+    },
+    {
+      "text": "م الة اة اة",
+      "score": 0.5619
+    },
+    {
+      "text": "R/",
+      "score": 0.8957
+    },
+    {
+      "text": "الامم",
+      "score": 0.5795
+    },
+    {
+      "text": ". -.2",
+      "score": 0.5051
+    },
+    {
+      "text": "Popylineglyelad.100",
+      "score": 0.7764
+    },
+    {
+      "text": "وهان الفو الأمى فاة",
+      "score": 0.7733
+    }
+  ],
+  "metadata": [
+    {
+      "text": "الأستاذالدكتور",
+      "score": 0.8437,
+      "category": "metadata"
+    },
+    {
+      "text": "www.cinazerclinic.com",
+      "score": 0.919,
+      "category": "metadata"
+    }
+  ],
+  "items": [
+    {
+      "text": "ELNAZER",
+      "score": 0.9903
+    },
+    {
+      "text": "الأستاذالدكتور",
+      "score": 0.8437
+    },
+    {
+      "text": "هاني الناظ",
+      "score": 0.812
+    },
+    {
+      "text": "بستدار الأعراض الجلندية",
+      "score": 0.5194
+    },
+    {
+      "text": "www.cinazerclinic.com",
+      "score": 0.919
+    },
+    {
+      "text": "م الة اة اة",
+      "score": 0.5619
+    },
+    {
+      "text": "R/",
+      "score": 0.8957
+    },
+    {
+      "text": "الامم",
+      "score": 0.5795
+    },
+    {
+      "text": "Salicyh ocid.",
+      "score": 0.9669
+    },
+    {
+      "text": "Sodium bsrate",
+      "score": 0.871
+    },
+    {
+      "text": ". -.2",
+      "score": 0.5051
+    },
+    {
+      "text": "Zine axide",
+      "score": 0.8421
+    },
+    {
+      "text": "Popylineglyelad.100",
+      "score": 0.7764
+    },
+    {
+      "text": "وهان الفو الأمى فاة",
+      "score": 0.7733
+    }
+  ]
+}

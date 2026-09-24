@@ -1,0 +1,218 @@
+{
+  "image": "4.jpg",
+  "ocr_engine": "PaddleOCR",
+  "language": "ar",
+  "created_at": "2026-09-10T01:09:13.392603",
+  "matched_medicines": [
+    {
+      "medicine_name": "Multaq",
+      "generic_name": "Dronedarone",
+      "match_score": 0.769,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "TABLET, FILM COATED",
+      "active_ingredients": [
+        "DRONEDARONE (400 mg/1)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "multant",
+          "score": 0.6939
+        }
+      ]
+    },
+    {
+      "medicine_name": "Colchicine",
+      "generic_name": "Colchicine",
+      "match_score": 1.0,
+      "match_type": "exact",
+      "dose": null,
+      "dosage_form": "TABLET",
+      "active_ingredients": [
+        "COLCHICINE (.6 mg/1)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "R Colchicine hmg F",
+          "score": 0.7934
+        }
+      ]
+    }
+  ],
+  "unmatched_medicine_lines": [
+    {
+      "text": "ElShaer",
+      "score": 0.9509
+    },
+    {
+      "text": "SH",
+      "score": 0.9472
+    },
+    {
+      "text": "دمحمد الشاعر",
+      "score": 0.9588
+    },
+    {
+      "text": "استاري جراحة العم والمفاسل",
+      "score": 0.578
+    },
+    {
+      "text": "ergeoms",
+      "score": 0.8118
+    },
+    {
+      "text": "وال ار والود الطركن",
+      "score": 0.5354
+    },
+    {
+      "text": "لجراحة الظم والمفال والناير",
+      "score": 0.6488
+    },
+    {
+      "text": "عصو الجفعية الأمريكية",
+      "score": 0.7716
+    },
+    {
+      "text": "JO",
+      "score": 0.5446
+    },
+    {
+      "text": "الأسم علاج الشوئة الحظية",
+      "score": 0.6931
+    },
+    {
+      "text": "الشكوى",
+      "score": 0.9296
+    },
+    {
+      "text": "o1Vu",
+      "score": 0.5944
+    },
+    {
+      "text": "٥٤٠٣٥١١",
+      "score": 0.5457
+    },
+    {
+      "text": "R Epimag cff",
+      "score": 0.8746
+    },
+    {
+      "text": "1X2+ 6",
+      "score": 0.715
+    },
+    {
+      "text": "R TDermovate cream",
+      "score": 0.955
+    },
+    {
+      "text": "RAnselacox 9omg",
+      "score": 0.9292
+    },
+    {
+      "text": "صية فعي الففد",
+      "score": 0.5642
+    }
+  ],
+  "metadata": [
+    {
+      "text": "Academy",
+      "score": 0.9771,
+      "category": "metadata"
+    },
+    {
+      "text": "السن",
+      "score": 0.7926,
+      "category": "metadata"
+    }
+  ],
+  "items": [
+    {
+      "text": "ElShaer",
+      "score": 0.9509
+    },
+    {
+      "text": "SH",
+      "score": 0.9472
+    },
+    {
+      "text": "دمحمد الشاعر",
+      "score": 0.9588
+    },
+    {
+      "text": "multant",
+      "score": 0.6939
+    },
+    {
+      "text": "Academy",
+      "score": 0.9771
+    },
+    {
+      "text": "استاري جراحة العم والمفاسل",
+      "score": 0.578
+    },
+    {
+      "text": "ergeoms",
+      "score": 0.8118
+    },
+    {
+      "text": "وال ار والود الطركن",
+      "score": 0.5354
+    },
+    {
+      "text": "لجراحة الظم والمفال والناير",
+      "score": 0.6488
+    },
+    {
+      "text": "عصو الجفعية الأمريكية",
+      "score": 0.7716
+    },
+    {
+      "text": "JO",
+      "score": 0.5446
+    },
+    {
+      "text": "السن",
+      "score": 0.7926
+    },
+    {
+      "text": "الأسم علاج الشوئة الحظية",
+      "score": 0.6931
+    },
+    {
+      "text": "الشكوى",
+      "score": 0.9296
+    },
+    {
+      "text": "o1Vu",
+      "score": 0.5944
+    },
+    {
+      "text": "R Colchicine hmg F",
+      "score": 0.7934
+    },
+    {
+      "text": "٥٤٠٣٥١١",
+      "score": 0.5457
+    },
+    {
+      "text": "R Epimag cff",
+      "score": 0.8746
+    },
+    {
+      "text": "1X2+ 6",
+      "score": 0.715
+    },
+    {
+      "text": "R TDermovate cream",
+      "score": 0.955
+    },
+    {
+      "text": "RAnselacox 9omg",
+      "score": 0.9292
+    },
+    {
+      "text": "صية فعي الففد",
+      "score": 0.5642
+    }
+  ]
+}

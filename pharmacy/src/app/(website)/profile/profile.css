@@ -1,0 +1,139 @@
+.profile-page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+.profile-card {
+  background: var(--paper, #fff);
+  border: 1px solid var(--line, #e4e7ec);
+  border-radius: 18px;
+  padding: 1.75rem;
+  box-shadow: 0 8px 24px rgba(20, 55, 50, 0.06);
+}
+
+.profile-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.profile-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--teal-600, #0d9488);
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.profile-head h1 {
+  margin: 0;
+  font-size: 1.35rem;
+  color: var(--ink, #123);
+}
+
+.profile-role {
+  margin: 0.25rem 0 0;
+  color: var(--teal-700, #0f766e);
+  font-weight: 600;
+}
+
+.profile-form .field {
+  margin-bottom: 1.1rem;
+}
+
+.profile-form .field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--ink, #123);
+}
+
+.profile-form .field__control input {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--line, #dfe3ea);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: #fff;
+}
+
+.profile-form .field__control input:focus {
+  outline: 2px solid var(--teal-500, #14b8a6);
+  border-color: transparent;
+}
+
+.profile-form .field__control input:disabled {
+  background: var(--paper-2, #f6f7f9);
+  color: #7a8288;
+}
+
+.field__hint {
+  color: #8a9198;
+  font-size: 0.8rem;
+}
+
+.profile-divider {
+  border: none;
+  border-top: 1px solid var(--line, #e4e7ec);
+  margin: 1.5rem 0;
+}
+
+.profile-subtitle {
+  font-size: 1.05rem;
+  margin: 0 0 1rem;
+  color: var(--ink, #123);
+}
+
+.profile-message {
+  color: var(--teal-700, #0f766e);
+  font-weight: 600;
+  background: rgba(20, 184, 166, 0.1);
+  padding: 0.6rem 0.85rem;
+  border-radius: 10px;
+}
+
+.profile-error {
+  color: #b3423a;
+  font-weight: 600;
+  background: rgba(230, 100, 90, 0.1);
+  padding: 0.6rem 0.85rem;
+  border-radius: 10px;
+}
+
+.profile-actions {
+  margin-top: 1.25rem;
+}
+
+.btn {
+  font-family: inherit;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1.4rem;
+  cursor: pointer;
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+.btn--coral {
+  background: var(--coral-500, #ef6c57);
+  color: #fff;
+}
+
+.btn--coral:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.btn--coral:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

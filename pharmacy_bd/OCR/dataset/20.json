@@ -1,0 +1,130 @@
+{
+  "image": "20.jpg",
+  "ocr_engine": "PaddleOCR",
+  "language": "ar",
+  "created_at": "2026-09-10T01:08:42.791597",
+  "matched_medicines": [
+    {
+      "medicine_name": "IMURAN",
+      "generic_name": "azathioprine",
+      "match_score": 0.8,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "TABLET",
+      "active_ingredients": [
+        "AZATHIOPRINE (50 mg/1)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "imra",
+          "score": 0.9747
+        }
+      ]
+    }
+  ],
+  "unmatched_medicine_lines": [
+    {
+      "text": "وخشوة الركية وعرق النسا",
+      "score": 0.7188
+    },
+    {
+      "text": "بالاا والالطبية",
+      "score": 0.6538
+    },
+    {
+      "text": "٢٣١١٢٤",
+      "score": 0.7402
+    },
+    {
+      "text": "he",
+      "score": 0.5832
+    },
+    {
+      "text": "Becozyme",
+      "score": 0.9957
+    },
+    {
+      "text": "حقنة كل ٣ زيام",
+      "score": 0.8294
+    },
+    {
+      "text": "Betolvex",
+      "score": 0.9572
+    },
+    {
+      "text": "pفة",
+      "score": 0.6799
+    },
+    {
+      "text": "كل أسبوع",
+      "score": 0.8472
+    },
+    {
+      "text": "ي ق يي",
+      "score": 0.5162
+    },
+    {
+      "text": "فاتق بعد الفطار",
+      "score": 0.7633
+    },
+    {
+      "text": "مركز القاهرية",
+      "score": 0.7513
+    }
+  ],
+  "metadata": [],
+  "items": [
+    {
+      "text": "وخشوة الركية وعرق النسا",
+      "score": 0.7188
+    },
+    {
+      "text": "بالاا والالطبية",
+      "score": 0.6538
+    },
+    {
+      "text": "٢٣١١٢٤",
+      "score": 0.7402
+    },
+    {
+      "text": "he",
+      "score": 0.5832
+    },
+    {
+      "text": "Becozyme",
+      "score": 0.9957
+    },
+    {
+      "text": "حقنة كل ٣ زيام",
+      "score": 0.8294
+    },
+    {
+      "text": "Betolvex",
+      "score": 0.9572
+    },
+    {
+      "text": "pفة",
+      "score": 0.6799
+    },
+    {
+      "text": "كل أسبوع",
+      "score": 0.8472
+    },
+    {
+      "text": "imra",
+      "score": 0.9747
+    },
+    {
+      "text": "ي ق يي",
+      "score": 0.5162
+    },
+    {
+      "text": "فاتق بعد الفطار",
+      "score": 0.7633
+    },
+    {
+      "text": "مركز القاهرية",
+      "score": 0.7513
+    }
+  ]
+}

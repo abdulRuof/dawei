@@ -1,0 +1,136 @@
+{
+  "image": "prescription.jpg",
+  "ocr_engine": "PaddleOCR",
+  "language": "ar",
+  "created_at": "2026-09-02T19:32:39.157842",
+  "items": [
+    {
+      "text": "T=38i",
+      "score": 0.8945
+    },
+    {
+      "text": "130130",
+      "score": 0.9043
+    },
+    {
+      "text": "DATE:",
+      "score": 0.9856
+    },
+    {
+      "text": "التاريخ ١ا",
+      "score": 0.7748
+    },
+    {
+      "text": "مصحة الفاروق",
+      "score": 0.9488
+    },
+    {
+      "text": "MEDICAL PRESCRIPTION",
+      "score": 0.9996
+    },
+    {
+      "text": "AL FAROUQ SANATORIUM",
+      "score": 0.9741
+    },
+    {
+      "text": "جنس ال",
+      "score": 0.5949
+    },
+    {
+      "text": "وصفة طبية",
+      "score": 0.9978
+    },
+    {
+      "text": "Diagnosis :...",
+      "score": 0.9381
+    },
+    {
+      "text": "Diarhea/ uses",
+      "score": 0.8215
+    },
+    {
+      "text": "الإسم",
+      "score": 0.978
+    },
+    {
+      "text": "Treatment :",
+      "score": 0.969
+    },
+    {
+      "text": "التشخي",
+      "score": 0.7988
+    },
+    {
+      "text": "ago",
+      "score": 0.9931
+    },
+    {
+      "text": "O+ paraatame fusi",
+      "score": 0.8191
+    },
+    {
+      "text": "العلاج",
+      "score": 0.9826
+    },
+    {
+      "text": "29",
+      "score": 0.7939
+    },
+    {
+      "text": "Ringer lactate 500 cc itt",
+      "score": 0.7376
+    },
+    {
+      "text": "B)",
+      "score": 0.6239
+    },
+    {
+      "text": "dhip",
+      "score": 0.8246
+    },
+    {
+      "text": "r omeprazole ij 40mg",
+      "score": 0.7281
+    },
+    {
+      "text": "stLe",
+      "score": 0.743
+    },
+    {
+      "text": "Buscopan",
+      "score": 0.8478
+    },
+    {
+      "text": "37",
+      "score": 0.6911
+    },
+    {
+      "text": "ij lomg",
+      "score": 0.7211
+    },
+    {
+      "text": "SINO",
+      "score": 0.5884
+    },
+    {
+      "text": "Cyom015)",
+      "score": 0.5659
+    },
+    {
+      "text": "شارع التقويم والقياس سكرة سبها",
+      "score": 0.9654
+    },
+    {
+      "text": "مصحة الفاروق0923175257-0913616001",
+      "score": 0.8822
+    },
+    {
+      "text": "مختبر الفاروق0ووو597 092",
+      "score": 0.8533
+    },
+    {
+      "text": "مصحة الفاروق للخدمات الطبية",
+      "score": 0.9756
+    }
+  ]
+}

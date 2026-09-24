@@ -1,0 +1,100 @@
+from paddleocr import PaddleOCR
+
+from ocr_utils import clean_text, is_valid_text
+from medicine_extractor import find_medicines
+
+
+ocr = PaddleOCR(
+    lang="ar",
+    device="cpu",
+    engine="onnxruntime",
+)
+
+image_path = "OCR/images/images.jpg"
+
+result = ocr.predict(image_path)
+
+
+texts = []
+
+
+for res in result:
+
+    rec_texts = res.get("rec_texts", [])
+    rec_scores = res.get("rec_scores", [])
+
+    for text, score in zip(rec_texts, rec_scores):
+
+        if not is_valid_text(text, score):
+            continue
+
+        cleaned = clean_text(text)
+
+        texts.append({
+            "text": cleaned,
+            "score": float(score)
+        })
+
+
+# ==========================================
+# عرض OCR
+# ==========================================
+
+print("\n" + "=" * 60)
+print("النص الأصلي")
+print("=" * 60)
+
+for item in texts:
+    print(
+        f"{item['score']:.2f}  |  {item['text']}"
+    )
+
+
+# ==========================================
+# استخراج الأدوية
+# ==========================================
+
+medicines = find_medicines(texts)
+
+
+print("\n" + "=" * 60)
+print("الأدوية المكتشفة")
+print("=" * 60)
+
+
+if not medicines:
+
+    print("لم يتم العثور على أدوية.")
+
+else:
+
+    for medicine in medicines:
+
+        print(f"الدواء: {medicine['name_en']}")
+        print(f"الاسم بالعربي: {medicine['name_ar']}")
+
+        print(
+            f"النص الأصلي: {medicine['ocr_text']}"
+        )
+
+        print(
+            f"الجرعة / التركيز: "
+            f"{medicine['dose'] or 'غير محدد'}"
+        )
+
+        print(
+            f"الشكل الدوائي: "
+            f"{medicine['dosage_form'] or 'غير محدد'}"
+        )
+
+        print(
+            f"الشكل بالعربي: "
+            f"{medicine['dosage_form_ar'] or 'غير محدد'}"
+        )
+
+        print(
+            f"الثقة: {medicine['score']:.2f}"
+        )
+
+        print("-" * 40)
+

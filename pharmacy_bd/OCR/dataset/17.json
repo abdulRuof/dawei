@@ -1,0 +1,98 @@
+{
+  "image": "17.jpg",
+  "ocr_engine": "PaddleOCR",
+  "language": "ar",
+  "created_at": "2026-09-10T01:08:10.131521",
+  "matched_medicines": [
+    {
+      "medicine_name": "Methylten",
+      "generic_name": "Methyl Salicylate 10%",
+      "match_score": 0.762,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "CREAM",
+      "active_ingredients": [
+        "METHYL SALICYLATE (1 mg/g)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "RMethytechno",
+          "score": 0.9088
+        }
+      ]
+    }
+  ],
+  "unmatched_medicine_lines": [
+    {
+      "text": "K, EtorGX 90",
+      "score": 0.6509
+    },
+    {
+      "text": "رربقم الفطه",
+      "score": 0.6018
+    },
+    {
+      "text": "Rcybrenkspray",
+      "score": 0.7058
+    },
+    {
+      "text": "شررية باللس سين الفط",
+      "score": 0.578
+    },
+    {
+      "text": "Rconventin",
+      "score": 0.8791
+    },
+    {
+      "text": "700",
+      "score": 0.7148
+    },
+    {
+      "text": "RMlovasy",
+      "score": 0.7444
+    },
+    {
+      "text": "5m",
+      "score": 0.7296
+    }
+  ],
+  "metadata": [],
+  "items": [
+    {
+      "text": "K, EtorGX 90",
+      "score": 0.6509
+    },
+    {
+      "text": "رربقم الفطه",
+      "score": 0.6018
+    },
+    {
+      "text": "Rcybrenkspray",
+      "score": 0.7058
+    },
+    {
+      "text": "RMethytechno",
+      "score": 0.9088
+    },
+    {
+      "text": "شررية باللس سين الفط",
+      "score": 0.578
+    },
+    {
+      "text": "Rconventin",
+      "score": 0.8791
+    },
+    {
+      "text": "700",
+      "score": 0.7148
+    },
+    {
+      "text": "RMlovasy",
+      "score": 0.7444
+    },
+    {
+      "text": "5m",
+      "score": 0.7296
+    }
+  ]
+}

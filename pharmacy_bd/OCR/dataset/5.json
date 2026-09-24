@@ -1,0 +1,233 @@
+{
+  "image": "5.jpg",
+  "ocr_engine": "PaddleOCR",
+  "language": "ar",
+  "created_at": "2026-09-10T01:09:28.757441",
+  "matched_medicines": [
+    {
+      "medicine_name": "VERMOX",
+      "generic_name": "mebendazole",
+      "match_score": 0.8,
+      "match_type": "fuzzy",
+      "dose": "500 mg",
+      "dosage_form": "TABLET, CHEWABLE",
+      "active_ingredients": [
+        "MEBENDAZOLE (500 mg/1)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Emox 500 mg caps.",
+          "score": 0.9631
+        }
+      ]
+    },
+    {
+      "medicine_name": "Neoral",
+      "generic_name": "cyclosporine",
+      "match_score": 0.8,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "CAPSULE, LIQUID FILLED",
+      "active_ingredients": [
+        "CYCLOSPORINE (100 mg/1)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Daktarin Oral Gel.",
+          "score": 0.9805
+        }
+      ]
+    },
+    {
+      "medicine_name": "BC",
+      "generic_name": "Aspirin and Caffeine",
+      "match_score": 0.8,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "POWDER",
+      "active_ingredients": [
+        "ASPIRIN (845 mg/1)",
+        "CAFFEINE (65 mg/1)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "CBC",
+          "score": 0.999
+        }
+      ]
+    },
+    {
+      "medicine_name": "Stoboclo",
+      "generic_name": "denosumab-bmwo",
+      "match_score": 0.769,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "INJECTION",
+      "active_ingredients": [
+        "DENOSUMAB (60 mg/mL)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Occult blood in stool",
+          "score": 0.9826
+        }
+      ]
+    },
+    {
+      "medicine_name": "Mold Antigen",
+      "generic_name": "Alternaria Alternata, Aspergillus Fumigatus, Aspergillus Niger, Boletus Sat, Botrytis Cinerea, Cladosporium Metanigrum, Fusarium Oxysporum, Helminthosporium, Mucor Muecedo, Pullularia Pullulans, Rhizopus Nigricans, Ustilago Maydis, Arsenicum Alb, Candida Alb, Carbo An, Lachesis, Lycopodium, Merc Solub, Nitricum Ac, Phosphorus, Pulsatilla, Sepia, Silicea, Thuja Occ",
+      "match_score": 0.8,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "LIQUID",
+      "active_ingredients": [
+        "ALTERNARIA ALTERNATA (200 [hp_X]/mL)",
+        "ASPERGILLUS FUMIGATUS (200 [hp_X]/mL)",
+        "ASPERGILLUS NIGER VAR. NIGER (200 [hp_X]/mL)",
+        "BOLETUS SATANAS FRUITING BODY (200 [hp_X]/mL)",
+        "BOTRYTIS CINEREA (200 [hp_X]/mL)",
+        "AUREOBASIDIUM PULLULANS VAR. PULLUTANS (200 [hp_X]/mL)",
+        "FUSARIUM OXYSPORUM (200 [hp_X]/mL)",
+        "COCHLIOBOLUS SATIVUS (200 [hp_X]/mL)",
+        "RHIZOPUS STOLONIFER (200 [hp_X]/mL)",
+        "USTILAGO MAYDIS (200 [hp_X]/mL)",
+        "ARSENIC TRIOXIDE (30 [hp_C]/mL)",
+        "CANDIDA ALBICANS (30 [hp_C]/mL)",
+        "CARBO ANIMALIS (30 [hp_C]/mL)",
+        "LACHESIS MUTA VENOM (30 [hp_C]/mL)",
+        "LYCOPODIUM CLAVATUM SPORE (30 [hp_C]/mL)",
+        "MERCURIUS SOLUBILIS (30 [hp_C]/mL)",
+        "NITRIC ACID (30 [hp_C]/mL)",
+        "PHOSPHORUS (30 [hp_C]/mL)",
+        "PULSATILLA VULGARIS WHOLE (30 [hp_C]/mL)",
+        "SEPIA OFFICINALIS JUICE (30 [hp_C]/mL)",
+        "SILICON DIOXIDE (30 [hp_C]/mL)",
+        "THUJA OCCIDENTALIS LEAFY TWIG (30 [hp_C]/mL)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Stool antigen of H .pylori",
+          "score": 0.9563
+        }
+      ]
+    },
+    {
+      "medicine_name": "Degree",
+      "generic_name": "Motionsense Dry Spray Mango and Jasmine 48H Antiperspirant Deodorant",
+      "match_score": 0.8,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "AEROSOL, SPRAY",
+      "active_ingredients": [
+        "ALUMINUM CHLOROHYDRATE (23.3 g/100g)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "TSH Q, Eree T",
+          "score": 0.8974
+        }
+      ]
+    }
+  ],
+  "unmatched_medicine_lines": [
+    {
+      "text": "Tavahic 5od mg tab.",
+      "score": 0.9277
+    },
+    {
+      "text": "فزص٢٤ ساعةربعد الأكل",
+      "score": 0.9007
+    },
+    {
+      "text": "٢ كسولة ١٢ ساعة ربم الأل",
+      "score": 0.8135
+    },
+    {
+      "text": "مرهم بالضى صباضًاومساء",
+      "score": 0.8312
+    },
+    {
+      "text": "لورس الحلاج ١٥يوم",
+      "score": 0.8463
+    },
+    {
+      "text": "٧أيام",
+      "score": 0.8387
+    },
+    {
+      "text": "ه رحة",
+      "score": 0.7665
+    },
+    {
+      "text": "عمل التخليل",
+      "score": 0.95
+    },
+    {
+      "text": "الاستشارة خلال أسبوع واحد من تاريخ الكشف",
+      "score": 0.9733
+    }
+  ],
+  "metadata": [],
+  "items": [
+    {
+      "text": "Tavahic 5od mg tab.",
+      "score": 0.9277
+    },
+    {
+      "text": "فزص٢٤ ساعةربعد الأكل",
+      "score": 0.9007
+    },
+    {
+      "text": "Emox 500 mg caps.",
+      "score": 0.9631
+    },
+    {
+      "text": "٢ كسولة ١٢ ساعة ربم الأل",
+      "score": 0.8135
+    },
+    {
+      "text": "Daktarin Oral Gel.",
+      "score": 0.9805
+    },
+    {
+      "text": "مرهم بالضى صباضًاومساء",
+      "score": 0.8312
+    },
+    {
+      "text": "لورس الحلاج ١٥يوم",
+      "score": 0.8463
+    },
+    {
+      "text": "٧أيام",
+      "score": 0.8387
+    },
+    {
+      "text": "ه رحة",
+      "score": 0.7665
+    },
+    {
+      "text": "عمل التخليل",
+      "score": 0.95
+    },
+    {
+      "text": "CBC",
+      "score": 0.999
+    },
+    {
+      "text": "Occult blood in stool",
+      "score": 0.9826
+    },
+    {
+      "text": "Stool antigen of H .pylori",
+      "score": 0.9563
+    },
+    {
+      "text": "TSH Q, Eree T",
+      "score": 0.8974
+    },
+    {
+      "text": "الاستشارة خلال أسبوع واحد من تاريخ الكشف",
+      "score": 0.9733
+    }
+  ]
+}

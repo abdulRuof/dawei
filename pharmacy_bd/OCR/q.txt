@@ -1,0 +1,8 @@
+ .\OCR\ocr-venv\Scripts\Activate.ps1
+ python OCR/test_ocr.py
+ /dashboard/manager/3
+ ahmed@test.com / 123456 — يملك صيدلية الرقم 3 (النهضة) → افتح /dashboard/manager/3
+ ahmed@test.com
+
+ /dashboard/admin/1
+ admin@roshita.ly / admin123

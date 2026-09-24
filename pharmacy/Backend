@@ -1,0 +1,26 @@
+backend/
+│
+├── app/
+│   ├── main.py
+│   │
+│   ├── api/
+│   │   └── routes/
+│   │       ├── medicines.py
+│   │       └── categories.py
+│   │
+│   ├── models/
+│   │   ├── medicine.py
+│   │   ├── pharmacy.py
+│   │   └── inventory.py
+│   │
+│   ├── schemas/
+│   │   ├── medicine.py
+│   │   └── pharmacy.py
+│   │
+│   ├── database/
+│   │   └── database.py
+│   │
+│   └── services/
+│       └── medicine_service.py
+│
+└── requirements.txt

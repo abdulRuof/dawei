@@ -1,0 +1,84 @@
+{
+  "image": "19.jpg",
+  "ocr_engine": "PaddleOCR",
+  "language": "ar",
+  "created_at": "2026-09-10T01:08:24.758654",
+  "matched_medicines": [
+    {
+      "medicine_name": "TOBI",
+      "generic_name": "Tobramycin",
+      "match_score": 0.857,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "SOLUTION",
+      "active_ingredients": [
+        "TOBRAMYCIN (300 mg/5mL)"
+      ],
+      "ocr_lines": [
+        {
+          "text": ".D;ys+ine tob",
+          "score": 0.7713
+        }
+      ]
+    }
+  ],
+  "unmatched_medicine_lines": [
+    {
+      "text": "د ر",
+      "score": 0.6631
+    },
+    {
+      "text": "محت ا اة والعوات",
+      "score": 0.5545
+    },
+    {
+      "text": "R/",
+      "score": 0.9149
+    },
+    {
+      "text": "% علا2 القولون الحصبب",
+      "score": 0.7587
+    },
+    {
+      "text": "DClovatile tab",
+      "score": 0.872
+    }
+  ],
+  "metadata": [
+    {
+      "text": "١٢٩٢١١٠٠٩١٠٢٠١٥",
+      "score": 0.5124,
+      "category": "metadata"
+    }
+  ],
+  "items": [
+    {
+      "text": "د ر",
+      "score": 0.6631
+    },
+    {
+      "text": "١٢٩٢١١٠٠٩١٠٢٠١٥",
+      "score": 0.5124
+    },
+    {
+      "text": "محت ا اة والعوات",
+      "score": 0.5545
+    },
+    {
+      "text": "R/",
+      "score": 0.9149
+    },
+    {
+      "text": "% علا2 القولون الحصبب",
+      "score": 0.7587
+    },
+    {
+      "text": "DClovatile tab",
+      "score": 0.872
+    },
+    {
+      "text": ".D;ys+ine tob",
+      "score": 0.7713
+    }
+  ]
+}

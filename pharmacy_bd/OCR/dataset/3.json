@@ -1,0 +1,125 @@
+{
+  "image": "3.jpg",
+  "ocr_engine": "PaddleOCR",
+  "language": "ar",
+  "created_at": "2026-09-10T01:08:58.791203",
+  "matched_medicines": [
+    {
+      "medicine_name": "Prenate Mini",
+      "generic_name": "ascorbic acid, cholecalciferol, .alpha.-tocopherol acetate, dl-, pyridoxine hydrochloride, folic acid, levomefolate calcium, cyanocobalamin, biotin, calcium carbonate, ferrous asparto glycinate, iron, potassium iodide, magnesium oxide, doconexent and lowbush blueberry",
+      "match_score": 0.833,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "CAPSULE, GELATIN COATED",
+      "active_ingredients": [
+        "BIOTIN (280 ug/1)",
+        "CALCIUM CARBONATE (80 mg/1)",
+        "FERROUS ASPARTO GLYCINATE (9 mg/1)",
+        "IRON (9 mg/1)",
+        "POTASSIUM IODIDE (150 ug/1)",
+        "MAGNESIUM OXIDE (25 mg/1)",
+        "DOCONEXENT (350 mg/1)",
+        "LOWBUSH BLUEBERRY (25 mg/1)",
+        "LEVOMEFOLATE CALCIUM (600 ug/1)",
+        "ASCORBIC ACID (60 mg/1)",
+        "CHOLECALCIFEROL (25 ug/1)",
+        ".ALPHA.-TOCOPHEROL ACETATE, DL- (4.5 mg/1)",
+        "PYRIDOXINE HYDROCHLORIDE (26 mg/1)",
+        "FOLIC ACID (400 ug/1)",
+        "CYANOCOBALAMIN (13 ug/1)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "4Hi-biotic",
+          "score": 0.8687
+        }
+      ]
+    },
+    {
+      "medicine_name": "Food - Plant Source, Yeast, Baker Saccharomyces cerevisiae",
+      "generic_name": "Yeast, Baker Saccharomyces cerevisiae",
+      "match_score": 0.8,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "INJECTION, SOLUTION",
+      "active_ingredients": [
+        "YEAST (.1 g/mL)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "qeast",
+          "score": 0.5314
+        }
+      ]
+    }
+  ],
+  "unmatched_medicine_lines": [
+    {
+      "text": "وعلاج العقم",
+      "score": 0.9712
+    },
+    {
+      "text": "لابديل لهذا العلاج",
+      "score": 0.8714
+    },
+    {
+      "text": "t1gm",
+      "score": 0.6951
+    },
+    {
+      "text": "Mobu",
+      "score": 0.5007
+    },
+    {
+      "text": "لعدلعظ ولعساء",
+      "score": 0.6583
+    },
+    {
+      "text": "VASTIFLoM TSO",
+      "score": 0.7497
+    },
+    {
+      "text": "حصالية الافل ٣مت",
+      "score": 0.5747
+    }
+  ],
+  "metadata": [],
+  "items": [
+    {
+      "text": "وعلاج العقم",
+      "score": 0.9712
+    },
+    {
+      "text": "لابديل لهذا العلاج",
+      "score": 0.8714
+    },
+    {
+      "text": "4Hi-biotic",
+      "score": 0.8687
+    },
+    {
+      "text": "t1gm",
+      "score": 0.6951
+    },
+    {
+      "text": "Mobu",
+      "score": 0.5007
+    },
+    {
+      "text": "لعدلعظ ولعساء",
+      "score": 0.6583
+    },
+    {
+      "text": "VASTIFLoM TSO",
+      "score": 0.7497
+    },
+    {
+      "text": "حصالية الافل ٣مت",
+      "score": 0.5747
+    },
+    {
+      "text": "qeast",
+      "score": 0.5314
+    }
+  ]
+}

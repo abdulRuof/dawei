@@ -1,0 +1,263 @@
+{
+  "image": "13.jpg",
+  "ocr_engine": "PaddleOCR",
+  "language": "ar",
+  "created_at": "2026-09-10T01:07:41.406626",
+  "matched_medicines": [
+    {
+      "medicine_name": "Durashield",
+      "generic_name": "benzalkonium chloride",
+      "match_score": 0.75,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "LOTION",
+      "active_ingredients": [
+        "BENZALKONIUM CHLORIDE (.13 mg/mL)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Rashed El Sadek",
+          "score": 0.9735
+        }
+      ]
+    },
+    {
+      "medicine_name": "Hand",
+      "generic_name": "Lotion",
+      "match_score": 1.0,
+      "match_type": "exact",
+      "dose": null,
+      "dosage_form": "LOTION",
+      "active_ingredients": [
+        "ALCOHOL (70 mL/100mL)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "and Hand Surg.",
+          "score": 0.9292
+        }
+      ]
+    },
+    {
+      "medicine_name": "DERMOGEN",
+      "generic_name": "ZINC OXIDE",
+      "match_score": 0.75,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "CREAM",
+      "active_ingredients": [
+        "ZINC OXIDE (15.25 g/100g)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Dermgine",
+          "score": 0.8277
+        }
+      ]
+    },
+    {
+      "medicine_name": "FOSAMAX",
+      "generic_name": "alendronate sodium",
+      "match_score": 0.857,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "TABLET",
+      "active_ingredients": [
+        "ALENDRONATE SODIUM (70 mg/1)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Otsamax",
+          "score": 0.7191
+        }
+      ]
+    }
+  ],
+  "unmatched_medicine_lines": [
+    {
+      "text": "أشم إمام راشد الصادق",
+      "score": 0.8317
+    },
+    {
+      "text": "استشارى عظام",
+      "score": 0.9367
+    },
+    {
+      "text": "استاد العامطب الازهر",
+      "score": 0.6332
+    },
+    {
+      "text": "ستشاري البدستش الهلال وعهدناصر",
+      "score": 0.6124
+    },
+    {
+      "text": "ون س والن وج ك",
+      "score": 0.5694
+    },
+    {
+      "text": "التاريخ",
+      "score": 0.9743
+    },
+    {
+      "text": "Conuenin",
+      "score": 0.6998
+    },
+    {
+      "text": "للسم",
+      "score": 0.5991
+    },
+    {
+      "text": "R/",
+      "score": 0.8918
+    },
+    {
+      "text": "اءةالمة",
+      "score": 0.588
+    },
+    {
+      "text": "af",
+      "score": 0.7737
+    },
+    {
+      "text": "hell",
+      "score": 0.5367
+    },
+    {
+      "text": "BaaMg",
+      "score": 0.7325
+    },
+    {
+      "text": "tab",
+      "score": 0.6504
+    },
+    {
+      "text": "الأجل الثلاثاء من ٩ مساءً",
+      "score": 0.7323
+    }
+  ],
+  "metadata": [
+    {
+      "text": "MD Orthopadic Surg.",
+      "score": 0.9624,
+      "category": "metadata"
+    },
+    {
+      "text": "Consultant Orthrop",
+      "score": 0.9751,
+      "category": "metadata"
+    },
+    {
+      "text": "دكتوراء جحة العام الماي",
+      "score": 0.6394,
+      "category": "metadata"
+    },
+    {
+      "text": "ت٢٤٥٩١٠٠محمول٠١٠٠١١٢٨١٦٠٠",
+      "score": 0.7051,
+      "category": "metadata"
+    },
+    {
+      "text": "خلف برج ٢٧ شارع مسرة",
+      "score": 0.9117,
+      "category": "metadata"
+    }
+  ],
+  "items": [
+    {
+      "text": "Rashed El Sadek",
+      "score": 0.9735
+    },
+    {
+      "text": "أشم إمام راشد الصادق",
+      "score": 0.8317
+    },
+    {
+      "text": "MD Orthopadic Surg.",
+      "score": 0.9624
+    },
+    {
+      "text": "استشارى عظام",
+      "score": 0.9367
+    },
+    {
+      "text": "Consultant Orthrop",
+      "score": 0.9751
+    },
+    {
+      "text": "دكتوراء جحة العام الماي",
+      "score": 0.6394
+    },
+    {
+      "text": "and Hand Surg.",
+      "score": 0.9292
+    },
+    {
+      "text": "استاد العامطب الازهر",
+      "score": 0.6332
+    },
+    {
+      "text": "ستشاري البدستش الهلال وعهدناصر",
+      "score": 0.6124
+    },
+    {
+      "text": "ون س والن وج ك",
+      "score": 0.5694
+    },
+    {
+      "text": "التاريخ",
+      "score": 0.9743
+    },
+    {
+      "text": "Conuenin",
+      "score": 0.6998
+    },
+    {
+      "text": "للسم",
+      "score": 0.5991
+    },
+    {
+      "text": "R/",
+      "score": 0.8918
+    },
+    {
+      "text": "اءةالمة",
+      "score": 0.588
+    },
+    {
+      "text": "af",
+      "score": 0.7737
+    },
+    {
+      "text": "Dermgine",
+      "score": 0.8277
+    },
+    {
+      "text": "hell",
+      "score": 0.5367
+    },
+    {
+      "text": "BaaMg",
+      "score": 0.7325
+    },
+    {
+      "text": "tab",
+      "score": 0.6504
+    },
+    {
+      "text": "Otsamax",
+      "score": 0.7191
+    },
+    {
+      "text": "ت٢٤٥٩١٠٠محمول٠١٠٠١١٢٨١٦٠٠",
+      "score": 0.7051
+    },
+    {
+      "text": "خلف برج ٢٧ شارع مسرة",
+      "score": 0.9117
+    },
+    {
+      "text": "الأجل الثلاثاء من ٩ مساءً",
+      "score": 0.7323
+    }
+  ]
+}

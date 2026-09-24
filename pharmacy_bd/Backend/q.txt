@@ -1,0 +1,55 @@
+.\venv\Scripts\Activate.ps1
+
+Remove-Item -Recurse -Force venv
+python -m venv venv --without-pip
+venv\Scripts\activate
+python -m ensurepip --upgrade
+python -m pip --version
+python -m pip install fastapi uvicorn
+uvicorn app.main:app --reload
+python -m pip install sqlalchemy psycopg python-dotenv
+python -m app.test_db
+python -m pip install alembic
+alembic init alembic
+alembic revision --autogenerate -m "create categories and medicines"
+alembic upgrade head
+alembic current
+alembic heads
+alembic current
+python -c "import pwdlib; print(pwdlib.__version__)"
+python -m pip install --force-reinstall pwdlib[argon2]
+pip install pwdlib[argon2]
+python -m pip install python-jose[cryptography]
+python -m pip show python-jose
+python -m pip install python-jose[cryptography]
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwicm9sZSI6Im93bmVyIiwicGhhcm1hY3lfaWQiOjMsImV4cCI6MTc4ODA4Njc2NX0.8IPTbX6w6-VATKOk9cSa5gpbeb6NMyv5LkNYlSCEePI
+
+Backend/
+│
+├── venv/
+│
+├── app/
+│   │
+│   ├── main.py
+│   │
+│   ├── database/
+│   │   └── database.py
+│   │
+│   ├── models/
+│   │   ├── medicine.py
+│   │   ├── pharmacy.py
+│   │   └── inventory.py
+│   │
+│   ├── schemas/
+│   │   ├── medicine.py
+│   │   └── pharmacy.py
+│   │
+│   ├── api/
+│   │   └── routes/
+│   │       ├── medicines.py
+│   │       └── pharmacies.py
+│   │
+│   └── services/
+│       └── medicine_service.py
+│
+└── requirements.txt

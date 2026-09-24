@@ -1,0 +1,237 @@
+{
+  "image": "10.jpg",
+  "ocr_engine": "PaddleOCR",
+  "language": "ar",
+  "created_at": "2026-09-10T01:07:13.619818",
+  "matched_medicines": [
+    {
+      "medicine_name": "tussin",
+      "generic_name": "Dextromethorphan HBr, Guaifenesin",
+      "match_score": 0.769,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "SOLUTION",
+      "active_ingredients": [
+        "DEXTROMETHORPHAN HYDROBROMIDE (20 mg/20mL)",
+        "GUAIFENESIN (400 mg/20mL)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Husscin El-Fisbawy",
+          "score": 0.9392
+        }
+      ]
+    },
+    {
+      "medicine_name": "Clevidipine Butyrate",
+      "generic_name": "Clevidipine Butyrate",
+      "match_score": 0.8,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "POWDER",
+      "active_ingredients": [
+        "CLEVIDIPINE (1 kg/kg)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Caedipine lat.",
+          "score": 0.8189
+        }
+      ]
+    }
+  ],
+  "unmatched_medicine_lines": [
+    {
+      "text": "دكور",
+      "score": 0.8751
+    },
+    {
+      "text": "حسين الفيشاوي",
+      "score": 0.8492
+    },
+    {
+      "text": "مر ا الة وا",
+      "score": 0.561
+    },
+    {
+      "text": "Colinsqgow of The Eigyptien Soraily of Nep",
+      "score": 0.6983
+    },
+    {
+      "text": "In tOe rb Hopel",
+      "score": 0.578
+    },
+    {
+      "text": "م ا ال ا",
+      "score": 0.5452
+    },
+    {
+      "text": "المد الرهة لعالمين",
+      "score": 0.6464
+    },
+    {
+      "text": "3R/",
+      "score": 0.6682
+    },
+    {
+      "text": "التاريخ٢١٣١",
+      "score": 0.7304
+    },
+    {
+      "text": "AMeRightNow",
+      "score": 0.8912
+    },
+    {
+      "text": "Comcn syty",
+      "score": 0.7299
+    },
+    {
+      "text": "SadimBiaiSmtios",
+      "score": 0.8779
+    },
+    {
+      "text": "Macal7at",
+      "score": 0.7992
+    },
+    {
+      "text": "Bnadipet s",
+      "score": 0.7894
+    },
+    {
+      "text": "Optaminos t1",
+      "score": 0.8088
+    },
+    {
+      "text": "Yotulmtd",
+      "score": 0.8388
+    },
+    {
+      "text": "الدفي أبراج مصرلتأين، خلفياو الدو الساع",
+      "score": 0.5728
+    },
+    {
+      "text": "الإسة",
+      "score": 0.8285
+    }
+  ],
+  "metadata": [
+    {
+      "text": "MD_MACMGRCH",
+      "score": 0.804,
+      "category": "metadata"
+    },
+    {
+      "text": "ت١٠٠١٧٧٦٠٧٨",
+      "score": 0.7002,
+      "category": "metadata"
+    },
+    {
+      "text": "عادة ٣٤٩٢٢٩٠١٠٠٠٣٣",
+      "score": 0.6106,
+      "category": "metadata"
+    },
+    {
+      "text": "E-mail: hfishawe@hotmail.com",
+      "score": 0.9678,
+      "category": "metadata"
+    }
+  ],
+  "items": [
+    {
+      "text": "Husscin El-Fisbawy",
+      "score": 0.9392
+    },
+    {
+      "text": "دكور",
+      "score": 0.8751
+    },
+    {
+      "text": "حسين الفيشاوي",
+      "score": 0.8492
+    },
+    {
+      "text": "مر ا الة وا",
+      "score": 0.561
+    },
+    {
+      "text": "Colinsqgow of The Eigyptien Soraily of Nep",
+      "score": 0.6983
+    },
+    {
+      "text": "In tOe rb Hopel",
+      "score": 0.578
+    },
+    {
+      "text": "MD_MACMGRCH",
+      "score": 0.804
+    },
+    {
+      "text": "م ا ال ا",
+      "score": 0.5452
+    },
+    {
+      "text": "المد الرهة لعالمين",
+      "score": 0.6464
+    },
+    {
+      "text": "3R/",
+      "score": 0.6682
+    },
+    {
+      "text": "التاريخ٢١٣١",
+      "score": 0.7304
+    },
+    {
+      "text": "AMeRightNow",
+      "score": 0.8912
+    },
+    {
+      "text": "Comcn syty",
+      "score": 0.7299
+    },
+    {
+      "text": "Caedipine lat.",
+      "score": 0.8189
+    },
+    {
+      "text": "SadimBiaiSmtios",
+      "score": 0.8779
+    },
+    {
+      "text": "Macal7at",
+      "score": 0.7992
+    },
+    {
+      "text": "Bnadipet s",
+      "score": 0.7894
+    },
+    {
+      "text": "Optaminos t1",
+      "score": 0.8088
+    },
+    {
+      "text": "Yotulmtd",
+      "score": 0.8388
+    },
+    {
+      "text": "الدفي أبراج مصرلتأين، خلفياو الدو الساع",
+      "score": 0.5728
+    },
+    {
+      "text": "ت١٠٠١٧٧٦٠٧٨",
+      "score": 0.7002
+    },
+    {
+      "text": "عادة ٣٤٩٢٢٩٠١٠٠٠٣٣",
+      "score": 0.6106
+    },
+    {
+      "text": "الإسة",
+      "score": 0.8285
+    },
+    {
+      "text": "E-mail: hfishawe@hotmail.com",
+      "score": 0.9678
+    }
+  ]
+}

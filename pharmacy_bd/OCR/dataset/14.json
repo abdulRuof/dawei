@@ -1,0 +1,176 @@
+{
+  "image": "14.jpg",
+  "ocr_engine": "PaddleOCR",
+  "language": "ar",
+  "created_at": "2026-09-10T01:07:48.655615",
+  "matched_medicines": [
+    {
+      "medicine_name": "ADVATE",
+      "generic_name": "Antihemophilic Factor (Recombinant)",
+      "match_score": 0.8,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "KIT",
+      "active_ingredients": [],
+      "ocr_lines": [
+        {
+          "text": "Date:",
+          "score": 0.998
+        }
+      ]
+    },
+    {
+      "medicine_name": "Mele",
+      "generic_name": "No Shade Sunscreen Oil",
+      "match_score": 0.857,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "OIL",
+      "active_ingredients": [
+        "OCTINOXATE (7.49 g/100mL)",
+        "AVOBENZONE (2 g/100mL)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "mle",
+          "score": 0.6218
+        }
+      ]
+    }
+  ],
+  "unmatched_medicine_lines": [
+    {
+      "text": "فارماتوب",
+      "score": 0.9965
+    },
+    {
+      "text": "Patient No.:",
+      "score": 0.9113
+    },
+    {
+      "text": "Diagnosis:",
+      "score": 0.9382
+    },
+    {
+      "text": "B/ gneniny 3fcm",
+      "score": 0.5977
+    },
+    {
+      "text": "والنجرة",
+      "score": 0.9022
+    },
+    {
+      "text": "فواد",
+      "score": 0.9698
+    },
+    {
+      "text": "Mow",
+      "score": 0.6822
+    },
+    {
+      "text": "21S",
+      "score": 0.6147
+    },
+    {
+      "text": "جمال",
+      "score": 0.8416
+    },
+    {
+      "text": "Aren",
+      "score": 0.5676
+    },
+    {
+      "text": "Nia w t",
+      "score": 0.5376
+    },
+    {
+      "text": "مستشفي اندي المودي",
+      "score": 0.5644
+    },
+    {
+      "text": "un",
+      "score": 0.9724
+    },
+    {
+      "text": "كه ر",
+      "score": 0.5931
+    }
+  ],
+  "metadata": [
+    {
+      "text": "العيادات الغارجي",
+      "score": 0.8355,
+      "category": "metadata"
+    }
+  ],
+  "items": [
+    {
+      "text": "فارماتوب",
+      "score": 0.9965
+    },
+    {
+      "text": "Date:",
+      "score": 0.998
+    },
+    {
+      "text": "Patient No.:",
+      "score": 0.9113
+    },
+    {
+      "text": "Diagnosis:",
+      "score": 0.9382
+    },
+    {
+      "text": "B/ gneniny 3fcm",
+      "score": 0.5977
+    },
+    {
+      "text": "mle",
+      "score": 0.6218
+    },
+    {
+      "text": "والنجرة",
+      "score": 0.9022
+    },
+    {
+      "text": "فواد",
+      "score": 0.9698
+    },
+    {
+      "text": "Mow",
+      "score": 0.6822
+    },
+    {
+      "text": "21S",
+      "score": 0.6147
+    },
+    {
+      "text": "جمال",
+      "score": 0.8416
+    },
+    {
+      "text": "Aren",
+      "score": 0.5676
+    },
+    {
+      "text": "Nia w t",
+      "score": 0.5376
+    },
+    {
+      "text": "مستشفي اندي المودي",
+      "score": 0.5644
+    },
+    {
+      "text": "un",
+      "score": 0.9724
+    },
+    {
+      "text": "العيادات الغارجي",
+      "score": 0.8355
+    },
+    {
+      "text": "كه ر",
+      "score": 0.5931
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "image": "16.jpg",
+  "ocr_engine": "PaddleOCR",
+  "language": "ar",
+  "created_at": "2026-09-10T01:08:04.240344",
+  "matched_medicines": [
+    {
+      "medicine_name": "END-ZIT",
+      "generic_name": "SULFUR",
+      "match_score": 0.769,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "LOTION, AUGMENTED",
+      "active_ingredients": [
+        "SULFUR (.05 g/g)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "MEndit Te Ck",
+          "score": 0.5832
+        }
+      ]
+    },
+    {
+      "medicine_name": "Ear",
+      "generic_name": "Baptisia Tinctoria, Echinacea (Angustifolia), Phytolacca Decandra, Hydrastis Canadensis, Capsicum Annuum, Chamomilla, Ferrum Phosphoricum, Kali Muriaticum, Plantago Major, Pulsatilla (Pratensis)",
+      "match_score": 0.857,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "LIQUID",
+      "active_ingredients": [
+        "BAPTISIA TINCTORIA ROOT (3 [hp_X]/mL)",
+        "ECHINACEA ANGUSTIFOLIA WHOLE (3 [hp_X]/mL)",
+        "PHYTOLACCA AMERICANA ROOT (4 [hp_X]/mL)",
+        "GOLDENSEAL (5 [hp_X]/mL)",
+        "CAPSICUM (12 [hp_X]/mL)",
+        "MATRICARIA CHAMOMILLA WHOLE (12 [hp_X]/mL)",
+        "FERROSOFERRIC PHOSPHATE (12 [hp_X]/mL)",
+        "POTASSIUM CHLORIDE (12 [hp_X]/mL)",
+        "PLANTAGO MAJOR WHOLE (12 [hp_X]/mL)",
+        "PULSATILLA PRATENSIS WHOLE (12 [hp_X]/mL)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "4\\o-Near",
+          "score": 0.548
+        }
+      ]
+    }
+  ],
+  "unmatched_medicine_lines": [
+    {
+      "text": "Oocte",
+      "score": 0.7209
+    },
+    {
+      "text": "بكتور",
+      "score": 0.6428
+    },
+    {
+      "text": "االمد الة العين",
+      "score": 0.6164
+    },
+    {
+      "text": "hrs Mow Thompie",
+      "score": 0.6394
+    },
+    {
+      "text": "8 AU6 20",
+      "score": 0.699
+    },
+    {
+      "text": "١٢Bv.",
+      "score": 0.6283
+    },
+    {
+      "text": "aNY59- WS.",
+      "score": 0.5144
+    },
+    {
+      "text": "المر ا االه",
+      "score": 0.6368
+    },
+    {
+      "text": "مشاركة",
+      "score": 0.9511
+    },
+    {
+      "text": "حذد المنطقة",
+      "score": 0.892
+    },
+    {
+      "text": "التخطيط",
+      "score": 0.9806
+    }
+  ],
+  "metadata": [
+    {
+      "text": "٠١٠٤١٢٦٧٤ U١٩",
+      "score": 0.7257,
+      "category": "metadata"
+    },
+    {
+      "text": "Mobamed MadmmdMsss",
+      "score": 0.7844,
+      "category": "metadata"
+    }
+  ],
+  "items": [
+    {
+      "text": "٠١٠٤١٢٦٧٤ U١٩",
+      "score": 0.7257
+    },
+    {
+      "text": "Mobamed MadmmdMsss",
+      "score": 0.7844
+    },
+    {
+      "text": "Oocte",
+      "score": 0.7209
+    },
+    {
+      "text": "بكتور",
+      "score": 0.6428
+    },
+    {
+      "text": "MEndit Te Ck",
+      "score": 0.5832
+    },
+    {
+      "text": "االمد الة العين",
+      "score": 0.6164
+    },
+    {
+      "text": "hrs Mow Thompie",
+      "score": 0.6394
+    },
+    {
+      "text": "8 AU6 20",
+      "score": 0.699
+    },
+    {
+      "text": "١٢Bv.",
+      "score": 0.6283
+    },
+    {
+      "text": "4\\o-Near",
+      "score": 0.548
+    },
+    {
+      "text": "aNY59- WS.",
+      "score": 0.5144
+    },
+    {
+      "text": "المر ا االه",
+      "score": 0.6368
+    },
+    {
+      "text": "مشاركة",
+      "score": 0.9511
+    },
+    {
+      "text": "حذد المنطقة",
+      "score": 0.892
+    },
+    {
+      "text": "التخطيط",
+      "score": 0.9806
+    }
+  ]
+}

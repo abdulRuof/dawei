@@ -1,0 +1,118 @@
+{
+  "image": "15.jpg",
+  "ocr_engine": "PaddleOCR",
+  "language": "ar",
+  "created_at": "2026-09-10T01:07:56.057927",
+  "matched_medicines": [],
+  "unmatched_medicine_lines": [
+    {
+      "text": "المعيه ارخشتة",
+      "score": 0.5487
+    },
+    {
+      "text": "كنيلعهة ة بة",
+      "score": 0.5996
+    },
+    {
+      "text": "و٥٢ليما",
+      "score": 0.5074
+    },
+    {
+      "text": "جستجا",
+      "score": 0.618
+    },
+    {
+      "text": "رميشتا",
+      "score": 0.7263
+    },
+    {
+      "text": "leorguid",
+      "score": 0.5362
+    },
+    {
+      "text": "محد",
+      "score": 0.6524
+    },
+    {
+      "text": "tne",
+      "score": 0.5268
+    },
+    {
+      "text": "1900",
+      "score": 0.6644
+    },
+    {
+      "text": "CDaOD",
+      "score": 0.5509
+    },
+    {
+      "text": "4.0n2",
+      "score": 0.5563
+    },
+    {
+      "text": "enwt",
+      "score": 0.5014
+    }
+  ],
+  "metadata": [
+    {
+      "text": "MD",
+      "score": 0.7261,
+      "category": "metadata"
+    }
+  ],
+  "items": [
+    {
+      "text": "المعيه ارخشتة",
+      "score": 0.5487
+    },
+    {
+      "text": "كنيلعهة ة بة",
+      "score": 0.5996
+    },
+    {
+      "text": "و٥٢ليما",
+      "score": 0.5074
+    },
+    {
+      "text": "جستجا",
+      "score": 0.618
+    },
+    {
+      "text": "رميشتا",
+      "score": 0.7263
+    },
+    {
+      "text": "leorguid",
+      "score": 0.5362
+    },
+    {
+      "text": "MD",
+      "score": 0.7261
+    },
+    {
+      "text": "محد",
+      "score": 0.6524
+    },
+    {
+      "text": "tne",
+      "score": 0.5268
+    },
+    {
+      "text": "1900",
+      "score": 0.6644
+    },
+    {
+      "text": "CDaOD",
+      "score": 0.5509
+    },
+    {
+      "text": "4.0n2",
+      "score": 0.5563
+    },
+    {
+      "text": "enwt",
+      "score": 0.5014
+    }
+  ]
+}

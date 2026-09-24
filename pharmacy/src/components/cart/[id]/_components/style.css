@@ -1,0 +1,144 @@
+
+/* =========================================================
+   Page
+   ========================================================= */
+.section{ padding-block: clamp(28px, 5vw, 48px) clamp(48px, 7vw, 72px); }
+
+.cart-head{ margin-bottom:26px; }
+.cart-head h1{ font-size:clamp(1.5rem, 2.8vw, 2rem); font-weight:900; margin-bottom:6px; }
+.cart-head p{ color:var(--ink-soft); font-size:.9rem; margin:0; }
+
+.cart-layout{ display:grid; grid-template-columns:1fr 340px; gap:28px; align-items:start; }
+
+/* ---------- Cart items, grouped by pharmacy ---------- */
+.cart-items{ display:flex; flex-direction:column; gap:20px; }
+
+.pharm-group{
+  background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-md); overflow:hidden;
+}
+.pharm-group__head{
+  display:flex; align-items:center; gap:10px; padding:14px 18px;
+  background:var(--mint-50); border-bottom:1px solid var(--line);
+}
+.pharm-group__logo{
+  width:32px; height:32px; border-radius:9px; flex:0 0 auto;
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-family:var(--font-display); font-weight:800; font-size:.75rem;
+}
+.pharm-group__name{ font-weight:700; color:var(--teal-900); font-size:.9rem; }
+.pharm-group__delivery{ margin-inline-start:auto; font-size:.76rem; color:var(--ink-soft); }
+
+.cart-row{
+  display:flex; align-items:center; gap:14px; padding:16px 18px;
+  border-bottom:1px solid var(--line);
+}
+.cart-row:last-child{ border-bottom:none; }
+
+.cart-row__icon{
+  width:48px; height:48px; border-radius:14px; flex:0 0 auto;
+  background:var(--mint-100); color:var(--teal-700); display:flex; align-items:center; justify-content:center;
+}
+.cart-row__body{ flex:1; min-width:0; }
+.cart-row__name{ font-weight:700; color:var(--teal-900); font-size:.92rem; }
+.cart-row__meta{ font-size:.76rem; color:var(--ink-soft); margin-top:2px; }
+.cart-row__unit{ font-size:.76rem; color:var(--teal-700); font-weight:700; margin-top:2px; }
+
+.qty-stepper{ display:inline-flex; align-items:center; gap:8px; flex:0 0 auto; }
+.qty-stepper button{
+  width:28px; height:28px; border-radius:8px; border:1px solid var(--line); background:var(--mint-50);
+  color:var(--teal-800); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1rem;
+}
+.qty-stepper button:hover{ background:var(--mint-100); }
+.qty-stepper span{ min-width:20px; text-align:center; font-weight:700; font-size:.9rem; }
+
+.cart-row__total{ flex:0 0 auto; width:78px; text-align:end; font-weight:800; color:var(--teal-800); font-size:.92rem; }
+
+.cart-row__remove{
+  flex:0 0 auto; width:32px; height:32px; border-radius:9px; border:1px solid var(--line); background:var(--paper);
+  color:var(--coral-600); display:flex; align-items:center; justify-content:center;
+}
+.cart-row__remove:hover{ background:var(--coral-500); color:#fff; border-color:var(--coral-500); }
+
+/* ---------- Order summary ---------- */
+.order-summary{ position:sticky; top:calc(var(--header-h) + 18px); display:flex; flex-direction:column; gap:16px; }
+.order-summary__card{
+  background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-md); padding:22px;
+  display:flex; flex-direction:column; gap:16px;
+}
+.order-summary__card h3{ font-size:1.05rem; }
+
+.promo-row{ display:flex; gap:8px; }
+.promo-row input{
+  flex:1; min-width:0; border:1px solid var(--line); border-radius:10px; padding:10px 12px;
+  font-family:inherit; font-size:.85rem; color:var(--ink);
+}
+.promo-row input::placeholder{ color:#93A9A2; }
+.promo-hint{ margin:-8px 0 0; font-size:.78rem; color:var(--teal-700); font-weight:700; }
+.promo-hint.is-error{ color:var(--coral-600); }
+
+.summary-rows{ display:flex; flex-direction:column; gap:10px; }
+.summary-row{ display:flex; align-items:center; justify-content:space-between; font-size:.88rem; color:var(--ink-soft); }
+.summary-row strong{ color:var(--teal-900); font-weight:700; }
+.summary-row--discount strong{ color:var(--coral-600); }
+
+.summary-total{
+  display:flex; align-items:center; justify-content:space-between;
+  border-top:1px dashed var(--line); padding-top:14px; font-size:1rem;
+}
+.summary-total strong{ font-family:var(--font-display); font-size:1.3rem; color:var(--teal-800); font-weight:900; }
+
+.continue-link{ text-align:center; font-size:.85rem; font-weight:700; color:var(--teal-700); }
+.continue-link:hover{ color:var(--coral-600); }
+
+.order-note{
+  display:flex; gap:10px; align-items:flex-start; background:var(--mint-100); border-radius:var(--radius-md); padding:14px 16px;
+}
+.order-note svg{ color:var(--teal-700); flex:0 0 auto; margin-top:1px; }
+.order-note p{ margin:0; font-size:.8rem; color:var(--teal-800); line-height:1.7; }
+
+/* ---------- Empty cart state ---------- */
+.cart-empty{
+  display:flex; flex-direction:column; align-items:center; text-align:center; gap:14px;
+  padding: clamp(50px, 8vw, 90px) 20px; max-width:420px; margin-inline:auto;
+}
+.cart-empty__icon{
+  width:88px; height:88px; border-radius:50%; background:var(--mint-100); color:var(--teal-600);
+  display:flex; align-items:center; justify-content:center; margin-bottom:6px;
+}
+.cart-empty h2{ font-size:1.3rem; }
+.cart-empty p{ color:var(--ink-soft); font-size:.92rem; margin:0 0 8px; }
+
+/* ---------- Toast ---------- */
+.toast{
+  position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px);
+  background:var(--teal-900); color:#fff; padding:12px 22px; border-radius:999px;
+  font-size:.85rem; font-weight:700; box-shadow:var(--shadow-lg);
+  opacity:0; pointer-events:none; transition:opacity .25s ease, transform .25s ease;
+  z-index:100; display:flex; align-items:center; gap:8px;
+}
+.toast.is-visible{ opacity:1; transform:translateX(-50%) translateY(0); }
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 960px){
+  .cart-layout{ grid-template-columns:1fr; }
+  .order-summary{ position:static; }
+}
+
+@media (max-width: 640px){
+  .header-inner{ gap:10px; }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+  .footer-brand{ grid-column:1 / -1; }
+  .cart-row{ flex-wrap:wrap; }
+  .cart-row__body{ flex:1 1 100%; order:1; }
+  .cart-row__icon{ order:0; }
+  .qty-stepper{ order:2; }
+  .cart-row__total{ order:3; width:auto; }
+  .cart-row__remove{ order:4; }
+  .pharm-group__delivery{ display:none; }
+}
+
+@media (max-width: 400px){
+  .footer-grid{ grid-template-columns:1fr; }
+}

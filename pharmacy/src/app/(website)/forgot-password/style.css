@@ -1,0 +1,142 @@
+.fp-page {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 3rem 1rem 5rem;
+}
+
+.fp-card {
+  width: 100%;
+  max-width: 460px;
+  background: var(--paper, #fff);
+  border: 1px solid var(--line, #e4e7ec);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(20, 55, 50, 0.06);
+}
+
+.fp-card h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.4rem;
+  color: var(--ink, #123);
+}
+
+.fp-desc {
+  color: #6b7278;
+  margin: 0.5rem 0 1.25rem;
+  line-height: 1.7;
+}
+
+.fp-hint {
+  background: rgba(20, 184, 166, 0.1);
+  border-inline-start: 3px solid var(--teal-600, #0d9488);
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  margin: 0 0 1.25rem;
+  color: #0f2f2b;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  word-break: break-word;
+}
+
+.fp-error {
+  color: #b3423a;
+  font-weight: 600;
+  background: rgba(230, 100, 90, 0.1);
+  padding: 0.6rem 0.85rem;
+  border-radius: 10px;
+}
+
+.fp-done {
+  text-align: center;
+  padding: 1.5rem 0 0.5rem;
+}
+
+.fp-done-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: var(--teal-600, #0d9488);
+  color: #fff;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fp-done p {
+  margin: 0 0 1.5rem;
+  color: #39424b;
+  line-height: 1.7;
+}
+
+.fp-back {
+  margin: 1.25rem 0 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.fp-back a {
+  color: var(--teal-700, #0f766e);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.field {
+  margin-bottom: 1.1rem;
+}
+
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--ink, #123);
+}
+
+.field__control input {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--line, #dfe3ea);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: #fff;
+}
+
+.field__control input:focus {
+  outline: 2px solid var(--teal-500, #14b8a6);
+  border-color: transparent;
+}
+
+.btn {
+  font-family: inherit;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1.4rem;
+  cursor: pointer;
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+.btn--coral {
+  background: var(--coral-500, #ef6c57);
+  color: #fff;
+}
+
+.btn--coral:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.btn--coral:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn--block {
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+}

@@ -1,0 +1,192 @@
+{
+  "image": "images.jpg",
+  "ocr_engine": "PaddleOCR",
+  "language": "ar",
+  "created_at": "2026-09-10T01:10:24.094351",
+  "matched_medicines": [
+    {
+      "medicine_name": "Lubricant Eye",
+      "generic_name": "Carboxymethylcellulose Sodium 0.5%",
+      "match_score": 1.0,
+      "match_type": "exact",
+      "dose": null,
+      "dosage_form": "SOLUTION/ DROPS",
+      "active_ingredients": [
+        "CARBOXYMETHYLCELLULOSE SODIUM, UNSPECIFIED FORM (5 mg/mL)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Lubricant Eye Drops E.D.",
+          "score": 0.9804
+        }
+      ]
+    },
+    {
+      "medicine_name": "Pain Relief",
+      "generic_name": "Analgesic",
+      "match_score": 1.0,
+      "match_type": "exact",
+      "dose": null,
+      "dosage_form": "SPRAY",
+      "active_ingredients": [
+        "CAMPHOR (SYNTHETIC) (.11 g/g)",
+        "MENTHOL (.16 g/g)",
+        "CAPSAICIN (.001 g/g)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "R/Analgesic Drug TAB.",
+          "score": 0.9965
+        }
+      ]
+    },
+    {
+      "medicine_name": "Antibiotic",
+      "generic_name": "bacitracin zinc, neomycin sulfate, polymyxin b sulfate",
+      "match_score": 1.0,
+      "match_type": "exact",
+      "dose": null,
+      "dosage_form": "OINTMENT",
+      "active_ingredients": [
+        "BACITRACIN ZINC (6 mg/mL)",
+        "NEOMYCIN SULFATE (3.5 mg/mL)",
+        "POLYMYXIN B SULFATE (.77 mg/mL)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "R/ Antibiotic Eye Ointment. E.0.",
+          "score": 0.93
+        }
+      ]
+    }
+  ],
+  "unmatched_medicine_lines": [
+    {
+      "text": "دكتوز",
+      "score": 0.7106
+    },
+    {
+      "text": "مععاذ عطيتو",
+      "score": 0.8925
+    },
+    {
+      "text": "MoazAtete",
+      "score": 0.9747
+    },
+    {
+      "text": "طبيب وجراج العبون والمياه البيضا واليرك",
+      "score": 0.789
+    },
+    {
+      "text": "الحمد الر الالين",
+      "score": 0.6694
+    },
+    {
+      "text": "الم أشرف أدمم سيفالن ١٦التريخ ٣١٤",
+      "score": 0.6946
+    },
+    {
+      "text": "R/",
+      "score": 0.715
+    },
+    {
+      "text": "قطرة ٣ مرانت يوميا لمدة أسبوعين",
+      "score": 0.8227
+    },
+    {
+      "text": "قرص بعد الأكل مرتين يوميب",
+      "score": 0.9008
+    },
+    {
+      "text": "لمدة أسبوع ولايكرر",
+      "score": 0.7848
+    },
+    {
+      "text": "مرجم مساءالمدة أآسبوع",
+      "score": 0.7659
+    },
+    {
+      "text": "ال ا ال أ ة الج",
+      "score": 0.6241
+    },
+    {
+      "text": "مواعي الاة الة الك المن",
+      "score": 0.5987
+    },
+    {
+      "text": "لحجزوالاتفسار",
+      "score": 0.5873
+    }
+  ],
+  "metadata": [],
+  "items": [
+    {
+      "text": "دكتوز",
+      "score": 0.7106
+    },
+    {
+      "text": "مععاذ عطيتو",
+      "score": 0.8925
+    },
+    {
+      "text": "MoazAtete",
+      "score": 0.9747
+    },
+    {
+      "text": "طبيب وجراج العبون والمياه البيضا واليرك",
+      "score": 0.789
+    },
+    {
+      "text": "الحمد الر الالين",
+      "score": 0.6694
+    },
+    {
+      "text": "الم أشرف أدمم سيفالن ١٦التريخ ٣١٤",
+      "score": 0.6946
+    },
+    {
+      "text": "R/",
+      "score": 0.715
+    },
+    {
+      "text": "Lubricant Eye Drops E.D.",
+      "score": 0.9804
+    },
+    {
+      "text": "قطرة ٣ مرانت يوميا لمدة أسبوعين",
+      "score": 0.8227
+    },
+    {
+      "text": "R/Analgesic Drug TAB.",
+      "score": 0.9965
+    },
+    {
+      "text": "قرص بعد الأكل مرتين يوميب",
+      "score": 0.9008
+    },
+    {
+      "text": "لمدة أسبوع ولايكرر",
+      "score": 0.7848
+    },
+    {
+      "text": "R/ Antibiotic Eye Ointment. E.0.",
+      "score": 0.93
+    },
+    {
+      "text": "مرجم مساءالمدة أآسبوع",
+      "score": 0.7659
+    },
+    {
+      "text": "ال ا ال أ ة الج",
+      "score": 0.6241
+    },
+    {
+      "text": "مواعي الاة الة الك المن",
+      "score": 0.5987
+    },
+    {
+      "text": "لحجزوالاتفسار",
+      "score": 0.5873
+    }
+  ]
+}

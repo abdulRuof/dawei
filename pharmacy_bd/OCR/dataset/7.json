@@ -1,0 +1,285 @@
+{
+  "image": "7.jpg",
+  "ocr_engine": "PaddleOCR",
+  "language": "ar",
+  "created_at": "2026-09-10T01:09:52.259238",
+  "matched_medicines": [
+    {
+      "medicine_name": "Neurotox",
+      "generic_name": "Agaricus Muscarius, Coccus Cacti, Conium Maculatum, Lycopodium Clavatum, Phosphorus, Aluminium Metallicum, Antimonium Crudum, Argentum Metallicum, Arsenicum Album, Aurum Metallicum, Baryta Carbonica, Beryllium Metallicum, Bismuthum Metallicum, Boron, Bromium, Cadmium Metallicum Cerium Metallicum, Cesium Chloride, Chromium, Cobaltum Metallicum, Cuprum Metallicum, Dysprosium Metallicum, Erbium Metallicum, Europium Metallicum, Ferrum Metallicum, Gadolinium Metallicum, Germanium Sesquioxide, Holmium Metallicum,",
+      "match_score": 0.769,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "LIQUID",
+      "active_ingredients": [
+        "AMANITA MUSCARIA FRUITING BODY (12 [hp_X]/mL)",
+        "PROTORTONIA CACTI (12 [hp_X]/mL)",
+        "CONIUM MACULATUM FLOWERING TOP (12 [hp_X]/mL)",
+        "LYCOPODIUM CLAVATUM SPORE (12 [hp_X]/mL)",
+        "PHOSPHORUS (12 [hp_X]/mL)",
+        "ALUMINUM (12 [hp_X]/mL)",
+        "ANTIMONY TRISULFIDE (12 [hp_X]/mL)",
+        "SILVER (12 [hp_X]/mL)",
+        "ARSENIC TRIOXIDE (12 [hp_X]/mL)",
+        "GOLD (12 [hp_X]/mL)",
+        "BARIUM CARBONATE (12 [hp_X]/mL)",
+        "BERYLLIUM (12 [hp_X]/mL)",
+        "BISMUTH (12 [hp_X]/mL)",
+        "BORON (12 [hp_X]/mL)",
+        "BROMINE (12 [hp_X]/mL)",
+        "CADMIUM (12 [hp_X]/mL)",
+        "CERIUM (12 [hp_X]/mL)",
+        "CESIUM CHLORIDE (12 [hp_X]/mL)",
+        "CHROMIUM (12 [hp_X]/mL)",
+        "COBALT (12 [hp_X]/mL)",
+        "COPPER (12 [hp_X]/mL)",
+        "DYSPROSIUM (12 [hp_X]/mL)",
+        "ERBIUM (12 [hp_X]/mL)",
+        "EUROPIUM (12 [hp_X]/mL)",
+        "IRON (12 [hp_X]/mL)",
+        "GADOLINIUM (12 [hp_X]/mL)",
+        "GERMANIUM SESQUIOXIDE (12 [hp_X]/mL)",
+        "HOLMIUM (12 [hp_X]/mL)",
+        "INDIUM (12 [hp_X]/mL)",
+        "LITHIUM CARBONATE (12 [hp_X]/mL)",
+        "MAGNESIUM (12 [hp_X]/mL)",
+        "MANGANESE (12 [hp_X]/mL)",
+        "MERCURIUS SOLUBILIS (12 [hp_X]/mL)",
+        "MOLYBDENUM (12 [hp_X]/mL)",
+        "NEODYMIUM OXIDE (12 [hp_X]/mL)",
+        "NICKEL (12 [hp_X]/mL)",
+        "OSMIUM (12 [hp_X]/mL)",
+        "PALLADIUM (12 [hp_X]/mL)",
+        "PLATINUM (12 [hp_X]/mL)",
+        "LEAD (12 [hp_X]/mL)",
+        "PRASEODYMIUM (12 [hp_X]/mL)",
+        "RHODIUM (12 [hp_X]/mL)",
+        "RUBIDIUM NITRITE (12 [hp_X]/mL)",
+        "SAMARIUM (12 [hp_X]/mL)",
+        "SELENIUM (12 [hp_X]/mL)",
+        "TIN (12 [hp_X]/mL)",
+        "STRONTIUM CARBONATE (12 [hp_X]/mL)",
+        "TERBIUM (12 [hp_X]/mL)",
+        "THALLIUM (12 [hp_X]/mL)",
+        "URANYL NITRATE HEXAHYDRATE (12 [hp_X]/mL)",
+        "VANADIUM (12 [hp_X]/mL)",
+        "YTTERBIUM OXIDE (12 [hp_X]/mL)",
+        "ZINC (12 [hp_X]/mL)",
+        "GELSEMIUM SEMPERVIRENS ROOT (30 [hp_X]/mL)",
+        "INFLUENZA A VIRUS A/VICTORIA/4897/2022 IVR-238 (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED) (30 [hp_C]/mL)",
+        "INFLUENZA A VIRUS A/THAILAND/8/2022 IVR-237 (H3N2) ANTIGEN (FORMALDEHYDE INACTIVATED) (30 [hp_C]/mL)",
+        "INFLUENZA B VIRUS B/AUSTRIA/1359417/2021 BVR-26 WHOLE (30 [hp_C]/mL)",
+        "INFLUENZA B VIRUS B/PHUKET/3073/2013 BVR-1B WHOLE (30 [hp_C]/mL)",
+        "LATRODECTUS MACTANS (30 [hp_X]/mL)",
+        "MEASLES VIRUS (30 [hp_X]/mL)",
+        "TOXICODENDRON PUBESCENS LEAF (30 [hp_X]/mL)",
+        "SAFFRON (30 [hp_X]/mL)",
+        "CLOSTRIDIUM BOTULINUM (30 [hp_X]/mL)",
+        "ESCHERICHIA COLI (30 [hp_X]/mL)",
+        "PROTEUS VULGARIS (30 [hp_X]/mL)",
+        "PSEUDOMONAS AERUGINOSA (30 [hp_X]/mL)",
+        "PROTEUS MORGANII (30 [hp_X]/mL)",
+        "SALMONELLA ENTERICA ENTERICA SEROVAR TYPHI (33 [hp_X]/mL)",
+        "LANTHANUM (14 [hp_C]/mL)",
+        "CLOSTRIDIUM PERFRINGENS (19 [hp_C]/mL)",
+        "HUMAN HERPESVIRUS 4 (30 [hp_C]/mL)",
+        "NIOBIUM (30 [hp_C]/mL)",
+        "POLIOVIRUS (30 [hp_C]/mL)",
+        "TANTALUM (30 [hp_C]/mL)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Rhremblig Counbat",
+          "score": 0.6508
+        }
+      ]
+    },
+    {
+      "medicine_name": "TALTZ",
+      "generic_name": "ixekizumab",
+      "match_score": 0.8,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "INJECTION, SOLUTION",
+      "active_ingredients": [
+        "IXEKIZUMAB (20 mg/.25mL)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "R/ Talte 8o nes",
+          "score": 0.7142
+        }
+      ]
+    }
+  ],
+  "unmatched_medicine_lines": [
+    {
+      "text": "حسام محسن الديب",
+      "score": 0.973
+    },
+    {
+      "text": "Hossam Eldeeb",
+      "score": 0.9888
+    },
+    {
+      "text": "يدن الكة الة الرية بنين",
+      "score": 0.5348
+    },
+    {
+      "text": "متر الروزة",
+      "score": 0.5721
+    },
+    {
+      "text": "MERCPEK. Landn",
+      "score": 0.6582
+    },
+    {
+      "text": "Datil Moerof Te Amurion",
+      "score": 0.5962
+    },
+    {
+      "text": "الإصسم ـ",
+      "score": 0.5862
+    },
+    {
+      "text": "٢٠Cاريخ٥١٨١٤",
+      "score": 0.5249
+    },
+    {
+      "text": "Bomobi Arkaits اي",
+      "score": 0.5205
+    },
+    {
+      "text": "R1",
+      "score": 0.7454
+    },
+    {
+      "text": "يعان الحرين م التب",
+      "score": 0.677
+    },
+    {
+      "text": "حت الد م تحة الحيه",
+      "score": 0.7144
+    },
+    {
+      "text": "دا حصام مصن الديب",
+      "score": 0.771
+    },
+    {
+      "text": "ادر الجدة، اارع د العيهم",
+      "score": 0.5876
+    },
+    {
+      "text": "ال الالن",
+      "score": 0.7618
+    }
+  ],
+  "metadata": [
+    {
+      "text": "DR.",
+      "score": 0.9147,
+      "category": "metadata"
+    },
+    {
+      "text": "دكتور",
+      "score": 0.8049,
+      "category": "metadata"
+    },
+    {
+      "text": "إستشاري الروماتز",
+      "score": 0.6127,
+      "category": "metadata"
+    },
+    {
+      "text": "01014855591",
+      "score": 0.9244,
+      "category": "metadata"
+    }
+  ],
+  "items": [
+    {
+      "text": "DR.",
+      "score": 0.9147
+    },
+    {
+      "text": "دكتور",
+      "score": 0.8049
+    },
+    {
+      "text": "حسام محسن الديب",
+      "score": 0.973
+    },
+    {
+      "text": "Hossam Eldeeb",
+      "score": 0.9888
+    },
+    {
+      "text": "Rhremblig Counbat",
+      "score": 0.6508
+    },
+    {
+      "text": "يدن الكة الة الرية بنين",
+      "score": 0.5348
+    },
+    {
+      "text": "متر الروزة",
+      "score": 0.5721
+    },
+    {
+      "text": "MERCPEK. Landn",
+      "score": 0.6582
+    },
+    {
+      "text": "Datil Moerof Te Amurion",
+      "score": 0.5962
+    },
+    {
+      "text": "الإصسم ـ",
+      "score": 0.5862
+    },
+    {
+      "text": "٢٠Cاريخ٥١٨١٤",
+      "score": 0.5249
+    },
+    {
+      "text": "Bomobi Arkaits اي",
+      "score": 0.5205
+    },
+    {
+      "text": "R1",
+      "score": 0.7454
+    },
+    {
+      "text": "يعان الحرين م التب",
+      "score": 0.677
+    },
+    {
+      "text": "R/ Talte 8o nes",
+      "score": 0.7142
+    },
+    {
+      "text": "حت الد م تحة الحيه",
+      "score": 0.7144
+    },
+    {
+      "text": "دا حصام مصن الديب",
+      "score": 0.771
+    },
+    {
+      "text": "إستشاري الروماتز",
+      "score": 0.6127
+    },
+    {
+      "text": "01014855591",
+      "score": 0.9244
+    },
+    {
+      "text": "ادر الجدة، اارع د العيهم",
+      "score": 0.5876
+    },
+    {
+      "text": "ال الالن",
+      "score": 0.7618
+    }
+  ]
+}

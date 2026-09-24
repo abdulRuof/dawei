@@ -1,0 +1,119 @@
+@import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap'); */
+
+/* =========================================================
+   روشتة — Design tokens & Global Styles
+   ========================================================= */
+:root {
+  /* Teal Palette */
+  --teal-900: #0B2E28;
+  --teal-800: #0E3F35;
+  --teal-700: #0F6E5C;
+  --teal-600: #159A80;
+  --teal-500: #1FB496;
+
+  /* Mint & Coral Palette */
+  --mint-100: #E3F5EF;
+  --mint-50: #F5FBF8;
+  --coral-600: #E24E36;
+  --coral-500: #FF6B4A;
+  --coral-100: #FFE7DF;
+
+  /* Ink & Paper */
+  --ink: #10231F;
+  --ink-soft: #4C635D;
+  --paper: #FFFFFF;
+  --line: #DEEBE6;
+
+  /* Shadows & Radius */
+  --shadow-sm: 0 1px 2px rgba(11,46,40,.06), 0 1px 1px rgba(11,46,40,.04);
+  --shadow-md: 0 10px 30px -12px rgba(11,46,40,.22);
+  --shadow-lg: 0 24px 60px -20px rgba(11,46,40,.28);
+  --radius-lg: 22px;
+  --radius-md: 16px;
+  --radius-sm: 10px;
+
+  /* Fonts */
+  --font-display: 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+  --font-body: 'IBM Plex Sans Arabic', 'Tajawal', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+  font-family: 'IBM Plex Sans Arabic', 'Tajawal', sans-serif;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* =========================================================
+   Reveal-on-scroll (المشترك)
+   ========================================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+   /* =========================================================  */
+@media (max-width: 960px){
+  .auth-shell{ flex-direction:column; }
+  .auth-brand{
+    flex:none; max-width:none; width:100%;
+    padding:24px clamp(18px, 5vw, 40px);
+    min-height:260px;
+  }
+  .auth-brand__content{ margin:20px 0; max-width:none; }
+  .auth-brand__points{ display:none; }
+  .auth-brand__footnote{ display:none; }
+  .auth-panel{ background:var(--paper); }
+}
+
+@media (max-width: 480px){
+  .auth-brand{ min-height:200px; }
+  .auth-brand__content h1{ font-size:1.4rem; }
+  .auth-brand__content p{ margin-bottom:0; }
+  .field-row{ flex-wrap:wrap; gap:8px; }
+}
+
+
+/* =========================================================
+   Layout shell (المشترك)
+   ========================================================= */
+/* .dash {
+  display: flex;
+  min-height: 100vh;
+} */

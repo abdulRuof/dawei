@@ -1,0 +1,103 @@
+src/
+└── components/
+    ├── ui/                     # مكونات واجهة أساسية عامة (Buttons, Inputs, Modals, Cards)
+    │   ├── Button.tsx
+    │   ├── Input.tsx
+    │   ├── Modal.tsx
+    │   └── Badge.tsx
+    │
+    ├── layout/                 # الهياكل العامة للموقع (Navbars, Footers, Sidebars)
+    │   ├── Navbar.tsx
+    │   ├── Footer.tsx
+    │   ├── AdminSidebar.tsx
+    │   └── ManagerSidebar.tsx
+    │
+    ├── search/                 # 1. المكونات الخاصة بشريط البحث والفلترة
+    │   ├── SearchBar.tsx       # شريط البحث الرئيسي
+    │   ├── SearchFilters.tsx   # فلاتر السعر، الموقع، التوفر
+    │   └── LocationPicker.tsx  # تحديد موقع المستخدم للبحث
+    │
+    ├── drugs/                  # 2 & 3. مكونات نتائج وتفاصيل الأدوية
+    │   ├── DrugCard.tsx        # بطاقة عرض الدواء في نتائج البحث
+    │   ├── DrugList.tsx        # شبكة/قائمة عرض الأدوية
+    │   ├── DrugHeader.tsx      # الجزء العلوي من صفحة تفاصيل الدواء
+    │   ├── AlternativesList.tsx # قائمة الأدوية البديلة
+    │   └── PharmacyAvailabilityTable.tsx # جدول/قائمة الصيدليات التي يتوفر بها الدواء
+    │
+    ├── pharmacies/             # 4. مكونات تفاصيل الصيدلية
+    │   ├── PharmacyHeader.tsx  # معلومات الصيدلية (اسم، عنوان، تقييم)
+    │   ├── PharmacyMap.tsx     # خريطة توضيحية لموقع الصيدلية
+    │   ├── PharmacyHours.tsx   # مواعيد العمل وهواتف الاتصال
+    │   └── PharmacyInventoryList.tsx # الأدوية المتاحة في هذه الصيدلية
+    │
+    └── dashboard/              # 5 & 6. مكونات لوحات التحكم (مدير الصيدلية والـ Admin)
+        ├── shared/             # عناصر مشتركة بين لوحات التحكم
+        │   ├── StatCard.tsx    # بطاقات الإحصائيات (مثل: عدد الأدوية، الطلبات)
+        │   └── DataTable.tsx   # جدول بيانات عمومي للتحكم
+        │
+        ├── manager/            # لوحة تحكم مدير الصيدلية
+        │   ├── InventoryManager.tsx  # إدارة مخزون الأدوية وتحديث الأسعار
+        │   └── PharmacyProfileEdit.tsx # تعديل بيانات الصيدلية والمواعيد
+        │
+        └── admin/              # لوحة تحكم الـ Admin (المشرف العام)
+            ├── PharmacyApprovalTable.tsx # قبول/رفض طلبات انضمام الصيدليات
+            ├── UserManagementTable.tsx   # إدارة المستخدمين والصلاحيات
+            └── SystemAnalyticsChart.tsx  # رسوم بيانية لإحصائيات المنصة كاملة
+
+ظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظ
+src/
+├── app/
+│   └── dashboard/
+│       │
+│       ├── manager/
+│       │   └── [id]/
+│       │       ├── page.tsx
+│       │       │
+│       │       └── _components/
+│       │           ├── Sidebar.tsx
+│       │           ├── Overview.tsx
+│       │           ├── MedicinesManagement.tsx
+│       │           ├── types.ts
+│       │           └── style.css
+│       │
+│       └── admin/
+│           ├── page.tsx
+│           └── _components/
+│               ├── PharmacyApprovalTable.tsx
+│               ├── UserManagementTable.tsx
+│               └── SystemAnalyticsChart.tsx
+│
+└── components/
+    └── dashboard/
+        └── shared/
+            ├── StatCard.tsx
+            └── DataTable.tsx
+
+ظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظ
+src/app/
+│
+├── (website)/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── medicines/
+│   ├── pharmacies/
+│   └── ...
+│
+├── dashboard/
+│   ├── layout.tsx
+│   │
+│   ├── manager/
+│   │   └── [id]/
+│   │       ├── page.tsx
+│   │       ├── DashboardClient.tsx
+│   │       └── _components/
+│   │           ├── Sidebar.tsx
+│   │           ├── Overview.tsx
+│   │           ├── MedicinesManagement.tsx
+│   │           ├── types.ts
+│   │           └── style.css
+│   │
+│   └── admin/
+│       └── page.tsx
+│
+└── layout.tsx

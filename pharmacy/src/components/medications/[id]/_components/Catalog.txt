@@ -1,0 +1,564 @@
+import React, { useState, useMemo } from 'react';
+import './style.css';
+
+// --- Types ---
+interface Pharmacy {
+  name: string;
+  city: string;
+  price: number;
+  stock: boolean;
+}
+
+interface Medicine {
+  name: string;
+  meta: string;
+  cat: string;
+  popularity: number;
+  pharmacies: Pharmacy[];
+}
+
+// --- Data ---
+const MEDICINES: Medicine[] = [
+  {
+    name: "باراسيتامول 500 مجم", meta: "أقراص · مسكن وخافض حرارة", cat: "مسكنات", popularity: 98,
+    pharmacies: [
+      { name: "صيدلية النهضة", city: "سبها", price: 5, stock: true },
+      { name: "صيدلية الأمل", city: "سبها", price: 5.5, stock: true },
+      { name: "صيدلية الشفاء", city: "طرابلس", price: 6, stock: true },
+      { name: "صيدلية مصراتة الطبية", city: "مصراتة", price: 5.25, stock: true },
+    ]
+  },
+  {
+    name: "بانادول إكسترا", meta: "أقراص · مسكن مضاعف", cat: "مسكنات", popularity: 90,
+    pharmacies: [
+      { name: "صيدلية النهضة", city: "سبها", price: 8, stock: true },
+      { name: "صيدلية الحياة", city: "بنغازي", price: 8.5, stock: true },
+    ]
+  },
+  {
+    name: "فولتارين جل", meta: "جل موضعي · آلام العضلات", cat: "مسكنات", popularity: 74,
+    pharmacies: [
+      { name: "صيدلية النهضة", city: "سبها", price: 18, stock: true },
+      { name: "صيدلية الرحمة", city: "سبها", price: 19.5, stock: true },
+      { name: "صيدلية الشفاء", city: "طرابلس", price: 17.5, stock: false },
+    ]
+  },
+  {
+    name: "بروفين 400 مجم", meta: "أقراص · مضاد التهاب", cat: "مسكنات", popularity: 68,
+    pharmacies: [
+      { name: "صيدلية الأمل", city: "سبها", price: 9, stock: true },
+      { name: "صيدلية مصراتة الطبية", city: "مصراتة", price: 8.5, stock: true },
+    ]
+  },
+  {
+    name: "فيفادول", meta: "أقراص فوارة · مسكن سريع", cat: "مسكنات", popularity: 40,
+    pharmacies: [{ name: "صيدلية الحياة", city: "بنغازي", price: 11, stock: false }]
+  },
+  {
+    name: "أوجمنتين 1 جم", meta: "أقراص · مضاد حيوي", cat: "مضادات حيوية", popularity: 85,
+    pharmacies: [
+      { name: "صيدلية النهضة", city: "سبها", price: 22, stock: true },
+      { name: "صيدلية الأمل", city: "سبها", price: 21.5, stock: true },
+      { name: "صيدلية الشفاء", city: "طرابلس", price: 23, stock: true },
+      { name: "صيدلية الحياة", city: "بنغازي", price: 22.5, stock: false },
+      { name: "صيدلية الرحمة", city: "سبها", price: 24, stock: true },
+    ]
+  },
+  {
+    name: "أموكسيسيلين 500 مجم", meta: "كبسولات · مضاد حيوي", cat: "مضادات حيوية", popularity: 71,
+    pharmacies: [
+      { name: "صيدلية النهضة", city: "سبها", price: 16, stock: true },
+      { name: "صيدلية الرحمة", city: "سبها", price: 15.5, stock: true },
+    ]
+  },
+  {
+    name: "أزيثروميسين 250 مجم", meta: "أقراص · مضاد حيوي واسع", cat: "مضادات حيوية", popularity: 55,
+    pharmacies: [
+      { name: "صيدلية الشفاء", city: "طرابلس", price: 24, stock: true },
+      { name: "صيدلية مصراتة الطبية", city: "مصراتة", price: 23.5, stock: true },
+    ]
+  },
+  {
+    name: "سيبروفلوكساسين 500 مجم", meta: "أقراص · مضاد حيوي", cat: "مضادات حيوية", popularity: 33,
+    pharmacies: [{ name: "صيدلية الحياة", city: "بنغازي", price: 19, stock: false }]
+  },
+  {
+    name: "فيتامين D3 5000", meta: "كبسولات · مكمل غذائي", cat: "فيتامينات", popularity: 80,
+    pharmacies: [
+      { name: "صيدلية النهضة", city: "سبها", price: 35, stock: true },
+      { name: "صيدلية الأمل", city: "سبها", price: 34, stock: true },
+      { name: "صيدلية الشفاء", city: "طرابلس", price: 36, stock: true },
+    ]
+  },
+  {
+    name: "أوميغا 3", meta: "كبسولات · صحة القلب", cat: "فيتامينات", popularity: 76,
+    pharmacies: [
+      { name: "صيدلية النهضة", city: "سبها", price: 40, stock: true },
+      { name: "صيدلية مصراتة الطبية", city: "مصراتة", price: 38.5, stock: true },
+    ]
+  },
+  {
+    name: "فيتامين سي فوار", meta: "أقراص فوارة · مناعة", cat: "فيتامينات", popularity: 65,
+    pharmacies: [
+      { name: "صيدلية الأمل", city: "سبها", price: 20, stock: true },
+      { name: "صيدلية الرحمة", city: "سبها", price: 21, stock: true },
+    ]
+  },
+  {
+    name: "زنك + مغنيسيوم", meta: "أقراص · دعم المناعة", cat: "فيتامينات", popularity: 47,
+    pharmacies: [{ name: "صيدلية الشفاء", city: "طرابلس", price: 28, stock: true }]
+  },
+  {
+    name: "حديد + حمض الفوليك", meta: "أقراص · لعلاج فقر الدم", cat: "فيتامينات", popularity: 38,
+    pharmacies: [{ name: "صيدلية الحياة", city: "بنغازي", price: 25, stock: false }]
+  },
+  {
+    name: "نقط سيتال للأطفال", meta: "نقط فموية · خافض حرارة", cat: "أطفال", popularity: 70,
+    pharmacies: [
+      { name: "صيدلية النهضة", city: "سبها", price: 12, stock: true },
+      { name: "صيدلية الأمل", city: "سبها", price: 12.5, stock: true },
+      { name: "صيدلية مصراتة الطبية", city: "مصراتة", price: 11.5, stock: true },
+    ]
+  },
+  {
+    name: "شراب أوجمنتين للأطفال", meta: "شراب · مضاد حيوي", cat: "أطفال", popularity: 60,
+    pharmacies: [
+      { name: "صيدلية النهضة", city: "سبها", price: 19, stock: true },
+      { name: "صيدلية الرحمة", city: "سبها", price: 20, stock: true },
+    ]
+  },
+  {
+    name: "فيتامين د نقط للرضع", meta: "نقط فموية · للرضع", cat: "أطفال", popularity: 42,
+    pharmacies: [{ name: "صيدلية الشفاء", city: "طرابلس", price: 22, stock: true }]
+  },
+  {
+    name: "شراب سعال للأطفال", meta: "شراب · مهدئ للسعال", cat: "أطفال", popularity: 30,
+    pharmacies: [{ name: "صيدلية الحياة", city: "بنغازي", price: 15, stock: false }]
+  },
+  {
+    name: "ميتفورمين 500 مجم", meta: "أقراص · لعلاج السكري", cat: "أمراض مزمنة", popularity: 58,
+    pharmacies: [
+      { name: "صيدلية النهضة", city: "سبها", price: 14, stock: true },
+      { name: "صيدلية الأمل", city: "سبها", price: 13.5, stock: true },
+    ]
+  },
+  {
+    name: "أملوديبين 5 مجم", meta: "أقراص · لضغط الدم", cat: "أمراض مزمنة", popularity: 52,
+    pharmacies: [
+      { name: "صيدلية الرحمة", city: "سبها", price: 13, stock: true },
+      { name: "صيدلية مصراتة الطبية", city: "مصراتة", price: 12.5, stock: true },
+    ]
+  },
+  {
+    name: "أتورفاستاتين 20 مجم", meta: "أقراص · لخفض الكوليسترول", cat: "أمراض مزمنة", popularity: 44,
+    pharmacies: [{ name: "صيدلية الشفاء", city: "طرابلس", price: 21, stock: true }]
+  },
+  {
+    name: "أسبرين 100 مجم", meta: "أقراص · لتسييل الدم", cat: "أمراض مزمنة", popularity: 39,
+    pharmacies: [
+      { name: "صيدلية النهضة", city: "سبها", price: 6, stock: true },
+      { name: "صيدلية الحياة", city: "بنغازي", price: 6.5, stock: true },
+    ]
+  },
+  {
+    name: "كريم مرطب للبشرة", meta: "كريم · عناية يومية", cat: "بشرة", popularity: 49,
+    pharmacies: [
+      { name: "صيدلية النهضة", city: "سبها", price: 27, stock: true },
+      { name: "صيدلية الأمل", city: "سبها", price: 26, stock: true },
+    ]
+  },
+  {
+    name: "واقي شمس SPF 50", meta: "كريم · حماية من الشمس", cat: "بشرة", popularity: 63,
+    pharmacies: [
+      { name: "صيدلية النهضة", city: "سبها", price: 45, stock: true },
+      { name: "صيدلية مصراتة الطبية", city: "مصراتة", price: 43, stock: true },
+    ]
+  },
+  {
+    name: "غسول وجه لطيف", meta: "غسول · للبشرة الحساسة", cat: "بشرة", popularity: 36,
+    pharmacies: [{ name: "صيدلية الشفاء", city: "طرابلس", price: 23, stock: true }]
+  },
+  {
+    name: "كريم مضاد لحب الشباب", meta: "كريم موضعي · علاج البثور", cat: "بشرة", popularity: 28,
+    pharmacies: [{ name: "صيدلية الحياة", city: "بنغازي", price: 30, stock: false }]
+  },
+];
+
+const PAGE_SIZE = 8;
+
+// --- Helper Functions ---
+const getMinPrice = (m: Medicine) => {
+  const inStock = m.pharmacies.filter((p) => p.stock);
+  const pool = inStock.length ? inStock : m.pharmacies;
+  return Math.min(...pool.map((p) => p.price));
+};
+
+const checkIsAvailable = (m: Medicine) => m.pharmacies.some((p) => p.stock);
+
+interface CatalogProps {
+  searchQuery: string;
+  onSearchChange: (query: string) => void;
+}
+
+const Catalog: React.FC<CatalogProps> = ({ searchQuery,onSearchChange }) => {
+  // --- States ---
+//   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCat, setSelectedCat] = useState('الكل');
+  const [selectedPrice, setSelectedPrice] = useState('الكل');
+  const [inStockOnly, setInStockOnly] = useState(false);
+  const [sortOption, setSortOption] = useState('popular');
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const [openPharmacies, setOpenPharmacies] = useState<Record<number, boolean>>({});
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+
+  // --- Filtering & Sorting ---
+  const filteredMedicines = useMemo(() => {
+    const list = MEDICINES.filter((m) => {
+      const matchesCat = selectedCat === 'الكل' || m.cat === selectedCat;
+      const matchesQuery = !searchQuery || m.name.includes(searchQuery);
+      const matchesStock = !inStockOnly || checkIsAvailable(m);
+      let matchesPrice = true;
+
+      if (selectedPrice !== 'الكل') {
+        const [min, max] = selectedPrice.split('-').map(Number);
+        const p = getMinPrice(m);
+        matchesPrice = p >= min && p <= max;
+      }
+      return matchesCat && matchesQuery && matchesStock && matchesPrice;
+    });
+
+    if (sortOption === 'price-asc') list.sort((a, b) => getMinPrice(a) - getMinPrice(b));
+    else if (sortOption === 'price-desc') list.sort((a, b) => getMinPrice(b) - getMinPrice(a));
+    else if (sortOption === 'name') list.sort((a, b) => a.name.localeCompare(b.name, 'ar'));
+    else list.sort((a, b) => b.popularity - a.popularity);
+
+    return list;
+  }, [searchQuery, selectedCat, selectedPrice, inStockOnly, sortOption]);
+
+  const visibleMedicines = filteredMedicines.slice(0, visibleCount);
+
+  // --- Handlers ---
+  const handleCategoryChange = (cat: string) => {
+    setSelectedCat(cat);
+    setVisibleCount(PAGE_SIZE);
+  };
+
+  const handleReset = () => {
+    onSearchChange('');
+    setSelectedCat('الكل');
+    setSelectedPrice('الكل');
+    setInStockOnly(false);
+    setSortOption('popular');
+    setVisibleCount(PAGE_SIZE);
+  };
+
+  const togglePharmList = (idx: number) => {
+    setOpenPharmacies((prev) => ({ ...prev, [idx]: !prev[idx] }));
+  };
+
+  return (
+    <section className="section">
+      
+      <div className="container catalog-layout">
+        
+        {/* Filters sidebar */}
+        <aside className={`filters  ${isFiltersOpen ? 'is-open' : ''}`} id="filtersPanel">
+          <div className="filters__head">
+            <h3>الفلاتر</h3>
+            <button className="filters__reset" onClick={handleReset}>
+              إعادة تعيين
+            </button>
+          </div>
+
+          {/* Category Filter */}
+          <div className="filter-group">
+            <span className="filter-group__title">التصنيف</span>
+            <div className="filter-options">
+              {['الكل', 'مسكنات', 'مضادات حيوية', 'فيتامينات', 'أطفال', 'أمراض مزمنة', 'بشرة'].map((cat) => (
+                <label key={cat} className="filter-check">
+                  <input
+                    type="radio"
+                    name="cat"
+                    value={cat}
+                    checked={selectedCat === cat}
+                    onChange={(e) => handleCategoryChange(e.target.value)}
+                  />
+                  <span>{cat === 'فيتامينات' ? 'فيتامينات ومكملات' : cat === 'أطفال' ? 'أدوية الأطفال' : cat === 'أمراض مزمنة' ? 'الأمراض المزمنة' : cat === 'بشرة' ? 'العناية بالبشرة' : cat}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {/* Price Filter */}
+          <div className="filter-group">
+            <span className="filter-group__title">السعر</span>
+            <div className="filter-options">
+              {[
+                { label: 'كل الأسعار', value: 'الكل' },
+                { label: 'أقل من 10 د.ل', value: '0-10' },
+                { label: '10 – 25 د.ل', value: '10-25' },
+                { label: 'أكثر من 25 د.ل', value: '25-1000' },
+              ].map((p) => (
+                <label key={p.value} className="filter-check">
+                  <input
+                    type="radio"
+                    name="price"
+                    value={p.value}
+                    checked={selectedPrice === p.value}
+                    onChange={(e) => {
+                      setSelectedPrice(e.target.value);
+                      setVisibleCount(PAGE_SIZE);
+                    }}
+                  />
+                  <span>{p.label}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {/* Availability Filter */}
+          <div className="filter-group">
+            <span className="filter-group__title">التوفر</span>
+            <label className="filter-check">
+              <input
+                type="checkbox"
+                checked={inStockOnly}
+                onChange={(e) => {
+                  setInStockOnly(e.target.checked);
+                  setVisibleCount(PAGE_SIZE);
+                }}
+              />
+              <span>عرض المتوفر فقط</span>
+            </label>
+          </div>
+        </aside>
+
+        {/* Results */}
+        <div className="catalog-results">
+          <div className="results-toolbar ">
+            {/* Category Chips */}
+            <div className="chip-row">
+              {['الكل', 'مسكنات', 'مضادات حيوية', 'فيتامينات', 'أطفال', 'أمراض مزمنة', 'بشرة'].map((cat) => (
+                <button
+                  key={cat}
+                  className={`chip ${selectedCat === cat ? 'is-active' : ''}`}
+                  onClick={() => handleCategoryChange(cat)}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+
+            {/* Sort Dropdown & Mobile Toggle */}
+            <div className="sort-row">
+              <button
+                className="filters-toggle"
+                onClick={() => setIsFiltersOpen((prev) => !prev)}
+              >
+                <svg viewBox="0 0 24 24" width="16" height="16">
+                  <path fill="currentColor" d="M4 6h16v2H4V6Zm3 5h10v2H7v-2Zm4 5h2v2h-2v-2Z" />
+                </svg>
+                الفلاتر
+              </button>
+              <label htmlFor="sortSelect">ترتيب حسب</label>
+              <select
+                id="sortSelect"
+                value={sortOption}
+                onChange={(e) => setSortOption(e.target.value)}
+              >
+                <option value="popular">الأكثر طلبًا</option>
+                <option value="price-asc">السعر: الأقل أولًا</option>
+                <option value="price-desc">السعر: الأعلى أولًا</option>
+                <option value="name">الاسم (أ - ي)</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Grid View */}
+          <div className="med-grid">
+            {visibleMedicines.map((m, idx) => {
+              const available = checkIsAvailable(m);
+              const isOpen = !!openPharmacies[idx];
+              const sortedPharmacies = [...m.pharmacies].sort((a, b) => a.price - b.price);
+
+              return (
+                <article className="med-card" key={idx}>
+                  <div className="med-card__top">
+                    <span className="med-card__icon">
+                      <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor" d="M4.9 19.1a5.2 5.2 0 0 1 0-7.35l6.85-6.85a5.2 5.2 0 1 1 7.35 7.35l-6.85 6.85a5.2 5.2 0 0 1-7.35 0Zm3.68-9.6-3.03 3.03a3.2 3.2 0 0 0 4.52 4.52l3.03-3.03-4.52-4.52Z"/>
+                      </svg>
+                    </span>
+                    <span className={`med-card__stock ${available ? '' : 'out'}`}>
+                      {available ? 'متوفر' : 'غير متوفر'}
+                    </span>
+                  </div>
+                  <span className="med-card__cat">{m.cat}</span>
+                  <div>
+                    <div className="med-card__name">{m.name}</div>
+                    <div className="med-card__meta">{m.meta}</div>
+                  </div>
+                  <div className="med-card__foot">
+                    <span className="med-card__price">يبدأ من {getMinPrice(m).toFixed(2)} د.ل</span>
+                  </div>
+                  <button
+                    type="button"
+                    className={`med-card__pharm-toggle ${isOpen ? 'is-open' : ''}`}
+                    onClick={() => togglePharmList(idx)}
+                  >
+                    <span>عرض الصيدليات ({m.pharmacies.length})</span>
+                    <svg viewBox="0 0 24 24" width="14" height="14">
+                      <path fill="currentColor" d="M12 15.5 5 8.5l1.4-1.4L12 12.7l5.6-5.6L19 8.5z"/>
+                    </svg>
+                  </button>
+                  <ul className={`med-card__pharm-list ${isOpen ? 'is-open' : ''}`}>
+                    {sortedPharmacies.map((p, pIdx) => (
+                      <li key={pIdx} className={p.stock ? '' : 'out'}>
+                        <span>
+                          <span className="pharm-name">{p.name}</span>
+                          <span className="pharm-city">{p.city}</span>
+                        </span>
+                        <span className="pharm-price">
+                          {p.stock ? `${p.price.toFixed(2)} د.ل` : 'غير متوفر'}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              );
+            })}
+          </div>
+
+          {/* Empty State */}
+          {filteredMedicines.length === 0 && (
+            <p className="empty-state">لا توجد أدوية مطابقة لبحثك أو الفلاتر المحددة.</p>
+          )}
+
+          {/* Load More Button */}
+          {visibleCount < filteredMedicines.length && (
+            <div className="load-more-wrap">
+              <button
+                className="btn btn--outline"
+                onClick={() => setVisibleCount((prev) => prev + PAGE_SIZE)}
+              >
+                عرض المزيد من الأدوية
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Catalog;
+
+// import React from 'react'
+// import './style.css'
+
+// const Catalog = () => {
+//   return (
+//     // <!-- ===== Catalog ===== -->
+//   <section className="section">
+//     <div className="container catalog-layout">
+
+//       {/* <!-- Filters sidebar --> */}
+//       <aside className="filters " id="filtersPanel">
+//         <div className="filters__head">
+//           <h3>الفلاتر</h3>
+//           <button className="filters__reset" id="resetFilters">إعادة تعيين</button>
+//         </div>
+
+//         <div className="filter-group">
+//           <span className="filter-group__title">التصنيف</span>
+//           <div className="filter-options" id="catOptions">
+//             <label className="filter-check"><input type="radio" name="cat" value="الكل" checked /><span>الكل</span></label>
+//             <label className="filter-check"><input type="radio" name="cat" value="مسكنات" /><span>مسكنات</span></label>
+//             <label className="filter-check"><input type="radio" name="cat" value="مضادات حيوية" /><span>مضادات حيوية</span></label>
+//             <label className="filter-check"><input type="radio" name="cat" value="فيتامينات" /><span>فيتامينات ومكملات</span></label>
+//             <label className="filter-check"><input type="radio" name="cat" value="أطفال" /><span>أدوية الأطفال</span></label>
+//             <label className="filter-check"><input type="radio" name="cat" value="أمراض مزمنة" /><span>الأمراض المزمنة</span></label>
+//             <label className="filter-check"><input type="radio" name="cat" value="بشرة" /><span>العناية بالبشرة</span></label>
+//           </div>
+//         </div>
+
+//         <div className="filter-group">
+//           <span className="filter-group__title">السعر</span>
+//           <div className="filter-options">
+//             <label className="filter-check"><input type="radio" name="price" value="الكل" checked /><span>كل الأسعار</span></label>
+//             <label className="filter-check"><input type="radio" name="price" value="0-10" /><span>أقل من 10 د.ل</span></label>
+//             <label className="filter-check"><input type="radio" name="price" value="10-25" /><span>10 – 25 د.ل</span></label>
+//             <label className="filter-check"><input type="radio" name="price" value="25-1000" /><span>أكثر من 25 د.ل</span></label>
+//           </div>
+//         </div>
+
+//         <div className="filter-group">
+//           <span className="filter-group__title">التوفر</span>
+//           <label className="filter-check">
+//             <input type="checkbox" id="inStockOnly" />
+//             <span>عرض المتوفر فقط</span>
+//           </label>
+//         </div>
+//       </aside>
+
+//       {/* <!-- Results --> */}
+//       <div className="catalog-results">
+
+//         <div className="results-toolbar ">
+//           <div className="chip-row" id="chipRow">
+//             <button className="chip is-active" data-cat="الكل">الكل</button>
+//             <button className="chip" data-cat="مسكنات">مسكنات</button>
+//             <button className="chip" data-cat="مضادات حيوية">مضادات حيوية</button>
+//             <button className="chip" data-cat="فيتامينات">فيتامينات</button>
+//             <button className="chip" data-cat="أطفال">أطفال</button>
+//             <button className="chip" data-cat="أمراض مزمنة">أمراض مزمنة</button>
+//             <button className="chip" data-cat="بشرة">بشرة</button>
+//           </div>
+
+//           <div className="sort-row">
+//   <button className="filters-toggle" id="filtersToggle">
+//     <svg viewBox="0 0 24 24" width="16" height="16">
+//       <path fill="currentColor" d="M4 6h16v2H4V6Zm3 5h10v2H7v-2Zm4 5h2v2h-2v-2Z"/>
+//     </svg>
+//     الفلاتر
+//   </button>
+//   <label htmlFor="sortSelect">ترتيب حسب</label>
+//   <select id="sortSelect">
+//     <option value="popular">الأكثر طلبًا</option>
+//     <option value="price-asc">السعر: الأقل أولًا</option>
+//     <option value="price-desc">السعر: الأعلى أولًا</option>
+//     <option value="name">الاسم (أ - ي)</option>
+//   </select>
+// </div>
+
+//           {/* <div className="sort-row">
+//             <button className="filters-toggle" id="filtersToggle">
+//               <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M4 6h16v2H4V6Zm3 5h10v2H7v-2Zm4 5h2v2h-2v-2Z"/></svg>
+//               الفلاتر
+//             </button>
+//             <label for="sortSelect">ترتيب حسب</label>
+//             <select id="sortSelect">
+//               <option value="popular">الأكثر طلبًا</option>
+//               <option value="price-asc">السعر: الأقل أولًا</option>
+//               <option value="price-desc">السعر: الأعلى أولًا</option>
+//               <option value="name">الاسم (أ - ي)</option>
+//             </select>
+//           </div> */}
+//         </div>
+
+//         <div className="med-grid" id="medGrid"></div>
+//         <p className="empty-state" id="emptyState" hidden>لا توجد أدوية مطابقة لبحثك أو الفلاتر المحددة.</p>
+
+//         <div className="load-more-wrap">
+//           <button className="btn btn--outline" id="loadMoreBtn">عرض المزيد من الأدوية</button>
+//         </div>
+
+//       </div>
+
+//     </div>
+//   </section>
+
+//   )
+// }
+
+// export default Catalog

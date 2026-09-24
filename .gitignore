@@ -1,0 +1,41 @@
+# ============ Python ============
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# ============ بيئات افتراضية ============
+venv/
+.venv/
+env/
+ocr-venv/
+
+# ============ Node / Next.js ============
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# ============ الإعدادات والأسرار ============
+.env
+.env.*
+!.env.example
+
+# ============ الملفات المولّدة / الرفع ============
+*.log
+uploads/
+Backend/uploads/
+OCR/uploads/
+*.db
+*.sqlite
+*.sqlite3
+
+# ============ نظام التشغيل / المحرر ============
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+*.swp

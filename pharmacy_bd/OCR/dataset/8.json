@@ -1,0 +1,200 @@
+{
+  "image": "8.jpg",
+  "ocr_engine": "PaddleOCR",
+  "language": "ar",
+  "created_at": "2026-09-10T01:09:59.393710",
+  "matched_medicines": [
+    {
+      "medicine_name": "Aging Eye Formula",
+      "generic_name": "Cineraria Maritima, Eye (Suis), Calcarea Fluorica, Causticum, Germanium Metallicum, Phosphorus, Silicea, Zincum Metallicum, Natrum Muriaticum",
+      "match_score": 1.0,
+      "match_type": "exact",
+      "dose": null,
+      "dosage_form": "SPRAY",
+      "active_ingredients": [
+        "JACOBAEA MARITIMA WHOLE (6 [hp_X]/mL)",
+        "SUS SCROFA EYE (6 [hp_X]/mL)",
+        "CALCIUM FLUORIDE (12 [hp_X]/mL)",
+        "CAUSTICUM (12 [hp_X]/mL)",
+        "GERMANIUM (12 [hp_X]/mL)",
+        "PHOSPHORUS (12 [hp_X]/mL)",
+        "SILICON DIOXIDE (12 [hp_X]/mL)",
+        "ZINC (12 [hp_X]/mL)",
+        "SODIUM CHLORIDE (30 [hp_X]/mL)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Zinc oXide 15",
+          "score": 0.8308
+        }
+      ]
+    },
+    {
+      "medicine_name": "Candida",
+      "generic_name": "Baptisia Tinctoria, Echinacea Purp, Glycyrrhiza Glabra, Astragalus, Candida Alb, Borax, Calc Carb, Kreosotum, Lycopodium, Nux Vom, Phosphoricum Ac, Pulsatilla, Sepia, Thuja Occ, Nat Phos, Nitricum Ac",
+      "match_score": 0.87,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "LIQUID",
+      "active_ingredients": [
+        "BAPTISIA TINCTORIA WHOLE (4 [hp_X]/mL)",
+        "ECHINACEA PURPUREA WHOLE (4 [hp_X]/mL)",
+        "GLYCYRRHIZA GLABRA (4 [hp_X]/mL)",
+        "ASTRAGALUS NUTTALLII LEAF (6 [hp_X]/mL)",
+        "CANDIDA ALBICANS (200 [hp_C]/mL)",
+        "SODIUM BORATE (30 [hp_C]/mL)",
+        "OYSTER SHELL CALCIUM CARBONATE, CRUDE (30 [hp_C]/mL)",
+        "WOOD CREOSOTE (30 [hp_C]/mL)",
+        "LYCOPODIUM CLAVATUM SPORE (30 [hp_C]/mL)",
+        "STRYCHNOS NUX-VOMICA SEED (30 [hp_C]/mL)",
+        "PHOSPHORIC ACID (30 [hp_C]/mL)",
+        "PULSATILLA VULGARIS WHOLE (30 [hp_C]/mL)",
+        "SEPIA OFFICINALIS JUICE (30 [hp_C]/mL)",
+        "THUJA OCCIDENTALIS LEAFY TWIG (30 [hp_C]/mL)",
+        "SODIUM PHOSPHATE, DIBASIC, HEPTAHYDRATE (30 [hp_C]/mL)",
+        "NITRIC ACID (30 [hp_C]/mL)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Sod.Borate 6.",
+          "score": 0.7953
+        }
+      ]
+    },
+    {
+      "medicine_name": "Upside Down Pain Relief",
+      "generic_name": "Benzocaine, Glycerin",
+      "match_score": 0.75,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "AEROSOL, SPRAY",
+      "active_ingredients": [
+        "GLYCERIN (20 mg/g)",
+        "BENZOCAINE (20 mg/g)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Clyserin 6.",
+          "score": 0.8604
+        }
+      ]
+    }
+  ],
+  "unmatched_medicine_lines": [
+    {
+      "text": "El Nazer",
+      "score": 0.9983
+    },
+    {
+      "text": "سي الناظ",
+      "score": 0.8547
+    },
+    {
+      "text": "هان",
+      "score": 0.9412
+    },
+    {
+      "text": "ة ة ية",
+      "score": 0.5014
+    },
+    {
+      "text": "/Y6",
+      "score": 0.6409
+    },
+    {
+      "text": "Kasin",
+      "score": 0.8905
+    },
+    {
+      "text": "15.",
+      "score": 0.8222
+    },
+    {
+      "text": "Agua calcinsadc",
+      "score": 0.8015
+    },
+    {
+      "text": "عفد ٣مات يوياً",
+      "score": 0.7553
+    }
+  ],
+  "metadata": [
+    {
+      "text": "الأستذ الدكتور",
+      "score": 0.8014,
+      "category": "metadata"
+    },
+    {
+      "text": "Clinic",
+      "score": 0.9988,
+      "category": "metadata"
+    },
+    {
+      "text": "استشاري الأماض الجندية",
+      "score": 0.6297,
+      "category": "metadata"
+    }
+  ],
+  "items": [
+    {
+      "text": "El Nazer",
+      "score": 0.9983
+    },
+    {
+      "text": "الأستذ الدكتور",
+      "score": 0.8014
+    },
+    {
+      "text": "سي الناظ",
+      "score": 0.8547
+    },
+    {
+      "text": "هان",
+      "score": 0.9412
+    },
+    {
+      "text": "Clinic",
+      "score": 0.9988
+    },
+    {
+      "text": "استشاري الأماض الجندية",
+      "score": 0.6297
+    },
+    {
+      "text": "ة ة ية",
+      "score": 0.5014
+    },
+    {
+      "text": "/Y6",
+      "score": 0.6409
+    },
+    {
+      "text": "Zinc oXide 15",
+      "score": 0.8308
+    },
+    {
+      "text": "Kasin",
+      "score": 0.8905
+    },
+    {
+      "text": "15.",
+      "score": 0.8222
+    },
+    {
+      "text": "Sod.Borate 6.",
+      "score": 0.7953
+    },
+    {
+      "text": "Clyserin 6.",
+      "score": 0.8604
+    },
+    {
+      "text": "Agua calcinsadc",
+      "score": 0.8015
+    },
+    {
+      "text": "عفد ٣مات يوياً",
+      "score": 0.7553
+    }
+  ]
+}

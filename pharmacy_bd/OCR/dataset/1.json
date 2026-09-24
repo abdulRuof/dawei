@@ -1,0 +1,386 @@
+{
+  "image": "1.jpg",
+  "ocr_engine": "PaddleOCR",
+  "language": "ar",
+  "created_at": "2026-09-10T01:06:57.471882",
+  "matched_medicines": [
+    {
+      "medicine_name": "Coversyl Plus",
+      "generic_name": "Perindopril and Indapamide",
+      "match_score": 1.0,
+      "match_type": "exact",
+      "dose": "5 mg",
+      "dosage_form": "Tablet",
+      "active_ingredients": [
+        "PERINDOPRIL ARGININE (10 mg/1)",
+        "INDAPAMIDE (2.5 mg/1)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Ry Coversyl- plus 10/2-5 mg tab.",
+          "score": 0.9336
+        }
+      ]
+    },
+    {
+      "medicine_name": "Norvasc",
+      "generic_name": "amlodipine besylate",
+      "match_score": 0.857,
+      "match_type": "fuzzy",
+      "dose": "5 mg",
+      "dosage_form": "TABLET",
+      "active_ingredients": [
+        "AMLODIPINE BESYLATE (10 mg/1)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "R/ Noruasc 5 mg tab.",
+          "score": 0.9302
+        }
+      ]
+    },
+    {
+      "medicine_name": "Diamicron MR",
+      "generic_name": "Gliclazide",
+      "match_score": 1.0,
+      "match_type": "exact",
+      "dose": null,
+      "dosage_form": "Tablet, Modified Release",
+      "active_ingredients": [
+        "GLICLAZIDE (60 mg/1)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "R iamicron - 60 MR tab",
+          "score": 0.8738
+        }
+      ]
+    },
+    {
+      "medicine_name": "Crestor",
+      "generic_name": "Rosuvastatin",
+      "match_score": 1.0,
+      "match_type": "exact",
+      "dose": "10 mg",
+      "dosage_form": "TABLET, FILM COATED",
+      "active_ingredients": [
+        "ROSUVASTATIN CALCIUM (5 mg/1)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Ry Crestor 10 mg tab.",
+          "score": 0.9434
+        }
+      ]
+    },
+    {
+      "medicine_name": "PAIN",
+      "generic_name": "REUSEABLE PAIN",
+      "match_score": 1.0,
+      "match_type": "exact",
+      "dose": null,
+      "dosage_form": "PATCH",
+      "active_ingredients": [
+        "METHYL SALICYLATE (10 g/1001)",
+        "CAMPHOR (NATURAL) (3.1 g/1001)",
+        "MENTHOL (6 g/1001)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Pain:",
+          "score": 0.995
+        }
+      ]
+    },
+    {
+      "medicine_name": "sight",
+      "generic_name": "Aesculus hippocastanum, bud, Bromus ramosus, flos, Calc Fluorica, Calc Phos, Calc Sulph, Clematis vitalba, flos, Ferrum Phos, Mag Phos, Nat Mur, Silicea",
+      "match_score": 0.8,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "SPRAY",
+      "active_ingredients": [
+        "HORSE CHESTNUT (5 [hp_X]/29.6mL)",
+        "BROMUS RAMOSUS FLOWER (5 [hp_X]/29.6mL)",
+        "CALCIUM FLUORIDE (12 [hp_X]/29.6mL)",
+        "TRIBASIC CALCIUM PHOSPHATE (12 [hp_X]/29.6mL)",
+        "CALCIUM SULFATE ANHYDROUS (6 [hp_X]/29.6mL)",
+        "CLEMATIS VITALBA FLOWER (5 [hp_X]/29.6mL)",
+        "FERROSOFERRIC PHOSPHATE (12 [hp_X]/29.6mL)",
+        "MAGNESIUM PHOSPHATE, DIBASIC TRIHYDRATE (12 [hp_X]/29.6mL)",
+        "SODIUM CHLORIDE (6 [hp_X]/29.6mL)",
+        "SILICON DIOXIDE (12 [hp_X]/29.6mL)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Mild Right",
+          "score": 0.9574
+        }
+      ]
+    },
+    {
+      "medicine_name": "Plavix",
+      "generic_name": "clopidogrel",
+      "match_score": 0.8,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "TABLET, FILM COATED",
+      "active_ingredients": [
+        "CLOPIDOGREL BISULFATE (300 mg/1)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Plavixtab.",
+          "score": 0.8781
+        }
+      ]
+    },
+    {
+      "medicine_name": "PYLERA",
+      "generic_name": "BISMUTH SUBCITRATE POTASSIUM, METRONIDAZOLE, and TETRACYCLINE HYDROCHLORIDE",
+      "match_score": 0.769,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "CAPSULE",
+      "active_ingredients": [
+        "BISMUTH SUBCITRATE POTASSIUM (140 mg/1)",
+        "METRONIDAZOLE (125 mg/1)",
+        "TETRACYCLINE HYDROCHLORIDE (125 mg/1)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Pleural eff.",
+          "score": 0.9052
+        }
+      ]
+    },
+    {
+      "medicine_name": "Colchicine",
+      "generic_name": "Colchicine",
+      "match_score": 0.9,
+      "match_type": "fuzzy",
+      "dose": "05 mg",
+      "dosage_form": "TABLET",
+      "active_ingredients": [
+        "COLCHICINE (.6 mg/1)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "R Colchicinc 05 mg tab.",
+          "score": 0.9304
+        }
+      ]
+    }
+  ],
+  "unmatched_medicine_lines": [
+    {
+      "text": "ايا ـ ة",
+      "score": 0.5196
+    },
+    {
+      "text": "BW:70.5",
+      "score": 0.9295
+    },
+    {
+      "text": "فزصقبل الفظار بنصف ساعة",
+      "score": 0.8718
+    },
+    {
+      "text": "BP:120/80",
+      "score": 0.9594
+    },
+    {
+      "text": "HR: 98",
+      "score": 0.9143
+    },
+    {
+      "text": "فص قل الاء بنصف ساعة",
+      "score": 0.7597
+    },
+    {
+      "text": "RR:16",
+      "score": 0.8896
+    },
+    {
+      "text": "BT:.",
+      "score": 0.9048
+    },
+    {
+      "text": "فزص قل الفظار بنصف ساعة",
+      "score": 0.8215
+    },
+    {
+      "text": "RBGs: 78",
+      "score": 0.929
+    },
+    {
+      "text": "-HTN",
+      "score": 0.9419
+    },
+    {
+      "text": "فزص يوميابجد الحنراء",
+      "score": 0.79
+    },
+    {
+      "text": "DM",
+      "score": 0.936
+    },
+    {
+      "text": "قتص بومياقبل النوم",
+      "score": 0.8635
+    },
+    {
+      "text": "-Hyperlipidem.",
+      "score": 0.9645
+    },
+    {
+      "text": "LLDL=105",
+      "score": 0.9604
+    },
+    {
+      "text": "Hyperurcem.",
+      "score": 0.9799
+    },
+    {
+      "text": "LGenctic",
+      "score": 0.9306
+    },
+    {
+      "text": "فرص بجد الفظار و الحسشاء",
+      "score": 0.8121
+    },
+    {
+      "text": "الاستشارة خلال أسبوع واحد من تاريخ الكشف",
+      "score": 0.9482
+    }
+  ],
+  "metadata": [
+    {
+      "text": "العيادةمدية العبورلشابسنرا فوق كاف الساقة",
+      "score": 0.6326,
+      "category": "metadata"
+    }
+  ],
+  "items": [
+    {
+      "text": "ايا ـ ة",
+      "score": 0.5196
+    },
+    {
+      "text": "Ry Coversyl- plus 10/2-5 mg tab.",
+      "score": 0.9336
+    },
+    {
+      "text": "BW:70.5",
+      "score": 0.9295
+    },
+    {
+      "text": "فزصقبل الفظار بنصف ساعة",
+      "score": 0.8718
+    },
+    {
+      "text": "BP:120/80",
+      "score": 0.9594
+    },
+    {
+      "text": "R/ Noruasc 5 mg tab.",
+      "score": 0.9302
+    },
+    {
+      "text": "HR: 98",
+      "score": 0.9143
+    },
+    {
+      "text": "فص قل الاء بنصف ساعة",
+      "score": 0.7597
+    },
+    {
+      "text": "RR:16",
+      "score": 0.8896
+    },
+    {
+      "text": "R iamicron - 60 MR tab",
+      "score": 0.8738
+    },
+    {
+      "text": "BT:.",
+      "score": 0.9048
+    },
+    {
+      "text": "فزص قل الفظار بنصف ساعة",
+      "score": 0.8215
+    },
+    {
+      "text": "RBGs: 78",
+      "score": 0.929
+    },
+    {
+      "text": "Ry Crestor 10 mg tab.",
+      "score": 0.9434
+    },
+    {
+      "text": "Pain:",
+      "score": 0.995
+    },
+    {
+      "text": "-HTN",
+      "score": 0.9419
+    },
+    {
+      "text": "فزص يوميابجد الحنراء",
+      "score": 0.79
+    },
+    {
+      "text": "DM",
+      "score": 0.936
+    },
+    {
+      "text": "Mild Right",
+      "score": 0.9574
+    },
+    {
+      "text": "Plavixtab.",
+      "score": 0.8781
+    },
+    {
+      "text": "Pleural eff.",
+      "score": 0.9052
+    },
+    {
+      "text": "قتص بومياقبل النوم",
+      "score": 0.8635
+    },
+    {
+      "text": "-Hyperlipidem.",
+      "score": 0.9645
+    },
+    {
+      "text": "LLDL=105",
+      "score": 0.9604
+    },
+    {
+      "text": "Hyperurcem.",
+      "score": 0.9799
+    },
+    {
+      "text": "R Colchicinc 05 mg tab.",
+      "score": 0.9304
+    },
+    {
+      "text": "LGenctic",
+      "score": 0.9306
+    },
+    {
+      "text": "فرص بجد الفظار و الحسشاء",
+      "score": 0.8121
+    },
+    {
+      "text": "الاستشارة خلال أسبوع واحد من تاريخ الكشف",
+      "score": 0.9482
+    },
+    {
+      "text": "العيادةمدية العبورلشابسنرا فوق كاف الساقة",
+      "score": 0.6326
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+from paddleocr import PaddleOCR
+
+from ocr_utils import clean_text, is_valid_text
+
+import json
+from pathlib import Path
+from datetime import datetime
+
+
+# =========================================================
+# إعداد OCR
+# =========================================================
+
+ocr = PaddleOCR(
+    lang="ar",
+    device="cpu",
+    engine="onnxruntime",
+)
+
+
+# =========================================================
+# مسار الصورة
+# =========================================================
+
+image_path = Path("OCR/images/phramcy/9.jpg")
+
+
+# =========================================================
+# مجلد Dataset
+# =========================================================
+
+# dataset_dir = Path("OCR/dataset")
+# dataset_dir.mkdir(parents=True, exist_ok=True)
+# تحديد المجلد وإنشاؤه إن لم يكن موجوداً
+dataset_dir = Path("OCR/dataset")
+dataset_dir.mkdir(parents=True, exist_ok=True)
+
+# البحث عن اسم ملف جديد غير مكرر تلقائياً
+index = 1
+while (dataset_dir / f"result_{index}.txt").exists():
+    index += 1
+
+output_file = dataset_dir / f"result_{index}.txt"
+
+# =========================================================
+# تشغيل OCR
+# =========================================================
+
+result = ocr.predict(str(image_path))
+
+
+texts = []
+
+
+# =========================================================
+# استخراج النصوص
+# =========================================================
+
+for res in result:
+
+    rec_texts = res.get("rec_texts", [])
+    rec_scores = res.get("rec_scores", [])
+
+    for text, score in zip(rec_texts, rec_scores):
+
+        if not is_valid_text(text, score):
+            continue
+
+        cleaned = clean_text(text)
+
+        if not cleaned:
+            continue
+
+        texts.append({
+            "text": cleaned,
+            "score": round(float(score), 4)
+        })
+
+
+# =========================================================
+# عرض OCR
+# =========================================================
+
+print("\n" + "=" * 60)
+print("النص الأصلي")
+print("=" * 60)
+
+for item in texts:
+
+    print(
+        f"{item['score']:.2f}  |  {item['text']}"
+    )
+
+
+# =========================================================
+# تجهيز بيانات Dataset
+# =========================================================
+
+dataset_item = {
+
+    "image": image_path.name,
+
+    "ocr_engine": "PaddleOCR",
+
+    "language": "ar",
+
+    "created_at": datetime.now().isoformat(),
+
+    "items": texts
+
+}
+
+
+# =========================================================
+# اسم ملف JSON
+# =========================================================
+
+output_file = dataset_dir / f"{image_path.stem}.json"
+
+
+# =========================================================
+# حفظ النتيجة
+# =========================================================
+
+with open(
+    output_file,
+    "w",
+    encoding="utf-8"
+) as file:
+
+    json.dump(
+        dataset_item,
+        file,
+        ensure_ascii=False,
+        indent=2
+    )
+
+
+# =========================================================
+# النتيجة
+# =========================================================
+
+print("\n" + "=" * 60)
+print("تم حفظ قراءة OCR")
+print("=" * 60)
+
+print(f"الصورة : {image_path}")
+print(f"الملف  : {output_file}")
+print(f"عدد النصوص : {len(texts)}")

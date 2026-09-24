@@ -1,0 +1,151 @@
+{
+  "image": "12.jpg",
+  "ocr_engine": "PaddleOCR",
+  "language": "ar",
+  "created_at": "2026-09-10T01:07:29.339873",
+  "matched_medicines": [
+    {
+      "medicine_name": "Upside Down Pain Relief",
+      "generic_name": "Benzocaine, Glycerin",
+      "match_score": 0.8420000000000001,
+      "match_type": "fuzzy",
+      "dose": null,
+      "dosage_form": "AEROSOL, SPRAY",
+      "active_ingredients": [
+        "GLYCERIN (20 mg/g)",
+        "BENZOCAINE (20 mg/g)"
+      ],
+      "ocr_lines": [
+        {
+          "text": "Gliycerinof starch",
+          "score": 0.9298
+        }
+      ]
+    }
+  ],
+  "unmatched_medicine_lines": [
+    {
+      "text": "EL NAZER",
+      "score": 0.9927
+    },
+    {
+      "text": "هاني الناظ",
+      "score": 0.8994
+    },
+    {
+      "text": "إستشار الأمراض الجلدية",
+      "score": 0.828
+    },
+    {
+      "text": "مل ك الأ الة",
+      "score": 0.576
+    },
+    {
+      "text": "لستاذ بالركز القومي للبحوث",
+      "score": 0.6801
+    },
+    {
+      "text": "الاريغ",
+      "score": 0.7369
+    },
+    {
+      "text": "الأو",
+      "score": 0.8495
+    },
+    {
+      "text": "R/",
+      "score": 0.9574
+    },
+    {
+      "text": "5%Salicghie ggidZaa.",
+      "score": 0.8302
+    },
+    {
+      "text": "5ugn",
+      "score": 0.62
+    },
+    {
+      "text": "(هايماة وية",
+      "score": 0.5714
+    }
+  ],
+  "metadata": [
+    {
+      "text": "الأستاذالدكتور",
+      "score": 0.9047,
+      "category": "metadata"
+    },
+    {
+      "text": "CLINIC",
+      "score": 0.9983,
+      "category": "metadata"
+    },
+    {
+      "text": "www.elnazerclinic.com",
+      "score": 0.9808,
+      "category": "metadata"
+    }
+  ],
+  "items": [
+    {
+      "text": "الأستاذالدكتور",
+      "score": 0.9047
+    },
+    {
+      "text": "EL NAZER",
+      "score": 0.9927
+    },
+    {
+      "text": "هاني الناظ",
+      "score": 0.8994
+    },
+    {
+      "text": "إستشار الأمراض الجلدية",
+      "score": 0.828
+    },
+    {
+      "text": "CLINIC",
+      "score": 0.9983
+    },
+    {
+      "text": "مل ك الأ الة",
+      "score": 0.576
+    },
+    {
+      "text": "www.elnazerclinic.com",
+      "score": 0.9808
+    },
+    {
+      "text": "لستاذ بالركز القومي للبحوث",
+      "score": 0.6801
+    },
+    {
+      "text": "الاريغ",
+      "score": 0.7369
+    },
+    {
+      "text": "الأو",
+      "score": 0.8495
+    },
+    {
+      "text": "R/",
+      "score": 0.9574
+    },
+    {
+      "text": "5%Salicghie ggidZaa.",
+      "score": 0.8302
+    },
+    {
+      "text": "Gliycerinof starch",
+      "score": 0.9298
+    },
+    {
+      "text": "5ugn",
+      "score": 0.62
+    },
+    {
+      "text": "(هايماة وية",
+      "score": 0.5714
+    }
+  ]
+}
