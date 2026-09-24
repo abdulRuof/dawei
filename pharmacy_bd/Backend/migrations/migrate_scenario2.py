@@ -3,10 +3,19 @@
 يُستخدم psycopg v3 (متوفر في venv لهذا المشروع، وليس psycopg2).
 - pharmacies: image_url, work_open, work_close, work_timer
 """
+import os
+from pathlib import Path
+
 import psycopg
+from dotenv import load_dotenv
 from psycopg.rows import dict_row
 
-DSN = "host=localhost dbname=dawei user=postgres password=dodo"
+ENV_PATH = Path(__file__).resolve().parent.parent / ".env"
+load_dotenv(ENV_PATH)
+# psycopg لا يقبل المخطط "postgresql+psycopg://" — يُحوَّل إلى "postgresql://"
+DSN = (os.getenv("DATABASE_URL") or "postgresql://postgres:@localhost:5432/dawei").replace(
+    "postgresql+psycopg://", "postgresql://", 1
+)
 
 STATEMENTS = [
     "ALTER TABLE pharmacies ADD COLUMN IF NOT EXISTS image_url VARCHAR(500)",
