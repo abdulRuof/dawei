@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
+from sqlalchemy import or_
 from sqlalchemy.orm import Session
 import os
 import re
@@ -54,6 +55,10 @@ def _serialize_pharmacy(pharmacy: Pharmacy, extra: dict | None = None):
         "work_open": pharmacy.work_open,
         "work_close": pharmacy.work_close,
         "work_timer": pharmacy.work_timer,
+        "region": {
+            "id": pharmacy.region.id,
+            "name": pharmacy.region.name,
+        } if pharmacy.region else None,
     }
     if extra:
         data.update(extra)

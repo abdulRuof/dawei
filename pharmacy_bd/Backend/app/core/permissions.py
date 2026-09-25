@@ -6,6 +6,16 @@ from app.models.users import User
 from app.models.pharmacy_users import PharmacyUser
 from app.core.dependencies import get_current_user
 
+
+def _gate_must_change_password(current_user: User):
+    """يحجب لوحة التحكم حتى يغيّر المستخدم كلمة المرور أولًا."""
+    if current_user.must_change_password:
+        raise HTTPException(
+            status_code=status.HTTP_428_PRECONDITION_REQUIRED,
+            detail="MUST_CHANGE_PASSWORD",
+        )
+
+
 def require_pharmacy_owner(
     pharmacy_id: int,
     current_user: User = Depends(get_current_user),
@@ -26,6 +36,8 @@ def require_pharmacy_owner(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="You do not have permission to manage this pharmacy"
         )
+
+    _gate_must_change_password(current_user)
 
     return pharmacy_user
 
@@ -50,6 +62,8 @@ def require_pharmacy_staff(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="You do not have permission to manage this pharmacy inventory"
         )
+
+    _gate_must_change_password(current_user)
 
     return pharmacy_user
 

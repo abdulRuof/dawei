@@ -1,7 +1,9 @@
 from datetime import datetime, timedelta, timezone
 import random
+import os
+import uuid
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
 from sqlalchemy.orm import Session
 
 from app.database.database import get_db
@@ -19,6 +21,55 @@ router = APIRouter(
 )
 
 
+ALLOWED_IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
+
+
+def _uploads_dir():
+    path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        "..", "..", "uploads"
+    )
+    os.makedirs(path, exist_ok=True)
+    return path
+
+
+def _remove_uploaded_file(path: str):
+    try:
+        if path and os.path.exists(path) and os.path.isfile(path):
+            os.remove(path)
+    except OSError:
+        pass
+
+
+def _role_context(db: Session, user: User):
+    """يرجع (role, pharmacy_id) حسب حساب المستخدم."""
+    pharmacy_user = (
+        db.query(PharmacyUser)
+        .filter(PharmacyUser.user_id == user.id)
+        .first()
+    )
+    if user.is_superadmin:
+        return "superadmin", None
+    if pharmacy_user:
+        return pharmacy_user.role, pharmacy_user.pharmacy_id
+    return "user", None
+
+
+def _user_payload(db: Session, user: User):
+    role, pharmacy_id = _role_context(db, user)
+    return {
+        "id": user.id,
+        "full_name": user.full_name,
+        "email": user.email,
+        "phone": user.phone,
+        "avatar_url": user.avatar_url,
+        "role": role,
+        "pharmacy_id": pharmacy_id,
+        "is_superadmin": user.is_superadmin,
+        "must_change_password": user.must_change_password,
+    }
+
+
 @router.post("/register")
 def register(
     data: dict,
@@ -26,10 +77,9 @@ def register(
 ):
     full_name = (data.get("full_name") or "").strip()
     email = (data.get("email") or "").strip().lower()
-    phone = (data.get("phone") or "").strip()
     password = data.get("password") or ""
 
-    if not full_name or not email or not phone or not password:
+    if not full_name or not email or not password:
         raise HTTPException(
             status_code=400,
             detail="All fields are required"
@@ -47,16 +97,10 @@ def register(
             detail="Email already registered"
         )
 
-    if db.query(User).filter(User.phone == phone).first():
-        raise HTTPException(
-            status_code=400,
-            detail="Phone already registered"
-        )
-
+    # رقم الهاتف لا يُجمع عند تسجيل المستخدم العادي (يُضاف لاحقًا إن لزم)
     user = User(
         full_name=full_name,
         email=email,
-        phone=phone,
         password_hash=hash_password(password),
         is_active=True,
         is_superadmin=False,
@@ -81,6 +125,7 @@ def register(
             "full_name": user.full_name,
             "email": user.email,
             "phone": user.phone,
+            "avatar_url": user.avatar_url,
             "role": "user",
             "pharmacy_id": None,
             "is_superadmin": False
@@ -196,6 +241,7 @@ def login(
             "full_name": user.full_name,
             "email": user.email,
             "phone": user.phone,
+            "avatar_url": user.avatar_url,
             "role": role,
             "pharmacy_id": pharmacy_id,
             "is_superadmin": user.is_superadmin,
@@ -256,7 +302,12 @@ def reset_password(
     if user.password_reset_code is None or user.password_reset_expires is None:
         raise HTTPException(status_code=400, detail="لم يتم طلب إعادة تعيين، اطلب كودًا أولًا")
 
-    if datetime.now(timezone.utc) > user.password_reset_expires:
+    # التوافق مع SQLite (يعيد وقتًا بلا منطقة زمنية) وPostgreSQL (مزوّد بها)
+    expires = user.password_reset_expires
+    if expires.tzinfo is None:
+        expires = expires.replace(tzinfo=timezone.utc)
+
+    if datetime.now(timezone.utc) > expires:
         raise HTTPException(status_code=400, detail="انتهت صلاحية الكود، اطلب كودًا جديدًا")
 
     if user.password_reset_code != code:
@@ -291,25 +342,79 @@ def update_me(
                 raise HTTPException(status_code=400, detail="رقم الهاتف مستخدم من حساب آخر")
             current_user.phone = new_phone
 
+    db.commit()
+
+    return _user_payload(db, current_user)
+
+
+@router.post("/change-password")
+def change_password(
+    data: dict,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
     current_password = data.get("current_password") or ""
     new_password = data.get("new_password") or ""
-    if new_password:
-        if not verify_password(current_password, current_user.password_hash):
-            raise HTTPException(status_code=400, detail="كلمة المرور الحالية غير صحيحة")
-        if len(new_password) < 8:
-            raise HTTPException(status_code=400, detail="كلمة المرور الجديدة يجب أن تكون 8 أحرف على الأقل")
-        current_user.password_hash = hash_password(new_password)
-        current_user.must_change_password = False
 
+    if not verify_password(current_password, current_user.password_hash):
+        raise HTTPException(status_code=400, detail="كلمة المرور الحالية غير صحيحة")
+
+    if len(new_password) < 8:
+        raise HTTPException(status_code=400, detail="كلمة المرور الجديدة يجب أن تكون 8 أحرف على الأقل")
+
+    current_user.password_hash = hash_password(new_password)
+    current_user.must_change_password = False
     db.commit()
 
     return {
-        "id": current_user.id,
-        "full_name": current_user.full_name,
-        "email": current_user.email,
-        "phone": current_user.phone,
-        "is_superadmin": current_user.is_superadmin,
-        "must_change_password": current_user.must_change_password
+        "message": "تم تغيير كلمة المرور بنجاح",
+        "user": _user_payload(db, current_user)
+    }
+
+
+@router.post("/avatar")
+def upload_avatar(
+    file: UploadFile = File(...),
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    ext = os.path.splitext(file.filename or "")[1].lower()
+    if ext not in ALLOWED_IMAGE_EXTS:
+        raise HTTPException(
+            status_code=400,
+            detail="Unsupported file type. Allowed: jpg, jpeg, png, webp, gif",
+        )
+
+    contents = file.file.read()
+    if len(contents) > 5 * 1024 * 1024:
+        raise HTTPException(
+            status_code=400,
+            detail="Image is too large. Maximum allowed size is 5MB",
+        )
+
+    filename = f"avatar_{current_user.id}_{uuid.uuid4().hex[:10]}{ext}"
+    file_path = os.path.join(_uploads_dir(), filename)
+
+    with open(file_path, "wb") as fh:
+        fh.write(contents)
+
+    if current_user.avatar_url:
+        _remove_uploaded_file(
+            os.path.normpath(
+                os.path.join(
+                    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                    "..",
+                    current_user.avatar_url.lstrip("/"),
+                )
+            )
+        )
+
+    current_user.avatar_url = f"/uploads/{filename}"
+    db.commit()
+
+    return {
+        "message": "تم تحديث صورة المستخدم",
+        "user": _user_payload(db, current_user)
     }
 
 
@@ -318,29 +423,4 @@ def get_me(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
-    # البحث عن الصيدلية المرتبطة بالمستخدم
-    pharmacy_user = (
-        db.query(PharmacyUser)
-        .filter(PharmacyUser.user_id == current_user.id)
-        .first()
-    )
-
-    role = "user"
-    pharmacy_id = None
-
-    if current_user.is_superadmin:
-        role = "superadmin"
-    elif pharmacy_user:
-        role = pharmacy_user.role
-        pharmacy_id = pharmacy_user.pharmacy_id
-
-    return {
-        "id": current_user.id,
-        "full_name": current_user.full_name,
-        "email": current_user.email,
-        "phone": current_user.phone,
-        "role": role,
-        "pharmacy_id": pharmacy_id,
-        "is_superadmin": current_user.is_superadmin,
-        "must_change_password": current_user.must_change_password
-    }
+    return _user_payload(db, current_user)

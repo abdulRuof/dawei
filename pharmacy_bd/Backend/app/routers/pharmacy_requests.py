@@ -8,16 +8,34 @@ from app.models.pharmacy import Pharmacy
 from app.models.users import User
 from app.models.pharmacy_request import PharmacyRequest
 from app.models.pharmacy_users import PharmacyUser
+from app.models.region import Region
 from app.core.security import hash_password
 from app.core.permissions import require_superadmin
 from app.models.notification import Notification
-
 
 
 router = APIRouter(
     prefix="/api/pharmacy-requests",
     tags=["Pharmacy Requests"]
 )
+
+
+def _resolve_region(db: Session, data: dict):
+    """يرجع معرّف المنطقة، مع إنشاء موقع غير موجود عند إرسال region_name."""
+    region_id = data.get("region_id")
+    region_name = (data.get("region_name") or "").strip()
+    if region_name:
+        region = (
+            db.query(Region)
+            .filter(Region.name == region_name)
+            .first()
+        )
+        if region is None:
+            region = Region(name=region_name, is_active=True)
+            db.add(region)
+            db.flush()
+        region_id = region.id
+    return region_id
 
 
 def _derive_pharmacy_admin_email(db: Session, base_email: str) -> str:
@@ -93,9 +111,9 @@ def create_pharmacy_request(
         phone=data["pharmacy_phone"],
         city=data["city"],
         source="standalone",
-        region_id=data.get("region_id"),
-        latitude=data.get("latitude"),
-        longitude=data.get("longitude"),
+        region_id=_resolve_region(db, data),
+        latitude=data.get("latitude") or 0.0,
+        longitude=data.get("longitude") or 0.0,
         description=data.get("description"),
         status="pending"
     )
@@ -146,6 +164,15 @@ def create_pharmacy_request_from_account(
                 detail=f"Field '{field}' is required"
             )
 
+    # الخطوة الأولى (بيانات المالك): إضافة رقم الهاتف اختياريًا مع ضمان التفرد
+    new_phone = (data.get("phone") or "").strip()
+    if new_phone:
+        if new_phone != current_user.phone:
+            if db.query(User).filter(User.phone == new_phone, User.id != current_user.id).first():
+                raise HTTPException(status_code=400, detail="رقم الهاتف مستخدم من حساب آخر")
+            current_user.phone = new_phone
+            db.flush()
+
     pharmacy_request = PharmacyRequest(
         user_id=current_user.id,
         pharmacy_name=data["pharmacy_name"],
@@ -153,9 +180,9 @@ def create_pharmacy_request_from_account(
         phone=data["pharmacy_phone"],
         city=data["city"],
         source="account",
-        region_id=data.get("region_id"),
-        latitude=data.get("latitude"),
-        longitude=data.get("longitude"),
+        region_id=_resolve_region(db, data),
+        latitude=data.get("latitude") or 0.0,
+        longitude=data.get("longitude") or 0.0,
         description=data.get("description"),
         status="pending"
     )
@@ -331,16 +358,46 @@ def approve_pharmacy_request(
         pharmacy_request.reviewed_at = datetime.utcnow()
 
         # إشعار المالك بأن الصيدلية أصبحت نشطة
+        notification_body = (
+            f"أهلاً {owner_user.full_name}، تم قبول تسجيل صيدلية {pharmacy.name} "
+            f"ويمكنك الآن إدارة الأدوية والموظفين."
+        )
+        if pharmacy_request.source == "account":
+            # في "من حساب": حساب مدير منفصل ببريد جديد وكلمة مرور حساب المالك الحالية
+            notification_body = (
+                f"أهلاً {owner_user.full_name}، تم قبول تسجيل صيدلية {pharmacy.name}.\n"
+                f"حساب مدير الصيدلية: {owner_user.email} — "
+                f"سجّل الدخول بهذه البيانات: البريد الجديد وكلمة مرور حسابك الحالية، "
+                f"وسيُطلب منك تغييرها قبل دخول لوحة التحكم."
+            )
         notification = Notification(
             user_id=owner_user.id,
             type="PHARMACY_APPROVED",
             title="تم قبول تسجيل صيدليتك",
-            body=f"أهلاً {owner_user.full_name}، تم قبول تسجيل صيدلية {pharmacy.name} ويمكنك الآن إدارة الأدوية والموظفين.",
+            body=notification_body,
             link=f"/dashboard/manager/{pharmacy.id}",
             entity_type="pharmacy",
             entity_id=pharmacy.id,
         )
         db.add(notification)
+
+        # إشعار المستخدم الأصلي (مقدم طلب "من حساب") بالبريد الجديد
+        if owner_user.id != user.id:
+            original_notification = Notification(
+                user_id=user.id,
+                type="PHARMACY_APPROVED",
+                title="تم قبول صيدليتك",
+                body=(
+                    f"أهلاً {user.full_name}، تم قبول صيدلية {pharmacy.name}.\n"
+                    f"أُنشئ حساب مدير الصيدلية ببريد جديد: {owner_user.email}. "
+                    f"يسجّل الدخول أول مرة بكلمة مرور حسابك الحالية، "
+                    f"ثم يُطلب منه تغييرها قبل دخول لوحة التحكم."
+                ),
+                link=f"/dashboard/manager/{pharmacy.id}",
+                entity_type="pharmacy",
+                entity_id=pharmacy.id,
+            )
+            db.add(original_notification)
 
         db.commit()
     except Exception:

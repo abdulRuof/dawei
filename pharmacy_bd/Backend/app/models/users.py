@@ -43,6 +43,11 @@ class User(Base):
         index=True
     )
 
+    avatar_url: Mapped[str | None] = mapped_column(
+        String(500),
+        nullable=True
+    )
+
     password_hash: Mapped[str] = mapped_column(
         String(255),
         nullable=False
