@@ -255,7 +255,7 @@ def test_from_account_creates_missing_region(client, make_user, make_token, supe
     assert pharmacy["region"]["name"] == "حي الوادي الجديد"
 
 
-def test_from_account_phone_duplicate_rejected(client, make_user, make_token):
+def test_from_account_phone_duplicate_kept_as_contact(client, make_user, make_token):
     make_user(email="has-phone@example.com", phone="0919999999")
     user = make_user(email="dup-phone@example.com")
     token = make_token(user)
@@ -271,7 +271,11 @@ def test_from_account_phone_duplicate_rejected(client, make_user, make_token):
             "phone": "0919999999",
         },
     )
-    assert res.status_code == 400
+    # لم يعد الرقم المكرر يرفض الطلب — يُنشأ الطلب ويُحفظ الرقم كرقم تواصل
+    assert res.status_code == 200
+
+    me = client.get("/api/auth/me", headers=bearer(token)).json()
+    assert me["phone"] != "0919999999"  # رقم الحساب الآخر لم يُنسخ إلى هذا الحساب
 
 
 # =========================================================

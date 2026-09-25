@@ -45,6 +45,13 @@ class PharmacyRequest(Base):
         nullable=False
     )
 
+    # رقم تواصل صاحب الطلب (قد يختلف عن رقم الصيدلية، ويُحفظ حتى لو
+    # كان الرقم مستخدمًا بحساب آخر حتى لا يُرفض الطلب)
+    owner_phone: Mapped[Optional[str]] = mapped_column(
+        String(20),
+        nullable=True
+    )
+
     city: Mapped[str] = mapped_column(
         String(100),
         nullable=False

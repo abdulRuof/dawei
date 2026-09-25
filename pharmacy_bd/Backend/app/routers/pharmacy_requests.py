@@ -111,6 +111,7 @@ def create_pharmacy_request(
         phone=data["pharmacy_phone"],
         city=data["city"],
         source="standalone",
+        owner_phone=data["phone"],
         region_id=_resolve_region(db, data),
         latitude=data.get("latitude") or 0.0,
         longitude=data.get("longitude") or 0.0,
@@ -164,14 +165,23 @@ def create_pharmacy_request_from_account(
                 detail=f"Field '{field}' is required"
             )
 
-    # الخطوة الأولى (بيانات المالك): إضافة رقم الهاتف اختياريًا مع ضمان التفرد
+    # الخطوة الأولى (بيانات المالك): رقم الهاتف اختياري — رقم تواصل لا يُرفض الطلب بدونه
     new_phone = (data.get("phone") or "").strip()
+    owner_phone = new_phone or (current_user.phone or "").strip() or None
     if new_phone:
-        if new_phone != current_user.phone:
-            if db.query(User).filter(User.phone == new_phone, User.id != current_user.id).first():
-                raise HTTPException(status_code=400, detail="رقم الهاتف مستخدم من حساب آخر")
-            current_user.phone = new_phone
-            db.flush()
+        taken_by = (
+            db.query(User)
+            .filter(User.phone == new_phone, User.id != current_user.id)
+            .first()
+        )
+        if taken_by is None:
+            if new_phone != (current_user.phone or ""):
+                current_user.phone = new_phone
+                db.flush()
+        else:
+            # الرقم مسجّل على حساب آخر (غالبًا حساب قديم لصاحبه) —
+            # لا نمنع الطلب، بل نُبقي حسابه كما هو ونحفظ الرقم كرقم تواصل.
+            owner_phone = new_phone
 
     pharmacy_request = PharmacyRequest(
         user_id=current_user.id,
@@ -180,6 +190,7 @@ def create_pharmacy_request_from_account(
         phone=data["pharmacy_phone"],
         city=data["city"],
         source="account",
+        owner_phone=owner_phone,
         region_id=_resolve_region(db, data),
         latitude=data.get("latitude") or 0.0,
         longitude=data.get("longitude") or 0.0,
@@ -253,6 +264,7 @@ def get_pharmacy_requests(
             "full_name": user.full_name if user else None,
             "email": user.email if user else None,
             "phone": user.phone if user else None,
+            "owner_phone": request.owner_phone,
 
             "pharmacy_name": request.pharmacy_name,
             "address": request.address,
