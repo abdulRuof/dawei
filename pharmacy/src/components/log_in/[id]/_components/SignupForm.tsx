@@ -16,7 +16,6 @@ export const SignupForm: React.FC<SignupFormProps> = ({ isActive, onSwitchToLogi
   const router = useRouter();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [agree, setAgree] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -40,7 +39,6 @@ export const SignupForm: React.FC<SignupFormProps> = ({ isActive, onSwitchToLogi
     const newErrors = {
       name: !name.trim(),
       email: !email.trim(),
-      phone: !phone.trim(),
       password: !password || password.length < 8,
     };
     setErrors(newErrors);
@@ -55,7 +53,7 @@ export const SignupForm: React.FC<SignupFormProps> = ({ isActive, onSwitchToLogi
     }
 
     try {
-      const res = await register(name.trim(), email.trim(), phone.trim(), password);
+      const res = await register(name.trim(), email.trim(), password);
       setToken(res.access_token);
       showToast("✓ تم إنشاء الحساب بنجاح");
       setTimeout(() => {
@@ -84,14 +82,6 @@ export const SignupForm: React.FC<SignupFormProps> = ({ isActive, onSwitchToLogi
         <div className="field__control">
           <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm16 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
           <input type="email" id="signupEmail" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="example@mail.com" />
-        </div>
-      </div>
-
-      <div className={`field ${errors.phone ? 'has-error' : ''}`}>
-        <label htmlFor="signupPhone">رقم الهاتف</label>
-        <div className="field__control">
-          <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.6c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8Z"/></svg>
-          <input type="tel" id="signupPhone" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="091 234 5678" dir="ltr" />
         </div>
       </div>
 

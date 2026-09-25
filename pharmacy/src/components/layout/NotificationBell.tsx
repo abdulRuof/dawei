@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { getNotifications, getToken } from "@/lib/api";
+import { getNotificationsSummary, getToken } from "@/lib/api";
 import "./style.css";
 
 export default function NotificationBell() {
@@ -14,8 +14,8 @@ export default function NotificationBell() {
 
     const load = async () => {
       try {
-        const res = await getNotifications();
-        if (alive) setCount(res.unread_count);
+        const s = await getNotificationsSummary();
+        if (alive) setCount(s.total_unread);
       } catch {
         /* ignore */
       }

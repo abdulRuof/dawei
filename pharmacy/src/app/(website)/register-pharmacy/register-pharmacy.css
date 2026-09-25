@@ -18,3 +18,60 @@
   margin: 0.75rem 0 1.25rem;
   font-weight: 600;
 }
+
+.reg-steps {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.reg-step {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.reg-step__circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--line, #dfe3ea);
+  color: #9aa1a9;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.reg-step.is-active .reg-step__circle {
+  border-color: var(--teal-600, #0d9488);
+  color: var(--teal-700, #0f766e);
+  background: var(--mint-50, #effcfa);
+}
+
+.reg-step.is-done .reg-step__circle {
+  border-color: var(--teal-600, #0d9488);
+  background: var(--teal-600, #0d9488);
+  color: #fff;
+}
+
+.reg-step__label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #7a8288;
+}
+
+.reg-step.is-active .reg-step__label,
+.reg-step.is-done .reg-step__label {
+  color: var(--ink, #123);
+}
+
+.reg-step-line {
+  flex: 1;
+  height: 2px;
+  background: var(--line, #dfe3ea);
+  border-radius: 2px;
+}

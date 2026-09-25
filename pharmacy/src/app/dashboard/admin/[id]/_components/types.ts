@@ -32,6 +32,7 @@ export interface RegistrationRequest {
   city: string;
   date: string;
   license: string;
+  ownerPhone?: string | null;
 }
 
 export interface Account {

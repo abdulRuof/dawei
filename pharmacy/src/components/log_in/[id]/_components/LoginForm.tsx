@@ -41,7 +41,13 @@ export const LoginForm: React.FC<LoginFormProps> = ({ isActive, onSwitchToSignup
       const res = await login(email.trim(), password);
       setToken(res.access_token);
       showToast("✓ تم تسجيل الدخول بنجاح");
-      setTimeout(() => redirectByRole(res.user.role, res.user.pharmacy_id), 500);
+      setTimeout(() => {
+        if (res.user.must_change_password) {
+          router.push("/security?forced=1");
+        } else {
+          redirectByRole(res.user.role, res.user.pharmacy_id);
+        }
+      }, 500);
     } catch (err) {
       setHasError(true);
       showToast(err instanceof Error ? err.message : "فشل تسجيل الدخول — تحقق من البيانات");

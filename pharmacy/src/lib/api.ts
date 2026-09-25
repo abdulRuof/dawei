@@ -130,11 +130,12 @@ export interface AuthUser {
   id: number;
   full_name: string;
   email: string;
-  phone: string;
+  phone: string | null;
   role: string;
   pharmacy_id: number | null;
   is_superadmin?: boolean;
   must_change_password?: boolean;
+  avatar_url?: string | null;
 }
 
 export interface LoginResponse {
@@ -188,12 +189,11 @@ export const login = (email: string, password: string) =>
 export const register = (
   fullName: string,
   email: string,
-  phone: string,
   password: string
 ) =>
   request<LoginResponse>("/api/auth/register", {
     method: "POST",
-    body: JSON.stringify({ full_name: fullName, email, phone, password }),
+    body: JSON.stringify({ full_name: fullName, email, password }),
   });
 
 export interface PharmacyRequestPayload {
@@ -420,9 +420,19 @@ export const getMe = () =>
 export const updateMe = (data: {
   full_name?: string;
   phone?: string;
-  current_password?: string;
-  new_password?: string;
 }) => authRequest<AuthUser>(`/api/auth/me`, tok(), { method: "PUT", body: JSON.stringify(data) });
+
+export const changePassword = (current_password: string, new_password: string) =>
+  authRequest<{ message: string; user: AuthUser }>(`/api/auth/change-password`, tok(), {
+    method: "POST",
+    body: JSON.stringify({ current_password, new_password }),
+  });
+
+export const uploadAvatar = (file: File) => {
+  const formData = new FormData();
+  formData.append("file", file);
+  return formRequest<{ message: string; user: AuthUser }>(`/api/auth/avatar`, tok(), formData);
+};
 
 export const forgotPassword = (email: string) =>
   request<{ message: string; code: string }>("/api/auth/forgot-password", {
@@ -484,21 +494,47 @@ export interface NotificationItem {
   created_at: string;
 }
 
-export const getNotifications = () =>
-  authRequest<{ count: number; unread_count: number; results: NotificationItem[] }>(
-    `/api/notifications`,
+export interface NotificationsSummary {
+  scopes: string[];
+  unread: Record<string, number>;
+  total_unread: number;
+}
+
+export type NotificationScope = "user" | "pharmacy" | "admin";
+
+export interface NotificationsResponse {
+  scope?: string | null;
+  count: number;
+  unread_count: number;
+  results: NotificationItem[];
+  scopes?: {
+    available: string[];
+    unread: Record<string, number>;
+  };
+}
+
+export const getNotifications = (scope?: NotificationScope) =>
+  authRequest<NotificationsResponse>(
+    `/api/notifications${scope ? `?scope=${scope}` : ""}`,
     tok()
   );
+
+export const getNotificationsSummary = () =>
+  authRequest<NotificationsSummary>(`/api/notifications/summary`, tok());
 
 export const markNotificationRead = (id: number) =>
   authRequest<{ message: string }>(`/api/notifications/${id}/read`, tok(), {
     method: "PATCH",
   });
 
-export const markAllNotificationsRead = () =>
-  authRequest<{ message: string }>(`/api/notifications/read-all`, tok(), {
-    method: "POST",
-  });
+export const markAllNotificationsRead = (scope?: NotificationScope) =>
+  authRequest<{ message: string }>(
+    `/api/notifications/read-all${scope ? `?scope=${scope}` : ""}`,
+    tok(),
+    {
+      method: "PATCH",
+    }
+  );
 
 export const togglePharmacyStatus = (pharmacyId: number) =>
   authRequest<{ message: string; is_open: boolean; work_timer?: boolean }>(
@@ -572,6 +608,11 @@ export const createPharmacyRequestFromAccount = (data: {
   city: string;
   address: string;
   description?: string;
+  phone?: string;
+  region_name?: string;
+  region_id?: number;
+  latitude?: number;
+  longitude?: number;
 }) =>
   authRequest<{ message: string; request: object }>(
     "/api/pharmacy-requests/from-account",
@@ -628,6 +669,7 @@ export interface PharmacyRequestItem {
   full_name: string | null;
   email: string | null;
   phone: string | null;
+  owner_phone?: string | null;
   pharmacy_name: string;
   address: string | null;
   pharmacy_phone: string | null;
@@ -749,6 +791,14 @@ export interface Region {
   created_at: string;
   pharmacies_count: number;
 }
+
+export interface PublicRegion {
+  id: number;
+  name: string;
+}
+
+export const getPublicRegions = () =>
+  request<{ count: number; results: PublicRegion[] }>("/api/regions/");
 
 export const getRegions = (token: string) =>
   authRequest<{ count: number; results: Region[] }>("/api/admin/regions", token);

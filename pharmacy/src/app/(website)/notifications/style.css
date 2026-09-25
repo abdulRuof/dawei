@@ -4,6 +4,57 @@
   padding: 2rem 1rem 4rem;
 }
 
+.notif-tabs {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line, #e4e7ec);
+  padding-inline: 0.15rem;
+}
+
+.notif-tab {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.92rem;
+  border: none;
+  background: none;
+  color: #7a8288;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.notif-tab.is-active {
+  color: var(--teal-700, #0f766e);
+}
+
+.notif-tab.is-active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background: var(--teal-600, #0d9488);
+}
+
+.notif-tab__badge {
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  background: var(--coral-500, #ef6c57);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+}
+
 .notif-head {
   display: flex;
   align-items: center;

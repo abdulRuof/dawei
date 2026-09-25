@@ -9,6 +9,7 @@ import MedicinesManagement from "./_components/MedicinesManagement";
 import {
   addEmployee,
   addInventoryMedicine,
+  changePassword,
   clearToken,
   deleteEmployee,
   deleteInventoryMedicine,
@@ -26,7 +27,6 @@ import {
   setToken,
   togglePharmacyStatus,
   updateInventoryMedicine,
-  updateMe,
   updatePharmacyWorkingHours,
   uploadInventoryImage,
   uploadPharmacyImage,
@@ -197,7 +197,22 @@ export default function DashboardClient({
         await fetchEmployees(token);
       } catch (err) {
         if (cancelled) return;
-        setAuthError(err instanceof Error ? err.message : "Failed to load inventory");
+        const msg = err instanceof Error ? err.message : "";
+        if (msg.includes("MUST_CHANGE_PASSWORD") || msg.includes("428")) {
+          getMe()
+            .then((me) => {
+              if (!cancelled && me.must_change_password) setMustChange(true);
+            })
+            .catch(() => setAuthError(msg))
+            .finally(() => {
+              if (!cancelled) {
+                setIsLoadingInventory(false);
+                setAuthChecked(true);
+              }
+            });
+          return;
+        }
+        setAuthError(msg || "Failed to load inventory");
       } finally {
         if (!cancelled) {
           setIsLoadingInventory(false);
@@ -219,10 +234,15 @@ export default function DashboardClient({
     try {
       const res = await login(loginEmail.trim(), loginPassword);
       setToken(res.access_token);
+      if (res.user.must_change_password) {
+        setMustChange(true);
+        setIsLoadingInventory(false);
+        setAuthChecked(true);
+        return;
+      }
       const items = await fetchInventory(res.access_token);
       setMedicines(items);
       setIsAuthed(true);
-      setMustChange(!!res.user.must_change_password);
       await fetchEmployees(res.access_token);
     } catch (err) {
       setAuthError(err instanceof Error ? err.message : "Login failed");
@@ -257,7 +277,7 @@ export default function DashboardClient({
 
     setIsChangingPw(true);
     try {
-      await updateMe({ current_password: pwCurrent, new_password: pwNew });
+      await changePassword(pwCurrent, pwNew);
       setMustChange(false);
       setPwCurrent("");
       setPwNew("");

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { clearToken, getMe, getToken, type AuthUser } from "@/lib/api";
+import { clearToken, getMe, getToken, imageUrl, type AuthUser } from "@/lib/api";
 import "./style.css";
 
 export default function UserMenu() {
@@ -52,6 +52,7 @@ export default function UserMenu() {
   }
 
   const initial = (user.full_name || "؟").trim().charAt(0);
+  const avatarSrc = imageUrl(user.avatar_url);
 
   const handleLogout = () => {
     clearToken();
@@ -70,7 +71,14 @@ export default function UserMenu() {
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
       >
-        <span className="user-avatar">{initial}</span>
+        <span className="user-avatar">
+          {avatarSrc ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img className="user-avatar__img" src={avatarSrc} alt={user.full_name} />
+          ) : (
+            initial
+          )}
+        </span>
       </button>
 
       {open && (
@@ -83,7 +91,14 @@ export default function UserMenu() {
           />
           <div className="user-menu__dropdown">
             <div className="user-menu__head">
-              <span className="user-avatar user-avatar--lg">{initial}</span>
+              <span className="user-avatar user-avatar--lg">
+                {avatarSrc ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img className="user-avatar__img" src={avatarSrc} alt={user.full_name} />
+                ) : (
+                  initial
+                )}
+              </span>
               <div>
                 <div className="user-menu__name">{user.full_name}</div>
                 <div className="user-menu__email">{user.email}</div>
@@ -101,6 +116,12 @@ export default function UserMenu() {
                 <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" />
               </svg>
               الإشعارات
+            </Link>
+            <Link href={user.must_change_password ? "/security?forced=1" : "/security"} onClick={() => setOpen(false)}>
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm0 2a3 3 0 0 1 3 3v3H9V7a3 3 0 0 1 3-3Z" />
+              </svg>
+              كلمة المرور والأمان
             </Link>
             <Link href="/register-pharmacy" onClick={() => setOpen(false)}>
               <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

@@ -100,6 +100,13 @@ export default function RegistrationRequests({
                 <strong>{request.license || "—"}</strong>
               </li>
 
+              {request.ownerPhone && (
+                <li>
+                  <span>رقم التواصل</span>
+                  <strong dir="ltr">{request.ownerPhone}</strong>
+                </li>
+              )}
+
               <li>
                 <span>تاريخ الطلب</span>
                 <strong>{request.date || "—"}</strong>

@@ -81,6 +81,7 @@ function mapRequest(r: PharmacyRequestItem): RegistrationRequest {
     city: r.city || "—",
     date: (r.created_at || "").slice(0, 10),
     license: r.pharmacy_phone || r.phone || "—",
+    ownerPhone: r.owner_phone || r.phone || null,
   };
 }
 
