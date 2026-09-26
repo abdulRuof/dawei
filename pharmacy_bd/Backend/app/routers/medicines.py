@@ -1,5 +1,7 @@
+from typing import Optional
+
 from fastapi import APIRouter, Depends, Query
-from sqlalchemy import or_
+from sqlalchemy import func, or_
 from sqlalchemy.orm import Session
 
 from app.database.database import get_db
@@ -16,72 +18,81 @@ router = APIRouter(
     tags=["Medicines"]
 )
 
-def _active_inventory(db: Session, medicine_id: int):
-    return (
+
+def _active_inventory_rows(db: Session, medicine_ids: list[int]) -> dict[int, list[dict]]:
+    """سطر واحد لكل عنصر مخزون نشط في منطقة نشطة — لا N+1."""
+    if not medicine_ids:
+        return {}
+
+    rows = (
         db.query(PharmacyInventory, Pharmacy)
-        .join(
-            Pharmacy,
-            Pharmacy.id == PharmacyInventory.pharmacy_id
-        )
-        .outerjoin(
-            Region,
-            Region.id == Pharmacy.region_id
-        )
+        .join(Pharmacy, Pharmacy.id == PharmacyInventory.pharmacy_id)
+        .outerjoin(Region, Region.id == Pharmacy.region_id)
         .filter(
-            PharmacyInventory.medicine_id == medicine_id,
+            PharmacyInventory.medicine_id.in_(medicine_ids),
             PharmacyInventory.is_active == True,
-            or_(
-                Region.id.is_(None),
-                Region.is_active == True
-            )
+            or_(Region.id.is_(None), Region.is_active == True),
         )
         .all()
     )
 
-def _rating_summary(db: Session, medicine_id: int):
-    rows = db.query(Review.rating).filter(Review.medicine_id == medicine_id).all()
-    ratings = [r[0] for r in rows]
-    if not ratings:
-        return 0, 0
-    return round(sum(ratings) / len(ratings), 1), len(ratings)
+    by_medicine: dict[int, list[dict]] = {}
+    for inventory, pharmacy in rows:
+        by_medicine.setdefault(inventory.medicine_id, []).append({
+            "pharmacy_id": pharmacy.id,
+            "pharmacy_name": pharmacy.name,
+            "city": pharmacy.city,
+            "address": pharmacy.address,
+            "latitude": pharmacy.latitude,
+            "longitude": pharmacy.longitude,
+            "price": inventory.price,
+            "quantity": inventory.quantity,
+            "is_available": inventory.is_available,
+        })
+    return by_medicine
 
-@router.get("")
-def get_medicines(
-    db: Session = Depends(get_db)
-):
-    medicines = (
-        db.query(Medicine)
-        .order_by(Medicine.name)
+
+def _categories_map(db: Session, category_ids: set[int]) -> dict[int, Category]:
+    if not category_ids:
+        return {}
+    cats = db.query(Category).filter(Category.id.in_(category_ids)).all()
+    return {c.id: c for c in cats}
+
+
+def _ratings_map(db: Session, medicine_ids: list[int]) -> dict[int, tuple[float, int]]:
+    """تجميع واحد لكل التقييمات عبر GROUP BY — لا N+1."""
+    if not medicine_ids:
+        return {}
+    rows = (
+        db.query(
+            Review.medicine_id,
+            func.avg(Review.rating),
+            func.count(Review.id),
+        )
+        .filter(Review.medicine_id.in_(medicine_ids))
+        .group_by(Review.medicine_id)
         .all()
     )
+    return {
+        m_id: (round(float(avg), 1), cnt)
+        for m_id, avg, cnt in rows
+    }
+
+
+def _catalog_rows(db: Session, medicines: list[Medicine]) -> list[dict]:
+    """يبني نتائج الأدوية في 4 استعلامات ثابتة بغض النظر عن العدد."""
+    if not medicines:
+        return []
+
+    ids = [m.id for m in medicines]
+    inv_by_medicine = _active_inventory_rows(db, ids)
+    cats = _categories_map(db, {m.category_id for m in medicines if m.category_id is not None})
+    ratings = _ratings_map(db, ids)
 
     results = []
-
     for medicine in medicines:
-
-        inventory_items = _active_inventory(db, medicine.id)
-
-        pharmacies = []
-
-        for inventory, pharmacy in inventory_items:
-            pharmacies.append({
-                "pharmacy_id": pharmacy.id,
-                "pharmacy_name": pharmacy.name,
-                "city": pharmacy.city,
-                "address": pharmacy.address,
-                "latitude": pharmacy.latitude,
-                "longitude": pharmacy.longitude,
-                "price": inventory.price,
-                "quantity": inventory.quantity,
-                "is_available": inventory.is_available
-            })
-
-        category = None
-        if medicine.category_id is not None:
-            category = db.query(Category).filter(Category.id == medicine.category_id).first()
-
-        avg, count = _rating_summary(db, medicine.id)
-
+        avg, count = ratings.get(medicine.id, (0, 0))
+        category = cats.get(medicine.category_id) if medicine.category_id is not None else None
         results.append({
             "id": medicine.id,
             "name": medicine.name,
@@ -92,13 +103,26 @@ def get_medicines(
             "image_url": medicine.image_url,
             "average_rating": avg,
             "reviews_count": count,
-            "pharmacies": pharmacies
+            "pharmacies": inv_by_medicine.get(medicine.id, []),
         })
+    return results
 
+
+@router.get("")
+def get_medicines(
+    db: Session = Depends(get_db)
+):
+    medicines = (
+        db.query(Medicine)
+        .order_by(Medicine.name)
+        .all()
+    )
+    results = _catalog_rows(db, medicines)
     return {
         "count": len(results),
-        "results": results
+        "results": results,
     }
+
 
 @router.get("/search")
 def search_medicines(
@@ -110,53 +134,16 @@ def search_medicines(
         .filter(
             or_(
                 Medicine.name.ilike(f"%{q}%"),
-                Medicine.generic_name.ilike(f"%{q}%")
+                Medicine.generic_name.ilike(f"%{q}%"),
             )
         )
+        .order_by(Medicine.name)
         .all()
     )
-
-    results = []
-
-    for medicine in medicines:
-
-        inventory_items = _active_inventory(db, medicine.id)
-
-        pharmacies = []
-
-        for inventory, pharmacy in inventory_items:
-            pharmacies.append({
-                "pharmacy_id": pharmacy.id,
-                "pharmacy_name": pharmacy.name,
-                "city": pharmacy.city,
-                "address": pharmacy.address,
-                "latitude": pharmacy.latitude,
-                "longitude": pharmacy.longitude,
-                "price": inventory.price,
-                "quantity": inventory.quantity,
-                "is_available": inventory.is_available
-            })
-
-        category = None
-        if medicine.category_id is not None:
-            category = db.query(Category).filter(Category.id == medicine.category_id).first()
-
-        avg, count = _rating_summary(db, medicine.id)
-
-        results.append({
-            "id": medicine.id,
-            "name": medicine.name,
-            "generic_name": medicine.generic_name,
-            "category_name": category.name if category else None,
-            "image_url": medicine.image_url,
-            "average_rating": avg,
-            "reviews_count": count,
-            "pharmacies": pharmacies
-        })
-
+    results = _catalog_rows(db, medicines)
     return {
         "query": q,
-        "results": results
+        "results": results,
     }
 
 
@@ -173,60 +160,8 @@ def get_medicine(
 
     if not medicine:
         return {
-            "message": "الدواء غير موجود"
+            "message": "الدواء غير موجود",
         }
 
-    inventory_items = (
-        db.query(PharmacyInventory, Pharmacy)
-        .join(
-            Pharmacy,
-            Pharmacy.id == PharmacyInventory.pharmacy_id
-        )
-        .outerjoin(
-            Region,
-            Region.id == Pharmacy.region_id
-        )
-        .filter(
-            PharmacyInventory.medicine_id == medicine.id,
-            PharmacyInventory.is_active == True,
-            or_(
-                Region.id.is_(None),
-                Region.is_active == True
-            )
-        )
-        .all()
-    )
-
-    pharmacies = []
-
-    for inventory, pharmacy in inventory_items:
-        pharmacies.append({
-            "pharmacy_id": pharmacy.id,
-            "pharmacy_name": pharmacy.name,
-            "city": pharmacy.city,
-            "address": pharmacy.address,
-            "latitude": pharmacy.latitude,
-            "longitude": pharmacy.longitude,
-            "price": inventory.price,
-            "quantity": inventory.quantity,
-            "is_available": inventory.is_available
-        })
-
-    category = None
-    if medicine.category_id is not None:
-        category = db.query(Category).filter(Category.id == medicine.category_id).first()
-
-    avg, count = _rating_summary(db, medicine.id)
-
-    return {
-        "id": medicine.id,
-        "name": medicine.name,
-        "generic_name": medicine.generic_name,
-        "description": medicine.description,
-        "category_id": medicine.category_id,
-        "category_name": category.name if category else None,
-        "image_url": medicine.image_url,
-        "average_rating": avg,
-        "reviews_count": count,
-        "pharmacies": pharmacies
-    }
+    results = _catalog_rows(db, [medicine])
+    return results[0]

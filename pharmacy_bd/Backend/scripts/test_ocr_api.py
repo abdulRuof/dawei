@@ -1,12 +1,13 @@
 # اختبار نقطة قراءة الوصفات من الصور
 # الاستخدام:
-#   venv\Scripts\python.exe Backend\test_ocr_api.py
+#   venv\Scripts\python.exe Backend\scripts\test_ocr_api.py
 
 import sys
 import time
 from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8")
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from fastapi.testclient import TestClient
 
@@ -15,7 +16,7 @@ from app.main import app
 
 client = TestClient(app)
 
-IMAGE = Path(__file__).resolve().parents[1] / "OCR" / "images" / "phramcy" / "1.jpg"
+IMAGE = Path(__file__).resolve().parents[2] / "OCR" / "images" / "phramcy" / "1.jpg"
 
 
 def main():

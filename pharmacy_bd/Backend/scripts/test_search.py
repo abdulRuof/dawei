@@ -1,8 +1,13 @@
+# فحص سريع لنقطة البحث (بدون اختبارات آلية)
+#   pharma venv python scripts\test_search.py
+
 import io
 import json
 import sys
+from pathlib import Path
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from fastapi.testclient import TestClient
 

@@ -12,9 +12,18 @@ if not DATABASE_URL:
     raise RuntimeError("DATABASE_URL غير موجود في ملف .env")
 
 
+_is_postgres = DATABASE_URL.startswith("postgresql")
+
+
 engine = create_engine(
     DATABASE_URL,
-    echo=False
+    echo=False,
+    pool_pre_ping=True,
+    **({
+        "pool_size": 20,
+        "max_overflow": 20,
+        "pool_timeout": 30,
+    } if _is_postgres else {})
 )
 
 
@@ -36,30 +45,3 @@ def get_db():
         yield db
     finally:
         db.close()
-
-# import os
-
-# from dotenv import load_dotenv
-# from sqlalchemy import create_engine
-# from sqlalchemy.orm import sessionmaker
-
-# # تحميل متغيرات .env
-# load_dotenv()
-
-# DATABASE_URL = os.getenv("DATABASE_URL")
-
-# if not DATABASE_URL:
-#     raise RuntimeError("DATABASE_URL غير موجود في ملف .env")
-
-# # إنشاء الاتصال بقاعدة البيانات
-# engine = create_engine(
-#     DATABASE_URL,
-#     echo=True
-# )
-
-# # إنشاء جلسات قاعدة البيانات
-# SessionLocal = sessionmaker(
-#     bind=engine,
-#     autoflush=False,
-#     autocommit=False
-# )

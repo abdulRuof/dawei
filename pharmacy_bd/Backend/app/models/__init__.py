@@ -1,7 +1,6 @@
 from app.models.category import Category
 from app.models.medicine import Medicine
 from app.models.pharmacy import Pharmacy
-# from app.models.orders import Order
 from app.models.pharmacy_users import PharmacyUser
 from app.models.inventory import PharmacyInventory
 from app.models.users import User
@@ -10,8 +9,6 @@ from app.models.review import Review
 from app.models.notification import Notification
 from app.models.medicine_alert import MedicineAlert
 from app.models.region import Region
-# from app.models.pharmacy_medicines import PharmacyMedicine
-# from app.models.order_items import OrderItem
 
 __all__ = [
     "Category",
@@ -25,6 +22,4 @@ __all__ = [
     "Notification",
     "MedicineAlert",
     "Region",
-    # "OrderItem",
-
 ]
