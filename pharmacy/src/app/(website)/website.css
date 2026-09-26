@@ -43,7 +43,6 @@ h1, h2, h3, h4 {
 
 @media (max-width: 900px) {
   .main-nav { display: none; }
-  .account-btn { display: none; }
   .location-btn__text { display: none; }
   .hamburger { display: flex; }
 
@@ -80,6 +79,10 @@ h1, h2, h3, h4 {
 @media (max-width: 400px) {
   .footer-grid { grid-template-columns: 1fr; }
   .med-track { grid-auto-columns: 82%; }
+  .header-inner { gap: 8px; }
+  .header-actions { gap: 6px; }
+  .icon-btn { padding-inline: 8px; height: 38px; }
+  .brand__text { font-size: 1.15rem; }
 }
 
 @media (min-width: 1280px) {
