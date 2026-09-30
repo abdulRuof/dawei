@@ -2,7 +2,7 @@ from datetime import datetime
 from decimal import Decimal
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Boolean, ForeignKey, Numeric, UniqueConstraint
+from sqlalchemy import Boolean, ForeignKey, Index, Numeric, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database.database import Base
@@ -21,11 +21,15 @@ class PharmacyInventory(Base):
             "medicine_id",
             name="uq_pharmacy_medicine"
         ),
+        Index(
+            "ix_pharmacy_inventory_medicine_active",
+            "medicine_id",
+            "is_active",
+        ),
     )
 
     id: Mapped[int] = mapped_column(
-        primary_key=True,
-        index=True
+        primary_key=True
     )
 
     pharmacy_id: Mapped[int] = mapped_column(
@@ -72,7 +76,6 @@ class PharmacyInventory(Base):
         Boolean,
         default=True,
         nullable=False,
-        index=True
     )
 
     updated_at: Mapped[datetime] = mapped_column(

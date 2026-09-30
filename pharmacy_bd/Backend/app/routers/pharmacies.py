@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 import os
 import re
 import uuid
+from time import perf_counter
 
 from app.database.database import get_db
 from app.core.permissions import require_pharmacy_owner
@@ -71,6 +72,28 @@ router = APIRouter(
     tags=["Pharmacies"]
 )
 
+def _pharmacy_ratings_map(
+    db: Session,
+    pharmacy_ids: list[int],
+) -> dict[int, tuple[float, int]]:
+    if not pharmacy_ids:
+        return {}
+
+    rows = (
+        db.query(
+            Review.pharmacy_id,
+            func.avg(Review.rating),
+            func.count(Review.id),
+        )
+        .filter(Review.pharmacy_id.in_(pharmacy_ids))
+        .group_by(Review.pharmacy_id)
+        .all()
+    )
+
+    return {
+        pharmacy_id: (round(float(avg), 1), count)
+        for pharmacy_id, avg, count in rows
+    }
 
 # @router.get("/{pharmacy_id}/owner-test")
 # def owner_test(
@@ -89,6 +112,7 @@ router = APIRouter(
 def get_pharmacies(
     db: Session = Depends(get_db)
 ):
+    t0 = perf_counter()
     pharmacies = (
         db.query(Pharmacy)
         .outerjoin(Region, Region.id == Pharmacy.region_id)
@@ -101,25 +125,39 @@ def get_pharmacies(
         .order_by(Pharmacy.name)
         .all()
     )
+    t1 = perf_counter()
+
+    pharmacy_ids = [pharmacy.id for pharmacy in pharmacies]
+    ratings = _pharmacy_ratings_map(db, pharmacy_ids)
+
+    t2 = perf_counter()
 
     results = []
 
     for pharmacy in pharmacies:
-        avg = (
-            db.query(Review.rating)
-            .filter(Review.pharmacy_id == pharmacy.id)
-            .all()
+        average_rating, reviews_count = ratings.get(
+            pharmacy.id,
+            (0, 0),
         )
-        ratings = [r[0] for r in avg]
+
         results.append({
-            ** _serialize_pharmacy(pharmacy),
-            "average_rating": round(sum(ratings) / len(ratings), 1) if ratings else 0,
-            "reviews_count": len(ratings),
+            **_serialize_pharmacy(pharmacy),
+            "average_rating": average_rating,
+            "reviews_count": reviews_count,
         })
+    t3 = perf_counter()
+    print(
+        f"[PHARMACIES] "
+        f"pharmacy_query={t1-t0:.3f}s | "
+        f"ratings={t2-t1:.3f}s | "
+        f"serialization={t3-t2:.3f}s | "
+        f"total={t3-t0:.3f}s | "
+        f"pharmacies={len(pharmacies)}"
+    )
 
     return {
-         "count": len(results),
-        "results": results
+        "count": len(results),
+        "results": results,
     }
 
 @router.get("/{pharmacy_id}")
@@ -164,20 +202,42 @@ def get_pharmacy(
             "is_available": inventory.is_available,
             "image_url": medicine.image_url
         })
-
-    reviews = (
-        db.query(Review)
+    rating_stats = (
+        db.query(
+            func.avg(Review.rating),
+            func.count(Review.id),
+        )
         .filter(Review.pharmacy_id == pharmacy.id)
-        .all()
+        .one()
     )
+    
+    average_rating = (
+        round(float(rating_stats[0]), 1)
+        if rating_stats[0] is not None
+        else 0
+    )
+    
+    reviews_count = rating_stats[1]
+
+    # reviews = (
+    #     db.query(Review)
+    #     .filter(Review.pharmacy_id == pharmacy.id)
+    #     .all()
+    # )
 
     return {
         **_serialize_pharmacy(pharmacy),
         "medicines_count": len(medicines),
         "medicines": medicines,
-        "average_rating": round(sum(r.rating for r in reviews) / len(reviews), 1) if reviews else 0,
-        "reviews_count": len(reviews),
-    }
+        "average_rating": average_rating,
+        "reviews_count": reviews_count,
+}
+        # **_serialize_pharmacy(pharmacy),
+        # "medicines_count": len(medicines),
+        # "medicines": medicines,
+        # "average_rating": round(sum(r.rating for r in reviews) / len(reviews), 1) if reviews else 0,
+        # "reviews_count": len(reviews),
+    # }
 
     # return {
             # "count": len(results),
