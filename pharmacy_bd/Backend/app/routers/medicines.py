@@ -3,6 +3,7 @@ from typing import Optional
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy import func, or_
 from sqlalchemy.orm import Session
+from time import perf_counter
 
 from app.database.database import get_db
 from app.models.medicine import Medicine
@@ -79,20 +80,63 @@ def _ratings_map(db: Session, medicine_ids: list[int]) -> dict[int, tuple[float,
     }
 
 
+# def _catalog_rows(db: Session, medicines: list[Medicine]) -> list[dict]:
+#     """يبني نتائج الأدوية في 4 استعلامات ثابتة بغض النظر عن العدد."""
+#     if not medicines:
+#         return []
+
+#     ids = [m.id for m in medicines]
+#     inv_by_medicine = _active_inventory_rows(db, ids)
+#     cats = _categories_map(db, {m.category_id for m in medicines if m.category_id is not None})
+#     ratings = _ratings_map(db, ids)
+
+#     results = []
+#     for medicine in medicines:
+#         avg, count = ratings.get(medicine.id, (0, 0))
+#         category = cats.get(medicine.category_id) if medicine.category_id is not None else None
+#         results.append({
+#             "id": medicine.id,
+#             "name": medicine.name,
+#             "generic_name": medicine.generic_name,
+#             "description": medicine.description,
+#             "category_id": medicine.category_id,
+#             "category_name": category.name if category else None,
+#             "image_url": medicine.image_url,
+#             "average_rating": avg,
+#             "reviews_count": count,
+#             "pharmacies": inv_by_medicine.get(medicine.id, []),
+#         })
+#     return results
+
 def _catalog_rows(db: Session, medicines: list[Medicine]) -> list[dict]:
-    """يبني نتائج الأدوية في 4 استعلامات ثابتة بغض النظر عن العدد."""
     if not medicines:
         return []
 
     ids = [m.id for m in medicines]
+
+    t0 = perf_counter()
     inv_by_medicine = _active_inventory_rows(db, ids)
-    cats = _categories_map(db, {m.category_id for m in medicines if m.category_id is not None})
+    t1 = perf_counter()
+
+    cats = _categories_map(
+        db,
+        {m.category_id for m in medicines if m.category_id is not None}
+    )
+    t2 = perf_counter()
+
     ratings = _ratings_map(db, ids)
+    t3 = perf_counter()
 
     results = []
+
     for medicine in medicines:
         avg, count = ratings.get(medicine.id, (0, 0))
-        category = cats.get(medicine.category_id) if medicine.category_id is not None else None
+        category = (
+            cats.get(medicine.category_id)
+            if medicine.category_id is not None
+            else None
+        )
+
         results.append({
             "id": medicine.id,
             "name": medicine.name,
@@ -105,23 +149,68 @@ def _catalog_rows(db: Session, medicines: list[Medicine]) -> list[dict]:
             "reviews_count": count,
             "pharmacies": inv_by_medicine.get(medicine.id, []),
         })
+
+    t4 = perf_counter()
+
+    print(
+        f"[MEDICINES] "
+        f"inventory={t1-t0:.3f}s | "
+        f"categories={t2-t1:.3f}s | "
+        f"ratings={t3-t2:.3f}s | "
+        f"serialization={t4-t3:.3f}s | "
+        f"total={t4-t0:.3f}s | "
+        f"medicines={len(medicines)}"
+    )
+
     return results
 
+# @router.get("")
+# def get_medicines(
+#     db: Session = Depends(get_db)
+# ):
+#     medicines = (
+#         db.query(Medicine)
+#         .order_by(Medicine.name)
+#         .all()
+#     )
+#     results = _catalog_rows(db, medicines)
+#     return {
+#         "count": len(results),
+#         "results": results,
+#     }
 
 @router.get("")
-def get_medicines(
-    db: Session = Depends(get_db)
-):
+def get_medicines(db: Session = Depends(get_db)):
+    t0 = perf_counter()
+
     medicines = (
         db.query(Medicine)
         .order_by(Medicine.name)
         .all()
     )
+
+    t1 = perf_counter()
+
     results = _catalog_rows(db, medicines)
-    return {
+
+    t2 = perf_counter()
+
+    response = {
         "count": len(results),
-        "results": results,
+        "results": results
     }
+
+    t3 = perf_counter()
+
+    print(
+        f"[MEDICINES ENDPOINT] "
+        f"medicine_query={t1-t0:.3f}s | "
+        f"catalog={t2-t1:.3f}s | "
+        f"response_build={t3-t2:.3f}s | "
+        f"total={t3-t0:.3f}s"
+    )
+
+    return response
 
 
 @router.get("/search")
